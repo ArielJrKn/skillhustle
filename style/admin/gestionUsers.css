@@ -1,0 +1,11 @@
+.filter-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+        }
+        .filter-button:focus + .filter-dropdown,
+        .filter-dropdown:hover {
+            display: block;
+        }

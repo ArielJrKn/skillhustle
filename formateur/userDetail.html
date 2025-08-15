@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>users detail | Formateur</title>
+    <link rel="stylesheet" type="text/css" href="../style/progresseBar.css">
+    <link rel="stylesheet" type="text/css" href="../style/scroll.css">
+    <link rel="stylesheet" type="text/css" href="../style/dark.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="../js_style/student_dashboard_tailwindConfig.js"></script>
+</head>
+<style>
+    .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            border: 2px solid white;
+            z-index: 1;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 12px;
+            bottom: -12px;
+            width: 2px;
+            background-color: #e5e7eb;
+            z-index: 0;
+        }
+</style>
+<body class="bg-background min-h-screen">
+
+    <!-- Loading Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Main Container -->
+    <div class="flex flex-col h-screen">
+        <!-- Top Navigation Bar -->
+        <header class="h-16 backdrop-filter backdrop-blur-sm absolute w-full shadow-sm flex items-center justify-between px-6 z-10">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="myStudent.html" data-readdy="true" class="flex items-center mr-6 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+                    <div class="w-5 h-5 flex items-center justify-center mr-1">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>              
+                    <span>Retour</span>
+                </a>
+                <!-- <h1 class="text-xl font-semibold text-gray-900 dark:text-white">Dévéloppement web et mobile</h1> -->
+            </div>
+
+            <div class=" relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                <i id="theme" class="ri-sun-line text-xl"></i>
+            </div>    
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex overflow-hidden">
+
+            <!-- Main Content -->
+            <div class="flex-1 flex flex-col overflow-hidden">
+
+                <main class="pt-16 flex-1 overflow-y-auto bg-white dark:bg-black p-4">
+                    <div class="flex-1 overflow-y-auto">
+                        <!-- User Header -->
+                        <div class="bg-[#6663F1] bg-opacity-20 rounded-lg shadow-sm mb-6">
+                            <div class="px-6 py-6">
+                                <div class="flex flex-col md:flex-row items-start md:items-center justify-between">
+                                    <div class="flex items-center">
+                                        <img class="h-24 w-24 rounded-full object-cover border-4 border-white shadow"
+                                            src="../media/chat.jpg"
+                                            alt="Sophie Martin">
+                                        <div class="ml-6">
+                                            <div class="flex items-center">
+                                                <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Sophie</h1>
+                                                <span
+                                                    class="ml-4 px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Actif</span>
+                                            </div>
+                                            <p class="text-gray-600 mt-1">Apprenante</p>
+                                            <p class="text-gray-500 text-sm mt-1">ID: #USR-78542</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-3 mt-4 md:mt-0">
+                                        <button
+                                            class="flex items-center px-4 py-2 bg-primary rounded-button text-white-700 hover:bg-primary-50 hover:bg-opacity-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 whitespace-nowrap">
+                                            <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                <i class="ri-briefcase-line"></i>
+                                            </div>
+                                            Envoyer un message
+                                        </button>
+                                        <button
+                                            class="flex items-center px-4 py-2 bg-amber-500 text-white rounded-button hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50 whitespace-nowrap">
+                                            <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                <i class="ri-time-line"></i>
+                                            </div>
+                                            Suspendre
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Main Content -->
+                        <div class="px-2 pb-6">
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                <!-- Left Column -->
+                                <div class="lg:col-span-1 space-y-6">
+                                    <!-- Personal Information -->
+                                    <div class="bg-[#6663F1] bg-opacity-20 rounded shadow-sm p-6">
+                                        <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Informations personnelles</h2>
+                                        <div class="space-y-4">
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-500">Nom complet</span>
+                                                <span class="text-gray-900 dark:text-gray-100 font-medium">Sophie Martin</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-500">Email</span>
+                                                <span class="text-gray-900 dark:text-gray-100 font-medium">sophie.martin@example.fr</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-500">Téléphone</span>
+                                                <span class="text-gray-900 dark:text-gray-100 font-medium">+33 6 12 34 56 78</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-500">Date d'inscription</span>
+                                                <span class="text-gray-900 dark:text-gray-100 font-medium">15 mars 2024</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-500">Dernière connexion</span>
+                                                <span class="text-gray-900 dark:text-gray-100 font-medium">Aujourd'hui, 10:45</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-500">Type de compte</span>
+                                                <span class="text-gray-900 dark:text-gray-100 font-medium">Premium</span>
+                                            </div>
+                                            <div class="pt-2">
+                                                <span class="text-gray-500">Adresse</span>
+                                                <div class="text-gray-900 dark:text-gray-100 font-medium mt-1">
+                                                    42 Rue des Lilas<br>
+                                                    75011 Paris<br>
+                                                    France
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- User Stats -->
+                                    <div class="bg-[#6663F1] bg-opacity-20 rounded shadow-sm p-6">
+                                        <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Statistiques</h2>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div class="bg-blue-50 rounded p-4">
+                                                <div class="text-blue-600 text-sm font-medium">Cours suivis</div>
+                                                <div class="text-2xl font-bold text-gray-900 mt-1">14</div>
+                                            </div>
+                                            <div class="bg-green-50 rounded p-4">
+                                                <div class="text-green-600 text-sm font-medium">Cours créés</div>
+                                                <div class="text-2xl font-bold text-gray-900 mt-1">3</div>
+                                            </div>
+                                            <div class="bg-purple-50 rounded p-4">
+                                                <div class="text-purple-600 text-sm font-medium">Moyenne des notes</div>
+                                                <div class="text-2xl font-bold text-gray-900 mt-1">4.7/5</div>
+                                            </div>
+                                            <div class="bg-amber-50 rounded p-4">
+                                                <div class="text-amber-600 text-sm font-medium">Taux de complétion</div>
+                                                <div class="text-2xl font-bold text-gray-900 mt-1">92%</div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 pt-4 border-t border-gray-100">
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm text-gray-600">Temps total sur la plateforme</span>
+                                                <span class="text-sm font-medium text-gray-900 dark:text-gray-100">127h 45m</span>
+                                            </div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm text-gray-600">Certifications obtenues</span>
+                                                <span class="text-sm font-medium text-gray-900 dark:text-gray-100">5</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-sm text-gray-600">Points de fidélité</span>
+                                                <span class="text-sm font-medium text-gray-900 dark:text-gray-100">2,450</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Right Column -->
+                                <div class="lg:col-span-2 space-y-6">
+                                    <!-- Courses Tabs -->
+                                    <div class="bg-[#6663F1] bg-opacity-20 rounded shadow-sm">
+                                        <div class="">
+                                            <nav class="flex -mb-px">
+                                                <button id="tab-enrolled"
+                                                    class="px-6 py-4 border-b-2 border-primary text-primary font-medium text-sm">Cours
+                                                    suivis</button>
+                                                <button id="tab-created"
+                                                    class="px-6 py-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm">Cours
+                                                    créés</button>
+                                            </nav>
+                                        </div>
+                                        <div id="content-enrolled" class="p-6">
+                                            <div class="overflow-x-auto">
+                                                <table class="min-w-full divide-y divide-gray-200">
+                                                    <thead class="bg-[#6663F1] bg-opacity-10">
+                                                        <tr>
+                                                            <th
+                                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Cours</th>
+                                                            <th
+                                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Progression</th>
+                                                            <th
+                                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Note</th>
+                                                            <th
+                                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Date</th>
+                                                            <th
+                                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-[#6663F1] bg-opacity-10 divide-y divide-gray-200">
+                                                        <tr>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="flex-shrink-0 h-10 w-10 rounded bg-blue-100 flex items-center justify-center text-blue-500">
+                                                                        <div class="w-5 h-5 flex items-center justify-center">
+                                                                            <i class="ri-code-line"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ml-4">
+                                                                        <div class="text-sm font-medium text-gray-900 dark:text-gray-100">Développement
+                                                                            Web Avancé</div>
+                                                                        <div class="text-xs text-gray-500">Par Thomas Dubois</div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                                    <div class="bg-primary h-2.5 rounded-full" style="width: 85%">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-xs text-gray-500 mt-1">85% complété</div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="w-4 h-4 flex items-center justify-center text-amber-500">
+                                                                        <i class="ri-star-fill"></i>
+                                                                    </div>
+                                                                    <span class="ml-1 text-sm text-gray-900 dark:text-gray-100">4.8/5</span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                                <div>Début: 12/05/2024</div>
+                                                                <div>Fin: En cours</div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm">
+                                                                <button class="text-primary hover:text-primary/80">Voir
+                                                                    détails</button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="flex-shrink-0 h-10 w-10 rounded bg-green-100 flex items-center justify-center text-green-500">
+                                                                        <div class="w-5 h-5 flex items-center justify-center">
+                                                                            <i class="ri-database-2-line"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ml-4">
+                                                                        <div class="text-sm font-medium text-gray-900 dark:text-gray-100">SQL pour
+                                                                            l'Analyse de Données</div>
+                                                                        <div class="text-xs text-gray-500">Par Marie Lefevre</div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                                    <div class="bg-primary h-2.5 rounded-full" style="width: 100%">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-xs text-gray-500 mt-1">100% complété</div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="w-4 h-4 flex items-center justify-center text-amber-500">
+                                                                        <i class="ri-star-fill"></i>
+                                                                    </div>
+                                                                    <span class="ml-1 text-sm text-gray-900 dark:text-gray-100">5/5</span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                                <div>Début: 03/03/2024</div>
+                                                                <div>Fin: 28/04/2024</div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm">
+                                                                <button class="text-primary hover:text-primary/80">Voir
+                                                                    détails</button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="flex-shrink-0 h-10 w-10 rounded bg-purple-100 flex items-center justify-center text-purple-500">
+                                                                        <div class="w-5 h-5 flex items-center justify-center">
+                                                                            <i class="ri-ai-generate"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ml-4">
+                                                                        <div class="text-sm font-medium text-gray-900 dark:text-gray-100">Intelligence
+                                                                            Artificielle: Fondamentaux</div>
+                                                                        <div class="text-xs text-gray-500">Par Pierre Moreau</div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                                    <div class="bg-primary h-2.5 rounded-full" style="width: 65%">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-xs text-gray-500 mt-1">65% complété</div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="w-4 h-4 flex items-center justify-center text-amber-500">
+                                                                        <i class="ri-star-fill"></i>
+                                                                    </div>
+                                                                    <span class="ml-1 text-sm text-gray-900 dark:text-gray-100">4.5/5</span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                                <div>Début: 20/06/2024</div>
+                                                                <div>Fin: En cours</div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm">
+                                                                <button class="text-primary hover:text-primary/80">Voir
+                                                                    détails</button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="mt-4 flex justify-between items-center">
+                                                <div class="text-sm text-gray-500">Affichage de 3 sur 14 cours</div>
+                                                <div class="flex space-x-2">
+                                                    <button
+                                                        class="px-3 py-1 border border-gray-300 rounded-button text-gray-700 hover:bg-gray-50 whitespace-nowrap">Précédent</button>
+                                                    <button
+                                                        class="px-3 py-1 bg-primary text-white rounded-button hover:bg-primary/90 whitespace-nowrap">Suivant</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="content-created" class="p-6 hidden">
+                                            <div class="overflow-x-auto">
+                                                <table class="min-w-full divide-y divide-gray-200">
+                                                    <thead class="bg-[#6663F1] bg-opacity-10">
+                                                        <tr>
+                                                            <th
+                                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Cours</th>
+                                                            <th
+                                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Étudiants</th>
+                                                            <th
+                                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Note moyenne</th>
+                                                            <th
+                                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Date de création</th>
+                                                            <th
+                                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-[#6663F1] bg-opacity-10 divide-y divide-gray-200">
+                                                        <tr>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="flex-shrink-0 h-10 w-10 rounded bg-red-100 flex items-center justify-center text-red-500">
+                                                                        <div class="w-5 h-5 flex items-center justify-center">
+                                                                            <i class="ri-brush-line"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ml-4">
+                                                                        <div class="text-sm font-medium text-gray-900 dark:text-gray-100">Design UX/UI
+                                                                            pour Débutants</div>
+                                                                        <div class="text-xs text-gray-500">12 modules • 24 heures
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
+                                                                187 inscrits
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="w-4 h-4 flex items-center justify-center text-amber-500">
+                                                                        <i class="ri-star-fill"></i>
+                                                                    </div>
+                                                                    <span class="ml-1 text-sm text-gray-900 dark:text-gray-100">4.7/5</span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                                15/01/2024
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm">
+                                                                <button class="text-primary hover:text-primary/80">Voir
+                                                                    détails</button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="flex-shrink-0 h-10 w-10 rounded bg-amber-100 flex items-center justify-center text-amber-500">
+                                                                        <div class="w-5 h-5 flex items-center justify-center">
+                                                                            <i class="ri-palette-line"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ml-4">
+                                                                        <div class="text-sm font-medium text-gray-900 dark:text-gray-100">Principes du
+                                                                            Design Graphique</div>
+                                                                        <div class="text-xs text-gray-500">8 modules • 16 heures
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
+                                                                142 inscrits
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="w-4 h-4 flex items-center justify-center text-amber-500">
+                                                                        <i class="ri-star-fill"></i>
+                                                                    </div>
+                                                                    <span class="ml-1 text-sm text-gray-900 dark:text-gray-100">4.9/5</span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                                02/11/2023
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm">
+                                                                <button class="text-primary hover:text-primary/80">Voir
+                                                                    détails</button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="flex-shrink-0 h-10 w-10 rounded bg-indigo-100 flex items-center justify-center text-indigo-500">
+                                                                        <div class="w-5 h-5 flex items-center justify-center">
+                                                                            <i class="ri-layout-grid-line"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ml-4">
+                                                                        <div class="text-sm font-medium text-gray-900 dark:text-gray-100">Responsive
+                                                                            Web Design</div>
+                                                                        <div class="text-xs text-gray-500">10 modules • 20 heures
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
+                                                                95 inscrits
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div
+                                                                        class="w-4 h-4 flex items-center justify-center text-amber-500">
+                                                                        <i class="ri-star-fill"></i>
+                                                                    </div>
+                                                                    <span class="ml-1 text-sm text-gray-900 dark:text-gray-100">4.6/5</span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                                20/04/2024
+                                                            </td>
+                                                            <td class="px-4 py-4 whitespace-nowrap text-sm">
+                                                                <button class="text-primary hover:text-primary/80">Voir
+                                                                    détails</button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Recent Activity -->
+                                    <div class="bg-[#6663F1] bg-opacity-20 rounded shadow-sm p-6">
+                                        <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Activité récente</h2>
+                                        <div class="pl-8 relative">
+                                            <div class="absolute top-0 bottom-0 left-0 w-0.5 bg-gray-200"></div>
+                                            <div class="space-y-6">
+                                                <div class="relative timeline-item">
+                                                    <div class="flex flex-col">
+                                                        <div class="flex items-center">
+                                                            <h3 class="text-sm font-medium text-gray-900 dark:text-gray-100">A commencé un nouveau
+                                                                cours</h3>
+                                                            <span
+                                                                class="ml-2 px-2 py-0.5 text-xs rounded-full bg-blue-100 text-blue-800">Cours</span>
+                                                        </div>
+                                                        <p class="text-sm text-gray-600 mt-1">A commencé le cours "Intelligence
+                                                            Artificielle: Fondamentaux"</p>
+                                                        <span class="text-xs text-gray-500 mt-1">Aujourd'hui, 09:15</span>
+                                                    </div>
+                                                </div>
+                                                <div class="relative timeline-item">
+                                                    <div class="flex flex-col">
+                                                        <div class="flex items-center">
+                                                            <h3 class="text-sm font-medium text-gray-900 dark:text-gray-100">A obtenu un certificat
+                                                            </h3>
+                                                            <span
+                                                                class="ml-2 px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-800">Certification</span>
+                                                        </div>
+                                                        <p class="text-sm text-gray-600 mt-1">A obtenu le certificat "SQL pour
+                                                            l'Analyse de Données - Niveau Avancé"</p>
+                                                        <span class="text-xs text-gray-500 mt-1">Hier, 16:42</span>
+                                                    </div>
+                                                </div>
+                                                <div class="relative timeline-item">
+                                                    <div class="flex flex-col">
+                                                        <div class="flex items-center">
+                                                            <h3 class="text-sm font-medium text-gray-900 dark:text-gray-100">A publié un commentaire
+                                                            </h3>
+                                                            <span
+                                                                class="ml-2 px-2 py-0.5 text-xs rounded-full bg-purple-100 text-purple-800">Commentaire</span>
+                                                        </div>
+                                                        <p class="text-sm text-gray-600 mt-1">"Excellent cours, très instructif et
+                                                            bien structuré. Les exercices pratiques sont particulièrement utiles."
+                                                        </p>
+                                                        <span class="text-xs text-gray-500 mt-1">03/07/2025, 11:23</span>
+                                                    </div>
+                                                </div>
+                                                <div class="relative timeline-item">
+                                                    <div class="flex flex-col">
+                                                        <div class="flex items-center">
+                                                            <h3 class="text-sm font-medium text-gray-900 dark:text-gray-100">A mis à jour son cours
+                                                            </h3>
+                                                            <span
+                                                                class="ml-2 px-2 py-0.5 text-xs rounded-full bg-amber-100 text-amber-800">Formateur</span>
+                                                        </div>
+                                                        <p class="text-sm text-gray-600 mt-1">A ajouté 2 nouveaux modules au cours
+                                                            "Design UX/UI pour Débutants"</p>
+                                                        <span class="text-xs text-gray-500 mt-1">01/07/2025, 14:05</span>
+                                                    </div>
+                                                </div>
+                                                <div class="relative timeline-item">
+                                                    <div class="flex flex-col">
+                                                        <div class="flex items-center">
+                                                            <h3 class="text-sm font-medium text-gray-900 dark:text-gray-100">A terminé un module</h3>
+                                                            <span
+                                                                class="ml-2 px-2 py-0.5 text-xs rounded-full bg-blue-100 text-blue-800">Cours</span>
+                                                        </div>
+                                                        <p class="text-sm text-gray-600 mt-1">A terminé le module "Frameworks
+                                                            JavaScript" du cours "Développement Web Avancé"</p>
+                                                        <span class="text-xs text-gray-500 mt-1">28/06/2025, 20:17</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-4 text-center">
+                                                <button class="text-primary hover:text-primary/80 text-sm font-medium">Voir plus
+                                                    d'activités</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js_style/dark.js"></script>
+    <script src="../js_style/admin/userDetail.js"></script>
+
+</body>
+</html>

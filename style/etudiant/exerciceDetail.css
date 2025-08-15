@@ -1,0 +1,230 @@
+
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        :root {
+            --dark-bg: #121212;
+            --light-bg: #F5F7FA;
+            --primary: #4A90E2;
+            --secondary: #50E3C2;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+        }
+        
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background-color: var(--dark-bg);
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        
+        body.light-mode {
+            background-color: var(--light-bg);
+            color: #333;
+        }
+        
+        .glass-container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+        }
+        
+        .light-mode .glass-container {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+        }
+        
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .loading-bar.active {
+            animation: loading 2s ease-in-out infinite;
+        }
+        
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        .glow-effect {
+            transition: all 0.3s ease;
+        }
+        
+        .glow-effect:hover {
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.6);
+        }
+        
+        .editor-container {
+            min-height: 400px;
+        }
+        
+        .code-area {
+            font-family: 'Fira Code', monospace;
+            resize: none;
+            tab-size: 4;
+        }
+        
+        .difficulty-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .difficulty-hard {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+        
+        .difficulty-medium {
+            background-color: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+        
+        .difficulty-easy {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+        
+        .light-mode .difficulty-hard {
+            background-color: rgba(239, 68, 68, 0.1);
+        }
+        
+        .light-mode .difficulty-medium {
+            background-color: rgba(245, 158, 11, 0.1);
+        }
+        
+        .light-mode .difficulty-easy {
+            background-color: rgba(16, 185, 129, 0.1);
+        }
+        
+        .progress-circle {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+        
+        .progress-circle svg {
+            transform: rotate(-90deg);
+        }
+        
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 6;
+            stroke-linecap: round;
+        }
+        
+        .progress-bg {
+            stroke: rgba(255, 255, 255, 0.1);
+        }
+        
+        .light-mode .progress-bg {
+            stroke: rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-fill {
+            stroke: var(--primary);
+            transition: stroke-dashoffset 0.3s ease;
+        }
+        
+        .timer {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .tab-active {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .light-mode .tab-active {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .hint-solution-toggle {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+        
+        .light-mode .hint-solution-toggle {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .hint-solution-toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: transform 0.3s ease;
+        }
+        
+        .light-mode .hint-solution-toggle::after {
+            background-color: #333;
+        }
+        
+        .hint-solution-toggle.active {
+            background-color: var(--primary);
+        }
+        
+        .hint-solution-toggle.active::after {
+            transform: translateX(26px);
+        }
+        
+        .code-line-numbers {
+            user-select: none;
+            text-align: right;
+            color: rgba(255, 255, 255, 0.3);
+            padding-right: 12px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .light-mode .code-line-numbers {
+            color: rgba(0, 0, 0, 0.3);
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .grid-background {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .light-mode .grid-background {
+            background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 0 15px var(--primary);
+        }
+        
+        .btn-glow-secondary:hover {
+            box-shadow: 0 0 15px var(--secondary);
+        }

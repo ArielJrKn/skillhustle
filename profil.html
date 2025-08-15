@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillHustle | Profil</title>
+    <link rel="stylesheet" type="text/css" href="style/progresseBar.css">
+    <link rel="stylesheet" type="text/css" href="style/scroll.css">
+    <!-- <link rel="stylesheet" type="text/css" href="style/switchAction.css"> -->
+    <link rel="stylesheet" type="text/css" href="style/msg.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/dark.css">
+    <link rel="stylesheet" type="text/css" href="style/notifications.css">
+    <link rel="stylesheet" type="text/css" href="style/formateur/sideBar.css">
+    <link rel="stylesheet" type="text/css" href="style/recruit/userDetail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="js_style/student_dashboard_tailwindConfig.js"></script>
+</head>
+
+<body class="bg-background min-h-screen">
+
+    <!-- Loading Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Main Container -->
+    <div class="flex flex-col h-screen">
+        <!-- Top Navigation Bar -->
+        <header
+            class="h-16 backdrop-filter backdrop-blur-lg absolute w-full shadow-sm flex items-center justify-between px-6 z-10">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <button type="button"
+                    class="text-gray-300 hover:text-white focus:outline-none lg:hidden md:hidden sm:block"
+                    id="mobileMenuButton">
+                    <div class="w-6 h-6 flex items-center justify-center">
+                        <i class="ri-menu-line ri-lg"></i>
+                    </div>
+                </button>
+                <span class=" sm:ml-4 text-2xl font-['Pacifico'] text-primary">logo</span>
+            </div>
+
+            <!-- Search & Actions -->
+            <div class="flex items-center space-x-4">
+                <!-- Search Bar -->
+                <div class="relative hidden lg:block">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-search-line"></i>
+                        </div>
+                    </div>
+                    <input type="search"
+                        class="bg-gray-100 text-black dark:text-white dark:bg-dark dark:bg-opacity-30 text-gray-900 dark:text-white border-none text-sm rounded-full pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary"
+                        placeholder="Search courses, resources...">
+                </div>
+                <div
+                    class=" relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                    <i id="theme" class="ri-sun-line text-xl"></i>
+                </div>
+
+                <!-- Notification Icon -->
+                <div
+                    class="btnNotif relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                    <i class="ri-notification-3-line text-xl"></i>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
+
+                <div
+                    class="btnMsg relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                    <i class="ri-message-3-line text-xl"></i>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
+
+                <!-- Profile Icon -->
+                <div class="relative">
+                    <button type="button" class="flex items-center focus:outline-none" id="userMenuButton">
+                        <span class="hidden md:block mr-3 text-sm font-medium text-gray-800 dark:text-white">Thomas</span>
+                        <img class="h-8 w-8 rounded-full object-cover"
+                            src="media/chat.jpg"
+                            alt="Photo de profil">
+                    </button>
+                    <div class="hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-50"
+                        id="userMenu">
+                        <div class="py-1">
+                            <a href="edit.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Profil</a>
+                            <div class="border-t border-gray-700"></div>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Déconnexion</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex overflow-hidden">
+
+            <!-- Left Sidebar - Course Outline -->
+            <aside class="pt-16 w-20 bg-white dark:bg-black flex flex-col lg:flex hidden md:flex items-center justify-between py-6 space-y-8">                
+                <nav class="flex flex-col space-y-4">
+                    <a href="index.html">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-lg hover-highlight cursor-pointer">
+                            <i class="ri-home-line text-xl"></i>
+                        </div>
+                    </a>
+                    <a href="membres.html">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-lg hover-highlight cursor-pointer">
+                            <i class="ri-group-line text-xl"></i>
+                        </div>
+                    </a>
+                    <a href="cours.html">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-lg hover-highlight cursor-pointer">
+                            <i class="ri-book-open-line text-xl"></i>
+                        </div>
+                    </a>
+                    <a href="Certification.html">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-lg hover-highlight cursor-pointer">
+                            <i class="ri-medal-line ri-lg"></i>
+                        </div>
+                    </a>
+                    <a href="profil.html">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-lg active-nav hover-highlight cursor-pointer">
+                            <i class="ri-user-line text-xl"></i>
+                        </div>
+                    </a>
+                </nav>
+
+                <div class="absolute bottom-0 px-6 left-0 z-50 RightBtn w-auto h-12 flex items-center justify-center hidden lg:flex md:flex rounded-lg hover-highlight cursor-pointer">
+                        <i class="ri-side-line text-xl"></i>
+                        <h3 class="ml-3 hidden lg:block">Plus d'informations</h3>
+                    </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="flex-1 flex flex-col overflow-hidden">
+                <!-- Mobile Sidebar -->
+                <div class="fixed inset-0 z-40 hidden bg-black bg-opacity-50" id="mobileSidebarBackdrop"></div>
+                <div class="fixed inset-y-0 left-0 z-50 w-64 dark:bg-darkSurface bg-white transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden"
+                    id="mobileSidebar">
+                    <div class="p-4 flex items-center justify-between border-b border-gray-700">
+                        <h1 class="text-xl font-['Pacifico'] text-gray-800 dark:text-white">logo</h1>
+                        <button type="button" class="text-gray-300 hover:text-white focus:outline-none"
+                            id="closeMobileMenu">
+                            <div class="w-6 h-6 flex items-center justify-center">
+                                <i class="ri-close-line ri-lg"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="flex flex-col justify-between h-6/6 flex-grow p-4 overflow-y-auto">
+                        <nav class="flex-1 space-y-2">
+                        <a href="index.html"
+                            class="sidebar-item  flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-home-line text-xl"></i>
+                            </div>
+                            <span>Acceuil</span>
+                        </a>
+                        <a href="membres.html"
+                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-group-line text-xl"></i>
+                            </div>
+                            <span>Membres</span>
+                        </a>
+                        <a href="cours.html" data-readdy="true"
+                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-book-open-line ri-lg"></i>
+                            </div>
+                            <span>Cours</span>
+                        </a>
+                        <a href="certification.html"
+                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-medal-line ri-lg"></i>
+                            </div>
+                            <span>Certifications</span>
+                        </a>
+                        <!-- <a href="exercices.html"
+                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-brain-line ri-lg"></i>
+                            </div>
+                            <span>Exercices</span>
+                        </a>
+                        
+                        <a href="favoris.html"
+                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-star-line ri-lg"></i>
+                            </div>
+                            <span>Favoris</span>
+                        </a>
+                        <a href="social.html"
+                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-earth-line ri-lg"></i>
+                            </div>
+                            <span>Partie sociale</span>
+                        </a> -->
+                        <a href="profil.html"
+                            class="sidebar-item active flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-user-line text-xl"></i>
+                            </div>
+                            <span>Paramètres</span>
+                        </a>
+
+                        <div class="flex flex-col text-sm gap-2">
+                            Ici les pages respectifs pour chaque acteurs de la platformes
+                             <a href="students/Student-Dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
+                                    Mode apprenant
+                                </a>
+
+                                <a href="formateur/dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
+                                    Mode formateur
+                                </a>
+                                <a href="recruit/dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
+                                    Mode entreprise
+                                </a>
+                                <a href="admin/dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
+                                    Mode administrateur
+                                </a>
+                        </div>
+                    </nav>
+
+
+                        <div class="mt-auto pt-4 border-t border-gray-700">
+                            <a href="#"
+                                class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                                <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                    <i class="ri-logout-box-line ri-lg"></i>
+                                </div>
+                                <span>Déconnexion</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Area -->
+                <main class="pt-16 flex-1 overflow-y-auto bg-white dark:bg-black">
+                    <main class="max-w-7xl mx-auto px-4 py-4">
+                    <div class="glass-effect-light dark:glass-effect-dark rounded-xl overflow-hidden mb-8">
+                        <div class="relative h-64 bg-[#6663F1] bg-opacity-20">
+                            <div class="absolute flex items-center justify-between px-8 inset-0 flex-wrap">
+                                <div class="flex items-center gap-2">
+                                    <div class="relative">
+                                        <div class="profile rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
+                                            <img src="media/chat.jpg" alt="Daniel " class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="status-indicator status-available absolute bottom-3 right-3 w-6 h-6 border-2 border-white dark:border-gray-800"></div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 futuristic-font">Daniel</h1>
+                                            <div class="w-6 h-6 flex items-center justify-center bg-primary/20 rounded-full verification-badge">
+                                                <i class="ri-verified-badge-fill text-primary text-sm"></i>
+                                            </div>
+                                        </div>
+                                        <p class="text-xl text-gray-600 dark:text-gray-300 text-xs mb-4">Senior Frontend Developer</p>
+                                        <div class="flex items-center gap-4 text-gray-600 dark:text-gray-300">
+                                            <div class="flex items-center gap-1">
+                                                <div class="w-5 h-5 flex items-center justify-center">
+                                                    <i class="ri-map-pin-line"></i>
+                                                </div>
+                                                <span>San Francisco, USA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="action">
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex">
+                                            <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                                <i class="ri-star-fill"></i>
+                                            </div>
+                                            <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                                <i class="ri-star-fill"></i>
+                                            </div>
+                                            <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                                <i class="ri-star-fill"></i>
+                                            </div>
+                                            <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                                <i class="ri-star-fill"></i>
+                                            </div>
+                                            <div class="w-5 h-5 flex items-center justify-center text-gray-300 dark:text-gray-600">
+                                                <i class="ri-star-fill"></i>
+                                            </div>
+                                        </div>
+                                        <span class="text-gray-600 dark:text-gray-300">(4.8)</span>
+                                    </div>
+                                    
+                                    <div class="flex gap-2">
+                                        <button class="px-4 py-2 rounded-button bg-primary hover:bg-primary/90 text-white transition-colors whitespace-nowrap flex items-center gap-2">
+                                            <div class="w-5 h-5 flex items-center justify-center">
+                                                <i class="ri-message-3-line"></i>
+                                            </div>
+                                            Modifier
+                                        </button>
+                                        <button class="w-10 h-10 hidden lg:block rounded-button bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors whitespace-nowrap flex items-center justify-center">
+                                            <i class="ri-share-line"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <div class="glass-effect-light dark:glass-effect-dark bg-[#6663F1] bg-opacity-10 rounded-xl p-6 mb-8">
+                                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4 futuristic-font">About</h2>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    I'm a passionate Senior Frontend Developer with over 8 years of experience building responsive, user-friendly web applications. My expertise lies in creating seamless user experiences with modern JavaScript frameworks, particularly React and TypeScript.
+                                </p>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    I've worked with startups and enterprise clients across various industries, including fintech, e-commerce, and SaaS. I'm particularly interested in performance optimization, accessibility, and creating design systems that scale.
+                                </p>
+                            </div>
+                            
+                            <div class="glass-effect-light dark:glass-effect-dark bg-[#6663F1] bg-opacity-10 rounded-xl p-6 mb-8">
+                                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 futuristic-font">Skills & Expertise</h2>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4">Primary Skills</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">JavaScript</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">95%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">React</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">90%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 90%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">TypeScript</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">85%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 85%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">HTML/CSS</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">95%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">Redux</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">80%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 80%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">Next.js</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">75%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 75%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4">Secondary Skills</h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">GraphQL</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Node.js</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Tailwind CSS</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Webpack</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Jest</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Cypress</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Git</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">CI/CD</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Responsive Design</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Accessibility</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Performance Optimization</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4">Certifications</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="flex items-center gap-3 p-3 rounded-lg bg-[#6663F1] bg-opacity-20">
+                                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+                                                <i class="ri-award-line text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-medium text-gray-700 dark:text-gray-300">AWS Certified Developer</h4>
+                                                <p class="text-sm text-gray-500 dark:text-gray-400">Issued Jun 2023</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-3 p-3 rounded-lg bg-[#6663F1] bg-opacity-20">
+                                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+                                                <i class="ri-award-line text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-medium text-gray-700 dark:text-gray-300">React Advanced Certification</h4>
+                                                <p class="text-sm text-gray-500 dark:text-gray-400">Issued Mar 2022</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-effect-light dark:glass-effect-dark bg-[#6663F1] bg-opacity-10 rounded-xl p-6 mb-8">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 futuristic-font">Portfolio Projects</h2>
+                                    <button class="text-primary hover:text-primary/80 transition-colors flex items-center gap-1">
+                                        <span>View All</span>
+                                        <div class="w-5 h-5 flex items-center justify-center">
+                                            <i class="ri-arrow-right-line"></i>
+                                        </div>
+                                    </button>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="portfolio-item bg-[#6663F1] bg-opacity-20 rounded-lg overflow-hidden shadow-md">
+                                        <div class="relative h-48">
+                                            <img src="https://readdy.ai/api/search-image?query=modern%2520fintech%2520dashboard%2520user%2520interface%2520with%2520charts%2520and%2520data%2520visualization%252C%2520clean%2520design%252C%2520professional%2520UI%252C%2520high%2520quality&width=600&height=400&seq=project1&orientation=landscape" alt="FinTech Dashboard" class="w-full h-full object-cover">
+                                            <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-4">
+                                                <div class="flex items-center gap-2 mb-2">
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">React</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">TypeScript</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">D3.js</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="font-semibold text-gray-800 dark:text-gray-200">FinTech Dashboard</h3>
+                                                <div class="flex items-center">
+                                                    <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                        <i class="ri-star-fill"></i>
+                                                    </div>
+                                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.9</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                                A comprehensive financial dashboard with real-time data visualization and interactive charts.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio-item bg-[#6663F1] bg-opacity-20 rounded-lg overflow-hidden shadow-md">
+                                        <div class="relative h-48">
+                                            <img src="https://readdy.ai/api/search-image?query=e-commerce%2520mobile%2520app%2520interface%2520with%2520product%2520listings%2520and%2520shopping%2520cart%252C%2520clean%2520design%252C%2520professional%2520UI%252C%2520high%2520quality&width=600&height=400&seq=project2&orientation=landscape" alt="E-commerce Platform" class="w-full h-full object-cover">
+                                            <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-4">
+                                                <div class="flex items-center gap-2 mb-2">
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">React Native</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Redux</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Firebase</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="font-semibold text-gray-800 dark:text-gray-200">E-commerce Platform</h3>
+                                                <div class="flex items-center">
+                                                    <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                        <i class="ri-star-fill"></i>
+                                                    </div>
+                                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.7</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                                A cross-platform mobile app for a luxury fashion brand with AR try-on features.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio-item bg-[#6663F1] bg-opacity-20 rounded-lg overflow-hidden shadow-md">
+                                        <div class="relative h-48">
+                                            <img src="https://readdy.ai/api/search-image?query=SaaS%2520analytics%2520platform%2520with%2520data%2520visualization%2520and%2520reporting%2520tools%252C%2520clean%2520design%252C%2520professional%2520UI%252C%2520high%2520quality&width=600&height=400&seq=project3&orientation=landscape" alt="SaaS Analytics Platform" class="w-full h-full object-cover">
+                                            <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-4">
+                                                <div class="flex items-center gap-2 mb-2">
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Next.js</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">GraphQL</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Tailwind</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="font-semibold text-gray-800 dark:text-gray-200">SaaS Analytics Platform</h3>
+                                                <div class="flex items-center">
+                                                    <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                        <i class="ri-star-fill"></i>
+                                                    </div>
+                                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">5.0</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                                A comprehensive analytics platform for SaaS businesses with customizable dashboards.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio-item bg-[#6663F1] bg-opacity-20 rounded-lg overflow-hidden shadow-md">
+                                        <div class="relative h-48">
+                                            <img src="https://readdy.ai/api/search-image?query=collaborative%2520project%2520management%2520tool%2520with%2520kanban%2520boards%2520and%2520team%2520collaboration%2520features%252C%2520clean%2520design%252C%2520professional%2520UI%252C%2520high%2520quality&width=600&height=400&seq=project4&orientation=landscape" alt="Project Management Tool" class="w-full h-full object-cover">
+                                            <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-4">
+                                                <div class="flex items-center gap-2 mb-2">
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Vue.js</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Node.js</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">MongoDB</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="font-semibold text-gray-800 dark:text-gray-200">Project Management Tool</h3>
+                                                <div class="flex items-center">
+                                                    <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                        <i class="ri-star-fill"></i>
+                                                    </div>
+                                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.8</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                                A collaborative project management tool with real-time updates and team communication.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="lg:col-span-1">
+                            <div class="glass-effect-light bg-[#6663F1] bg-opacity-10 dark:glass-effect-dark rounded-xl p-6 mb-8">
+                                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 futuristic-font">Overview</h2>
+                                
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="p-4 rounded-lg bg-[#6663F1] bg-opacity-20 flex flex-col items-center">
+                                        <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-2">
+                                            <i class="ri-briefcase-4-line text-xl"></i>
+                                        </div>
+                                        <span class="text-2xl font-bold text-gray-800 dark:text-gray-200">42</span>
+                                        <span class="text-sm text-gray-500">Projects Completed</span>
+                                    </div>
+                                    
+                                    <div class="p-4 rounded-lg bg-[#6663F1] bg-opacity-20 flex flex-col items-center">
+                                        <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-2">
+                                            <i class="ri-medal-line text-xl"></i>
+                                        </div>
+                                        <span class="text-2xl font-bold text-gray-800 dark:text-gray-200">97%</span>
+                                        <span class="text-sm text-gray-500">Success Rate</span>
+                                    </div>
+                                    
+                                    <div class="p-4 rounded-lg bg-[#6663F1] bg-opacity-20 flex flex-col items-center">
+                                        <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-2">
+                                            <i class="ri-time-line text-xl"></i>
+                                        </div>
+                                        <span class="text-2xl font-bold text-gray-800 dark:text-gray-200">2h</span>
+                                        <span class="text-sm text-gray-500">Avg. Response Time</span>
+                                    </div>
+                                    
+                                    <div class="p-4 rounded-lg bg-[#6663F1] bg-opacity-20 flex flex-col items-center">
+                                        <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-2">
+                                            <i class="ri-calendar-check-line text-xl"></i>
+                                        </div>
+                                        <span class="text-2xl font-bold text-gray-800 dark:text-gray-200">8+</span>
+                                        <span class="text-sm text-gray-500">Years Experience</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6">
+                                    <div class="mb-4">
+                                        <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Expertise Distribution</h3>
+                                        <div id="expertiseChart" class="h-64"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-effect-light bg-[#6663F1] bg-opacity-10 dark:glass-effect-dark rounded-xl p-6">
+                                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 futuristic-font">Contact</h2>
+                                
+                                <div class="space-y-4 mb-6">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+                                            <i class="ri-mail-line text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-sm text-gray-500 dark:text-gray-400">Email</h3>
+                                            <p class="text-gray-700 dark:text-gray-300">daniel.mitchell@example.com</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+                                            <i class="ri-phone-line text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-sm text-gray-500 dark:text-gray-400">Phone</h3>
+                                            <p class="text-gray-700 dark:text-gray-300">+1 (415) 555-0123</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+                                            <i class="ri-global-line text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-sm text-gray-500 dark:text-gray-400">Website</h3>
+                                            <p class="text-gray-700 dark:text-gray-300">danielmitchell.dev</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-3">Social Profiles</h3>
+                                    <div class="flex gap-3">
+                                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors">
+                                            <i class="ri-linkedin-fill"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors">
+                                            <i class="ri-github-fill"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors">
+                                            <i class="ri-twitter-x-fill"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors">
+                                            <i class="ri-dribbble-fill"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <!-- <div>
+                                    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-3">Send a Message</h3>
+                                    <form>
+                                        <div class="mb-4">
+                                            <input type="text" placeholder="Subject" class="w-full px-4 py-2 rounded-lg text-gray-900 dark:text-gray-100 bg-white bg-opacity-30 border border-1 border-black focus:outline-none focus:ring-2 focus:ring-primary/50 text-gray-700 dark:text-gray-300">
+                                        </div>
+                                        <div class="mb-4">
+                                            <textarea rows="4" placeholder="Your message" class="w-full px-4 py-2 rounded-lg text-gray-900 dark:text-gray-100 bg-white bg-opacity-30 border border-1 border-black focus:outline-none focus:ring-2 focus:ring-primary/50 text-gray-700 dark:text-gray-300 resize-none"></textarea>
+                                        </div>
+                                        <button type="submit" class="w-full px-4 py-2 rounded-button bg-primary hover:bg-primary/90 text-white transition-colors whitespace-nowrap">
+                                            Send Message
+                                        </button>
+                                    </form>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <div class="p-6">
+                    <div class="glass-effect-light dark:glass-effect-dark bg-[#6663F1] bg-opacity-10 rounded-xl p-6 mb-8">
+                        <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 futuristic-font">Experience</h2>
+                        
+                        <div class="relative pl-12">
+                            <div class="timeline-item relative pb-8">
+                                <div class="absolute right-full w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                </div>
+                                <div>
+                                    <div class="flex flex-wrap items-center justify-between mb-2">
+                                        <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">Senior Frontend Developer</h3>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-4 h-4 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                                <i class="ri-calendar-line"></i>
+                                            </div>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">2021 - Present</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-primary mb-2">TechNova Solutions</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                                        Leading the frontend development team for enterprise SaaS applications. Implemented a component library that reduced development time by 40%.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">React</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">TypeScript</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">GraphQL</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Design Systems</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item relative pb-8">
+                                <div class="absolute right-full w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                </div>
+                                <div>
+                                    <div class="flex flex-wrap items-center justify-between mb-2">
+                                        <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">Frontend Developer</h3>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-4 h-4 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                                <i class="ri-calendar-line"></i>
+                                            </div>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">2018 - 2021</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-primary mb-2">FinEdge Inc.</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                                        Developed responsive web applications for financial services. Improved application performance by 60% through code optimization.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">React</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Redux</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Webpack</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Performance Optimization</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item relative">
+                                <div class="absolute right-full w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                </div>
+                                <div>
+                                    <div class="flex flex-wrap items-center justify-between mb-2">
+                                        <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">Junior Web Developer</h3>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-4 h-4 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                                <i class="ri-calendar-line"></i>
+                                            </div>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">2016 - 2018</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-primary mb-2">WebCraft Agency</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                                        Built responsive websites for various clients. Specialized in e-commerce solutions and content management systems.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">JavaScript</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">HTML/CSS</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">jQuery</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">WordPress</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
+                    <div class="glass-effect-light dark:glass-effect-dark bg-[#6663F1] bg-opacity-10 rounded-xl p-6 mb-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 futuristic-font">Reviews & Testimonials</h2>
+                            <div class="flex items-center gap-2">
+                                <div class="flex">
+                                    <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <div class="w-5 h-5 flex items-center justify-center text-gray-300 dark:text-gray-600">
+                                        <i class="ri-star-half-fill"></i>
+                                    </div>
+                                </div>
+                                <span class="text-gray-600 dark:text-gray-300">4.8 (24 reviews)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="review-card p-4 rounded-lg bg-[#6663F1] bg-opacity-20">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden">
+                                        <img src="media/chat.jpg" alt="Client" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-800 dark:text-gray-200">Samantha</h3>
+                                            <div class="flex">
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-4 mb-2">
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">Product Manager, FinEdge Inc.</span>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">June 2023</span>
+                                        </div>
+                                        <p class="text-gray-600 dark:text-gray-300">
+                                            Daniel is an exceptional frontend developer who consistently delivers high-quality work. His attention to detail and ability to translate complex requirements into intuitive user interfaces is remarkable. He's also great at communicating and meeting deadlines.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="review-card p-4 rounded-lg bg-[#6663F1] bg-opacity-20">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden">
+                                        <img src="media/chat.jpg" alt="Client" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-800 dark:text-gray-200">Michael</h3>
+                                            <div class="flex">
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-gray-300 dark:text-gray-600">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-4 mb-2">
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">CTO, TechNova Solutions</span>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">March 2023</span>
+                                        </div>
+                                        <p class="text-gray-600 dark:text-gray-300">
+                                            Working with Daniel has been a pleasure. He not only delivers excellent code but also contributes valuable insights to improve our products. His expertise in React and TypeScript has been instrumental in modernizing our frontend architecture.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="review-card p-4 rounded-lg bg-[#6663F1] bg-opacity-20">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden">
+                                        <img src="media/chat.jpg" alt="Client" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-800 dark:text-gray-200">Emily</h3>
+                                            <div class="flex">
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-half-fill"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-4 mb-2">
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">UX Designer, WebCraft Agency</span>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">November 2022</span>
+                                        </div>
+                                        <p class="text-gray-600 dark:text-gray-300">
+                                            Daniel is a developer who truly understands design. His implementation of our UX designs was flawless, and he even suggested improvements that enhanced the user experience. He's collaborative, responsive, and technically skilled.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 text-center">
+                            <button class="px-4 py-2 rounded-button bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors whitespace-nowrap">
+                                Load More Reviews
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </main>
+            </div>
+
+            <aside class="RightSideBar backdrop-filter backdrop-blur-lg z-50 hidden h-full pb-16 fixed right-0 p-6 space-y-6 overflow-y-auto">
+                            <div class="bg-[#6663F1] bg-opacity-20 rounded-md p-4 flex flex-col text-xs bg-opacity-20 gap-2">
+                                <h3>Les pages respectif pour chaque acteur de la plateforme</h3>
+                                <a href="students/Student-Dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
+                                    continuer en tant qu'apprenant
+                                </a>
+
+                                <a href="formateur/dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
+                                    continuer en tant que formateur
+                                </a>
+                                <a href="recruit/dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
+                                    continuer en tant qu'entreprise
+                                </a>
+                                <a href="admin/dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
+                                    continuer en tant qu'administrateur
+                                </a>
+                            </div>
+                            <div class="bg-[#6663F1] bg-opacity-20 rounded-md p-4">
+                                <h3 class="font-semibold mb-4">People You May Know</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20Asian%20woman%20with%20long%20hair%2C%20tech%20startup%20background%2C%20friendly%20expression%2C%20modern%20portrait&width=40&height=40&seq=suggestion-1&orientation=squarish" alt="Lisa Chang" class="w-10 h-10 rounded-full object-cover">
+                                            <div>
+                                                <p class="text-sm font-medium">Lisa Chang</p>
+                                                <p class="text-xs text-primary">Frontend Developer</p>
+                                            </div>
+                                        </div>
+                                        <button class="bg-primary text-white px-3 py-1 rounded-full text-xs hover:bg-opacity-80 !rounded-button whitespace-nowrap">
+                                            Follow
+                                        </button>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20middle-aged%20man%20with%20dark%20hair%2C%20business%20suit%2C%20corporate%20background%2C%20confident%20professional%20portrait&width=40&height=40&seq=suggestion-2&orientation=squarish" alt="James Wilson" class="w-10 h-10 rounded-full object-cover">
+                                            <div>
+                                                <p class="text-sm font-medium">James Wilson</p>
+                                                <p class="text-xs text-primary">Marketing Manager</p>
+                                            </div>
+                                        </div>
+                                        <button class="bg-primary text-white px-3 py-1 rounded-full text-xs hover:bg-opacity-80 !rounded-button whitespace-nowrap">
+                                            Follow
+                                        </button>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20woman%20with%20red%20hair%2C%20creative%20studio%20background%2C%20artistic%20professional%20portrait%2C%20natural%20lighting&width=40&height=40&seq=suggestion-3&orientation=squarish" alt="Emma Thompson" class="w-10 h-10 rounded-full object-cover">
+                                            <div>
+                                                <p class="text-sm font-medium">Emma Thompson</p>
+                                                <p class="text-xs text-primary">Graphic Designer</p>
+                                            </div>
+                                        </div>
+                                        <button class="bg-primary text-white px-3 py-1 rounded-full text-xs hover:bg-opacity-80 !rounded-button whitespace-nowrap">
+                                            Follow
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-[#6663F1] bg-opacity-20 rounded-md p-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-semibold">Messages</h3>
+                                    <button class="text-primary text-sm hover:underline !rounded-button whitespace-nowrap">See all</button>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-start space-x-3 cursor-pointer hover:bg-gray-800 p-2 rounded">
+                                        <div class="relative">
+                                            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20man%20with%20beard%2C%20casual%20attire%2C%20friendly%20expression%2C%20modern%20background&width=32&height=32&seq=chat-1&orientation=squarish" alt="David Kim" class="w-8 h-8 rounded-full object-cover">
+                                            <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-black"></div>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm font-medium">David Kim</p>
+                                            <p class="text-xs text-primary truncate">Hey, did you check out the new React course?</p>
+                                        </div>
+                                        <span class="text-xs text-primary">2m</span>
+                                    </div>
+                                    <div class="flex items-start space-x-3 cursor-pointer hover:bg-gray-800 p-2 rounded">
+                                        <div class="relative">
+                                            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20woman%20with%20glasses%2C%20academic%20background%2C%20intellectual%20professional%20portrait&width=32&height=32&seq=chat-2&orientation=squarish" alt="Maria Garcia" class="w-8 h-8 rounded-full object-cover">
+                                            <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-black"></div>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm font-medium">Maria Garcia</p>
+                                            <p class="text-xs text-primary truncate">Thanks for the study group notes!</p>
+                                        </div>
+                                        <span class="text-xs text-primary">15m</span>
+                                    </div>
+                                    <div class="flex items-start space-x-3 cursor-pointer hover:bg-gray-800 p-2 rounded">
+                                        <div class="relative">
+                                            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20man%20with%20short%20hair%2C%20tech%20company%20background%2C%20developer%20portrait&width=32&height=32&seq=chat-3&orientation=squarish" alt="Ryan Foster" class="w-8 h-8 rounded-full object-cover">
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm font-medium">Ryan Foster</p>
+                                            <p class="text-xs text-primary truncate">Let's schedule that code review session</p>
+                                        </div>
+                                        <span class="text-xs text-primary">1h</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+
+            <!-- Right Sidebar - Notifications -->
+            <aside class="sideBarNotification hidden w-90 backdrop-filter backdrop-blur-2xl p-6 dark:border-gray-800">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                    <i class="ri-close"></i>
+                    Recent Notifications
+                </h2>
+
+                <div class="space-y-4">
+                    <!-- Notification 1 bg-white dark:bg-darkSurface-->
+                    <div
+                        class=" transition dark:bg-opacity-50 hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                <i class="ri-book-mark-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">New Course Available</h4>
+                                <span class="notification-dot bg-secondary"></span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">AI & Machine Learning course is now
+                                available for enrollment.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">2 hours ago</p>
+                        </div>
+                    </div>
+
+                    <!-- Notification 2 -->
+                    <div
+                        class=" transition dark:bg-opacity-50 hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div
+                            class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-secondary">
+                                <i class="ri-file-list-3-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Assignment Graded</h4>
+                                <span class="notification-dot bg-secondary"></span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">Your JavaScript assignment has been
+                                graded. You scored 95%.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">Yesterday</p>
+                        </div>
+                    </div>
+
+                    <!-- Notification 3 -->
+                    <div
+                        class=" transition dark:bg-opacity-50 hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                <i class="ri-calendar-event-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Live Session Reminder</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">Don't forget your live session with
+                                Dr. Chen tomorrow at 3 PM.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">2 days ago</p>
+                        </div>
+                    </div>
+
+                    <!-- Notification 4 -->
+                    <div
+                        class=" transition dark:bg-opacity-50 hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div
+                            class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-secondary">
+                                <i class="ri-group-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Study Group Invitation
+                                </h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">You've been invited to join the
+                                Data Science study group.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">3 days ago</p>
+                        </div>
+                    </div>
+
+                    <!-- Notification 5 -->
+                    <div
+                        class="transition dark:bg-opacity-50 hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                <i class="ri-medal-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Achievement Unlocked</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">You've earned the "Coding Streak"
+                                badge for 7 days of continuous learning.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">5 days ago</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button
+                    class="mt-4 text-primary text-sm font-medium w-full py-2 border border-primary rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap">View
+                    All Notifications</button>
+            </aside>
+
+            <!-- Right Sidebar - message -->
+            <aside class="absolute hidden top-0 bottom-0 right-0 overflow-hidden z-50 sideBarMessage backdrop-filter backdrop-blur-2xl dark:border-gray-800">
+                <!-- section 1 - list des conversations -->
+                <div class="section1  backdrop-filter backdrop-blur-2xl h-full top-0 relative overscroll-x-none">
+                    <div
+                        class="header bg-opacity-50 backdrop-filter backdrop-blur-2xl z-50 p-4 w-full h-28 top-0 flex align-center justify-around flex-col">
+                        <div class="w-full flex align-center justify-between">
+                            <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                                <i class="backMsg ri-arrow-left-line cursor-pointer"></i>
+                                Message
+                            </h2>
+
+                            <div class="cursor-pointer flex align-center">
+                                <div class="">
+                                    <i
+                                        class="addChat ri-add-line ri-lg  w-5 h-5 hover:bg-white hover:bg-opacity-30 backdrop-filter backdrop-blur-xl p-2 rounded-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative px-2">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-search-line"></i>
+                                </div>
+                            </div>
+                            <input type="search"
+                                class="bg-gray-100 text-black dark:text-white dark:bg-dark dark:bg-opacity-30 text-gray-900 dark:text-white border-none text-sm rounded-full w-full pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary"
+                                placeholder="Rechercher une conversation">
+                        </div>
+                    </div>
+
+                    <div class="pt-0 px-2 w-full overflow-y-auto" style="height: 84%;">
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-16 w-16 rounded-full object-cover"
+                                    src="media/chat.jpg"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-500">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-16 w-16 rounded-full object-cover"
+                                    src="media/chat.jpg"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-16 w-16 rounded-full object-cover"
+                                    src="media/chat.jpg"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-16 w-16 rounded-full object-cover"
+                                    src="media/chat.jpg"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-16 w-16 rounded-full object-cover"
+                                    src="media/chat.jpg"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-16 w-16 rounded-full object-cover"
+                                    src="media/chat.jpg"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-16 w-16 rounded-full object-cover"
+                                    src="media/chat.jpg"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- section 2 - Conversation détaillée -->
+                <div class="section2 hidden overscroll-x-none">
+                    <div class="header p-2 flex justify-between items-center">
+                        <div class="text-xl flex justify-between w-3/5 font-semibold text-gray-900 dark:text-white"
+                            style="align-items: center;">
+                            <i class="ri-arrow-left-line cursor-pointer" id="backListConversation"></i>
+                            <div class="relative flex-shrink-0">
+                                <img class="h-10 w-10 rounded-full object-cover"
+                                    src="media/chat.jpg"
+                                    alt="Camille Dubois">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div>Camille</div>
+                        </div>
+
+                        <div class="cursor-pointer flex" style="align-items: center;">
+                            <div class="">
+                                <i id=""
+                                    class="settingChat ri-settings-line ri-lg  w-5 h-5 hover:bg-white hover:bg-opacity-30 backdrop-filter backdrop-blur-xl p-2 rounded-lg"></i>
+                                <div class="userSetting hidden absolute right-0 mt-2 w-52 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-50"
+                                    id="">
+                                    <div class="py-1">
+                                        <a href="#"
+                                            class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Bloquer cet
+                                            utilisateur</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-sm text-red-500 hover:bg-red-900">Supprimer la
+                                            conversation </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-2 overflow-y-auto w-auto" style="height: 83vh;">
+                            <!-- time less -->
+                        <div class="flex justify-center p-2 text-xs backdrop-filter backdrop-blur-lg bg-gray-100 dark:bg-dark dark:bg-opacity-50 rounded-lg"
+                            style="align-items: center;">Aujourd'hui</div>
+
+                        <!-- receive msg -->
+                        <div class="text-sm">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                        </div>
+
+                        <!-- sent msg -->
+                        <div class="text-sm flex flex-col justify-end " style="align-items: end;">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <div class="flex">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-check-double-line text-blue-500"></i>
+                                </div>
+                                <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                            </div>
+                        </div>
+
+                        <!-- sent msg -->
+                        <div class="text-sm flex flex-col justify-end " style="align-items: end;">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <div class="flex">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-check-double-line text-blue-500"></i>
+                                </div>
+                                <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                            </div>
+                        </div>
+
+                        <!-- receive msg -->
+                        <div class="text-sm">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p class="text-sm mb-2">Je vous envoie une capture d'écran de mon travail. Voici où je
+                                    bloque :</p>
+                                <div class="bg-gray-200 rounded-md p-2 flex items-center">
+                                    <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                        <i class="ri-file-image-line"></i>
+                                    </div>
+                                    <span class="text-xs text-gray-700">exercice3_capture.jpg</span>
+                                    <button class="ml-auto p-1 text-gray-500 hover:text-gray-700">
+                                        <div class="w-4 h-4 flex items-center justify-center">
+                                            <i class="ri-download-line"></i>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                        </div>
+
+                        <!-- sent msg -->
+                        <div class="text-sm flex flex-col justify-end " style="align-items: end;">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p>Lorem </p>
+                            </div>
+                            <div class="flex">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-check-double-line text-blue-500"></i>
+                                </div>
+                                <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                            </div>
+                        </div>
+
+                        <!-- receive msg -->
+                        <div class="text-sm">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p class="text-sm mb-2">Je vous envoie une capture d'écran de mon travail. Voici où je
+                                    bloque :</p>
+                                <img class=" rounded-md mr-3"
+                                    src="media/chat.jpg"
+                                    alt="Sophie Moreau">
+
+                            </div>
+                            <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                        </div>
+                    </div>
+
+                    <div class="px-2 py-2 backdrop-filter backdrop-blur-2xl w-full fixed bottom-0" style="height:auto;">
+                        <div class="flex items-end">
+                            <label type="button" for="mediaUpload"
+                                class=" p-2 rounded-full text-gray-500 hover:text-gray-600 hover:bg-gray-100 mr-2">
+                                <div class="w-6 h-6 flex items-center justify-center">
+                                    <i class="ri-attachment-2"></i>
+                                </div>
+                                <input type="file" name="" class="hidden" id="mediaUpload">
+                            </label>
+                            <div
+                                class="flex-1 border border-gray-300 backdrop-filter backdrop-blur-2xl rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-primary focus-within:border-primary">
+                                <div class="content"><img src="" class="img h-10 w-10 rounded-sm"></div>
+                                <input
+                                    class="message-input bg-transparent backdrop-filter backdrop-blur-xl text-sm text-gray-800 w-full outline-none dark:text-white text-black"
+                                    contenteditable="true" placeholder="Écrivez votre message...">
+                            </div>
+                            <button type="button"
+                                class="p-2 ml-2 rounded-full text-white bg-primary hover:bg-indigo-700 !rounded-button">
+                                <div class="w-6 h-6 flex items-center justify-center">
+                                    <i class="ri-send-plane-fill"></i>
+                                </div>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- section 3 - Ajout de nouvelle discussion ou création de groupe -->
+                <div
+                    class="w-full section3 p-2 backdrop-filter backdrop-blur-2xl z-50 rounded-tl-lg rounded-tr-lg h-5/5">
+                    <div class="flex align-center justify-between" style="align-items: center;">
+                        <h2 class="ChangeToContinue text-sm">Sélectionner un utilisateur pour démarrer une conversation
+                        </h2>
+
+                        <i class="close ri-close-line cursor-pointer"></i>
+                    </div>
+
+                    <div class="relative hidden mt-2 lg:block">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-search-line"></i>
+                            </div>
+                        </div>
+                        <input type="search"
+                            class="bg-gray-100 text-black dark:text-white bg-opacity-10 dark:bg-dark dark:bg-opacity-30 text-gray-900 dark:text-white border-none text-sm rounded-full w-full pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary"
+                            placeholder="Rechercher un utilisateur">
+                    </div>
+
+                    <form class="mt-2 overflow-y-auto" style="height: 65vh;">
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="media/chat.jpg"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="media/chat.jpg"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="media/chat.jpg"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="media/chat.jpg"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="media/chat.jpg"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="media/chat.jpg"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class="selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="media/chat.jpg"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class="selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="media/chat.jpg"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </aside>
+
+        </div>    
+    </div>
+
+    <!-- ajout d'un modal ici-->
+
+
+
+    <script src="js_style/notif.js"></script>
+    <script src="js_style/dark.js"></script>
+    <script src="js_style/formateur/dashboard.js"></script>
+    <script src="js_style/msg.js"></script>
+    <script src="js_style/index.js"></script>
+    <script>
+        
+    </script>
+</body>
+
+</html>

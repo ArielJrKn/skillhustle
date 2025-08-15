@@ -1,0 +1,187 @@
+
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        body {
+            font-family: 'Urbanist', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+        
+        .progress{
+            height: 6px;
+            border-radius: 3px;
+            background-color: #E5E7EB;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        
+        .course-card, .quiz-card, .notification-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .course-card:hover, .quiz-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #CBD5E1;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        input[type="checkbox"]:checked {
+            background-color: #4A90E2;
+            border-color: #4A90E2;
+        }
+        
+        input[type="checkbox"]:checked:after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .theme-toggle {
+            width: 48px;
+            height: 24px;
+            background-color: #CBD5E1;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .theme-toggle.dark {
+            background-color: #4A90E2;
+        }
+        
+        .theme-toggle-circle {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-toggle.dark .theme-toggle-circle {
+            transform: translateX(24px);
+        }
+        
+        .dark-mode {
+            background-color: #1E1E1E;
+            color: black;
+        }
+        
+        .dark-mode .bg-white {
+            background-color: #EEE;
+            color: black;
+        }
+        
+        .dark-mode .text-gray-600, .dark-mode .text-gray-700 {
+            color: black;
+        }
+        
+        .dark-mode .text-gray-800, .dark-mode .text-gray-900 {
+            color: black;
+        }
+        
+        .dark-mode .border-gray-200 {
+            border-color: #333333;
+        }
+        
+        .dark-mode .bg-gray-100 {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .dark-mode .shadow {
+            box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.3);
+        }
+        
+        .dark-mode .progress {
+            background-color: #333333;
+        }
+        
+        input[type="search"] {
+            outline: none;
+        }
+        
+        input[type="search"]::placeholder {
+            color: #94A3B8;
+        }
+        
+        .dark-mode input[type="search"]::placeholder {
+            color: #64748B;
+        }
+        
+        .notification-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .difficulty-indicator {
+            width: 40px;
+            height: 6px;
+            border-radius: 3px;
+            background-color: #E5E7EB;
+            overflow: hidden;
+            display: flex;
+        }
+        
+        .difficulty-bar {
+            height: 100%;
+            border-radius: 3px;
+        }
+        
+        .difficulty-easy .difficulty-bar:nth-child(1) {
+            background-color: #50E3C2;
+            width: 33.33%;
+        }
+        
+        .difficulty-medium .difficulty-bar:nth-child(1),
+        .difficulty-medium .difficulty-bar:nth-child(2) {
+            background-color: #FFB547;
+            width: 33.33%;
+        }
+        
+        .difficulty-hard .difficulty-bar:nth-child(1),
+        .difficulty-hard .difficulty-bar:nth-child(2),
+        .difficulty-hard .difficulty-bar:nth-child(3) {
+            background-color: #FF6B6B;
+            width: 33.33%;
+        }
+
+        .sideBarNotification{
+            overflow: auto;
+            height: 100vh;
+            position: fixed;
+            z-index: 100;
+            right: 0px;
+            top: 0;
+        }
+
+        .mobileNav{
+            position: fixed;
+            z-index: 80;
+            top: 93%;
+        }

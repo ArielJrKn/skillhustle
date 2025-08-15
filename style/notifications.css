@@ -1,0 +1,14 @@
+.sideBarNotification{
+    overflow: auto;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    right: 0px;
+    top: 0;
+    transition: 0.3s;
+}
+.mobileNav{
+    position: fixed;
+    z-index: 80;
+    top: 93%;
+}

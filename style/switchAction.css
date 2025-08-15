@@ -1,0 +1,33 @@
+.switchMode {
+    width: 48px;
+    height: 24px;
+    background-color: #4A90E2;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.switchMode.dark {
+    background-color: #4A90E2;
+}
+.switchMode-circle {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+.switchMode.dark .switchMode-circle {
+    transform: translateX(24px);
+}
+
+
+
+
+
+/*<div class="switchMode" id="themeToggle">
+                    <div class="switchMode-circle"></div>
+                </div>*/

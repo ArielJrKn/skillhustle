@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du candidats</title>
+    <link rel="stylesheet" type="text/css" href="../style/progresseBar.css">
+    <link rel="stylesheet" type="text/css" href="../style/scroll.css">
+    <link rel="stylesheet" type="text/css" href="../style/switchAction.css">
+    <link rel="stylesheet" type="text/css" href="../style/msg.css">
+    <link rel="stylesheet" type="text/css" href="../style/dark.css">
+    <link rel="stylesheet" type="text/css" href="../style/notifications.css">
+    <link rel="stylesheet" type="text/css" href="../style/admin/feedback.css">
+    <link rel="stylesheet" type="text/css" href="../style/recruit/userDetail.css">
+    <link rel="stylesheet" type="text/css" href="../style/favoris.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="../js_style/student_dashboard_tailwindConfig.js"></script>
+</head>
+<body class="bg-background min-h-screen">
+
+    <!-- Loading Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Main Container -->
+    <div class="flex flex-col h-screen">
+        <!-- Top Navigation Bar -->
+        <header class="h-16 backdrop-filter backdrop-blur-lg absolute w-full shadow-sm flex items-center justify-between px-6 z-10">
+            <!-- Back Button and Course Title -->
+            <div class="flex items-center">
+                <a href="candidates.html" data-readdy="true" class="flex items-center mr-6 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+                    <div class="w-5 h-5 flex items-center justify-center mr-1">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>              
+                    <span class="text-xl font-semibold text-gray-900 dark:text-white">Nom du candidat</span>
+                </a>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center space-x-4">
+                <!-- Search Bar -->
+                <div class="relative hidden lg:block">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-search-line"></i>
+                        </div>
+                    </div>
+                    <input type="search"
+                        class="bg-gray-100 text-black dark:text-white dark:bg-dark dark:bg-opacity-30 text-gray-900 dark:text-white border-none text-sm rounded-full pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary"
+                        placeholder="Search courses, resources...">
+                </div>
+                <div
+                    class=" relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                    <i id="theme" class="ri-sun-line text-xl"></i>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex overflow-hidden">
+
+            <!-- Main Content -->
+            <main class="pt-16 flex-1 overflow-y-auto bg-background bg-gray-100 dark:bg-dark">
+                <main class="max-w-7xl mx-auto px-4 py-4">
+                    <div class="glass-effect-light dark:glass-effect-dark rounded-xl overflow-hidden mb-8">
+                        <div class="relative h-64 bg-[#6663F1] bg-opacity-20">
+                            <div class="absolute flex items-center justify-between px-8 inset-0 flex-wrap">
+                                <div class="flex items-center gap-2">
+                                    <div class="relative">
+                                        <div class="profile rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
+                                            <img src="../media/chat.jpg" alt="Daniel " class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="status-indicator status-available absolute bottom-3 right-3 w-6 h-6 border-2 border-white dark:border-gray-800"></div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 futuristic-font">Daniel</h1>
+                                            <div class="w-6 h-6 flex items-center justify-center bg-primary/20 rounded-full verification-badge">
+                                                <i class="ri-verified-badge-fill text-primary text-sm"></i>
+                                            </div>
+                                        </div>
+                                        <p class="text-xl text-gray-600 dark:text-gray-300 text-xs mb-4">Senior Frontend Developer</p>
+                                        <div class="flex items-center gap-4 text-gray-600 dark:text-gray-300">
+                                            <div class="flex items-center gap-1">
+                                                <div class="w-5 h-5 flex items-center justify-center">
+                                                    <i class="ri-map-pin-line"></i>
+                                                </div>
+                                                <span>San Francisco, USA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="action">
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex">
+                                            <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                                <i class="ri-star-fill"></i>
+                                            </div>
+                                            <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                                <i class="ri-star-fill"></i>
+                                            </div>
+                                            <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                                <i class="ri-star-fill"></i>
+                                            </div>
+                                            <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                                <i class="ri-star-fill"></i>
+                                            </div>
+                                            <div class="w-5 h-5 flex items-center justify-center text-gray-300 dark:text-gray-600">
+                                                <i class="ri-star-fill"></i>
+                                            </div>
+                                        </div>
+                                        <span class="text-gray-600 dark:text-gray-300">(4.8)</span>
+                                    </div>
+                                    
+                                    <div class="flex gap-2">
+                                        <button class="px-4 py-2 rounded-button bg-primary hover:bg-primary/90 text-white transition-colors whitespace-nowrap flex items-center gap-2">
+                                            <div class="w-5 h-5 flex items-center justify-center">
+                                                <i class="ri-message-3-line"></i>
+                                            </div>
+                                            Message
+                                        </button>
+                                        <button class="w-10 h-10 hidden lg:block rounded-button bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors whitespace-nowrap flex items-center justify-center">
+                                            <i class="ri-share-line"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <div class="glass-effect-light dark:glass-effect-dark bg-[#6663F1] bg-opacity-10 rounded-xl p-6 mb-8">
+                                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4 futuristic-font">About</h2>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    I'm a passionate Senior Frontend Developer with over 8 years of experience building responsive, user-friendly web applications. My expertise lies in creating seamless user experiences with modern JavaScript frameworks, particularly React and TypeScript.
+                                </p>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    I've worked with startups and enterprise clients across various industries, including fintech, e-commerce, and SaaS. I'm particularly interested in performance optimization, accessibility, and creating design systems that scale.
+                                </p>
+                            </div>
+                            
+                            <div class="glass-effect-light dark:glass-effect-dark bg-[#6663F1] bg-opacity-10 rounded-xl p-6 mb-8">
+                                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 futuristic-font">Skills & Expertise</h2>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4">Primary Skills</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">JavaScript</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">95%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">React</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">90%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 90%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">TypeScript</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">85%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 85%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">HTML/CSS</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">95%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">Redux</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">80%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 80%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-2">
+                                                <span class="text-gray-600 dark:text-gray-400">Next.js</span>
+                                                <span class="text-sm text-gray-500 dark:text-gray-400">75%</span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <div class="skill-progress-bar" style="width: 75%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4">Secondary Skills</h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">GraphQL</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Node.js</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Tailwind CSS</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Webpack</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Jest</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Cypress</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Git</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">CI/CD</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Responsive Design</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Accessibility</span>
+                                        <span class="skill-tag px-3 py-1 rounded-full bg-primary/10 text-primary">Performance Optimization</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4">Certifications</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="flex items-center gap-3 p-3 rounded-lg bg-[#6663F1] bg-opacity-20">
+                                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+                                                <i class="ri-award-line text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-medium text-gray-700 dark:text-gray-300">AWS Certified Developer</h4>
+                                                <p class="text-sm text-gray-500 dark:text-gray-400">Issued Jun 2023</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-3 p-3 rounded-lg bg-[#6663F1] bg-opacity-20">
+                                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+                                                <i class="ri-award-line text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-medium text-gray-700 dark:text-gray-300">React Advanced Certification</h4>
+                                                <p class="text-sm text-gray-500 dark:text-gray-400">Issued Mar 2022</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-effect-light dark:glass-effect-dark bg-[#6663F1] bg-opacity-10 rounded-xl p-6 mb-8">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 futuristic-font">Portfolio Projects</h2>
+                                    <button class="text-primary hover:text-primary/80 transition-colors flex items-center gap-1">
+                                        <span>View All</span>
+                                        <div class="w-5 h-5 flex items-center justify-center">
+                                            <i class="ri-arrow-right-line"></i>
+                                        </div>
+                                    </button>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="portfolio-item bg-[#6663F1] bg-opacity-20 rounded-lg overflow-hidden shadow-md">
+                                        <div class="relative h-48">
+                                            <img src="https://readdy.ai/api/search-image?query=modern%2520fintech%2520dashboard%2520user%2520interface%2520with%2520charts%2520and%2520data%2520visualization%252C%2520clean%2520design%252C%2520professional%2520UI%252C%2520high%2520quality&width=600&height=400&seq=project1&orientation=landscape" alt="FinTech Dashboard" class="w-full h-full object-cover">
+                                            <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-4">
+                                                <div class="flex items-center gap-2 mb-2">
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">React</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">TypeScript</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">D3.js</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="font-semibold text-gray-800 dark:text-gray-200">FinTech Dashboard</h3>
+                                                <div class="flex items-center">
+                                                    <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                        <i class="ri-star-fill"></i>
+                                                    </div>
+                                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.9</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                                A comprehensive financial dashboard with real-time data visualization and interactive charts.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio-item bg-[#6663F1] bg-opacity-20 rounded-lg overflow-hidden shadow-md">
+                                        <div class="relative h-48">
+                                            <img src="https://readdy.ai/api/search-image?query=e-commerce%2520mobile%2520app%2520interface%2520with%2520product%2520listings%2520and%2520shopping%2520cart%252C%2520clean%2520design%252C%2520professional%2520UI%252C%2520high%2520quality&width=600&height=400&seq=project2&orientation=landscape" alt="E-commerce Platform" class="w-full h-full object-cover">
+                                            <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-4">
+                                                <div class="flex items-center gap-2 mb-2">
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">React Native</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Redux</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Firebase</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="font-semibold text-gray-800 dark:text-gray-200">E-commerce Platform</h3>
+                                                <div class="flex items-center">
+                                                    <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                        <i class="ri-star-fill"></i>
+                                                    </div>
+                                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.7</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                                A cross-platform mobile app for a luxury fashion brand with AR try-on features.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio-item bg-[#6663F1] bg-opacity-20 rounded-lg overflow-hidden shadow-md">
+                                        <div class="relative h-48">
+                                            <img src="https://readdy.ai/api/search-image?query=SaaS%2520analytics%2520platform%2520with%2520data%2520visualization%2520and%2520reporting%2520tools%252C%2520clean%2520design%252C%2520professional%2520UI%252C%2520high%2520quality&width=600&height=400&seq=project3&orientation=landscape" alt="SaaS Analytics Platform" class="w-full h-full object-cover">
+                                            <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-4">
+                                                <div class="flex items-center gap-2 mb-2">
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Next.js</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">GraphQL</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Tailwind</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="font-semibold text-gray-800 dark:text-gray-200">SaaS Analytics Platform</h3>
+                                                <div class="flex items-center">
+                                                    <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                        <i class="ri-star-fill"></i>
+                                                    </div>
+                                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">5.0</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                                A comprehensive analytics platform for SaaS businesses with customizable dashboards.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio-item bg-[#6663F1] bg-opacity-20 rounded-lg overflow-hidden shadow-md">
+                                        <div class="relative h-48">
+                                            <img src="https://readdy.ai/api/search-image?query=collaborative%2520project%2520management%2520tool%2520with%2520kanban%2520boards%2520and%2520team%2520collaboration%2520features%252C%2520clean%2520design%252C%2520professional%2520UI%252C%2520high%2520quality&width=600&height=400&seq=project4&orientation=landscape" alt="Project Management Tool" class="w-full h-full object-cover">
+                                            <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-4">
+                                                <div class="flex items-center gap-2 mb-2">
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Vue.js</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">Node.js</span>
+                                                    <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white">MongoDB</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="font-semibold text-gray-800 dark:text-gray-200">Project Management Tool</h3>
+                                                <div class="flex items-center">
+                                                    <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                        <i class="ri-star-fill"></i>
+                                                    </div>
+                                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.8</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                                A collaborative project management tool with real-time updates and team communication.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="lg:col-span-1">
+                            <div class="glass-effect-light bg-[#6663F1] bg-opacity-10 dark:glass-effect-dark rounded-xl p-6 mb-8">
+                                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 futuristic-font">Overview</h2>
+                                
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="p-4 rounded-lg bg-[#6663F1] bg-opacity-20 flex flex-col items-center">
+                                        <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-2">
+                                            <i class="ri-briefcase-4-line text-xl"></i>
+                                        </div>
+                                        <span class="text-2xl font-bold text-gray-800 dark:text-gray-200">42</span>
+                                        <span class="text-sm text-gray-500">Projects Completed</span>
+                                    </div>
+                                    
+                                    <div class="p-4 rounded-lg bg-[#6663F1] bg-opacity-20 flex flex-col items-center">
+                                        <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-2">
+                                            <i class="ri-medal-line text-xl"></i>
+                                        </div>
+                                        <span class="text-2xl font-bold text-gray-800 dark:text-gray-200">97%</span>
+                                        <span class="text-sm text-gray-500">Success Rate</span>
+                                    </div>
+                                    
+                                    <div class="p-4 rounded-lg bg-[#6663F1] bg-opacity-20 flex flex-col items-center">
+                                        <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-2">
+                                            <i class="ri-time-line text-xl"></i>
+                                        </div>
+                                        <span class="text-2xl font-bold text-gray-800 dark:text-gray-200">2h</span>
+                                        <span class="text-sm text-gray-500">Avg. Response Time</span>
+                                    </div>
+                                    
+                                    <div class="p-4 rounded-lg bg-[#6663F1] bg-opacity-20 flex flex-col items-center">
+                                        <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-2">
+                                            <i class="ri-calendar-check-line text-xl"></i>
+                                        </div>
+                                        <span class="text-2xl font-bold text-gray-800 dark:text-gray-200">8+</span>
+                                        <span class="text-sm text-gray-500">Years Experience</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6">
+                                    <div class="mb-4">
+                                        <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Expertise Distribution</h3>
+                                        <div id="expertiseChart" class="h-64"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-effect-light bg-[#6663F1] bg-opacity-10 dark:glass-effect-dark rounded-xl p-6">
+                                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 futuristic-font">Contact</h2>
+                                
+                                <div class="space-y-4 mb-6">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+                                            <i class="ri-mail-line text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-sm text-gray-500 dark:text-gray-400">Email</h3>
+                                            <p class="text-gray-700 dark:text-gray-300">daniel.mitchell@example.com</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+                                            <i class="ri-phone-line text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-sm text-gray-500 dark:text-gray-400">Phone</h3>
+                                            <p class="text-gray-700 dark:text-gray-300">+1 (415) 555-0123</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+                                            <i class="ri-global-line text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-sm text-gray-500 dark:text-gray-400">Website</h3>
+                                            <p class="text-gray-700 dark:text-gray-300">danielmitchell.dev</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-3">Social Profiles</h3>
+                                    <div class="flex gap-3">
+                                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors">
+                                            <i class="ri-linkedin-fill"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors">
+                                            <i class="ri-github-fill"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors">
+                                            <i class="ri-twitter-x-fill"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors">
+                                            <i class="ri-dribbble-fill"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-3">Send a Message</h3>
+                                    <form>
+                                        <div class="mb-4">
+                                            <input type="text" placeholder="Subject" class="w-full px-4 py-2 rounded-lg text-gray-900 dark:text-gray-100 bg-white bg-opacity-30 border border-1 border-black focus:outline-none focus:ring-2 focus:ring-primary/50 text-gray-700 dark:text-gray-300">
+                                        </div>
+                                        <div class="mb-4">
+                                            <textarea rows="4" placeholder="Your message" class="w-full px-4 py-2 rounded-lg text-gray-900 dark:text-gray-100 bg-white bg-opacity-30 border border-1 border-black focus:outline-none focus:ring-2 focus:ring-primary/50 text-gray-700 dark:text-gray-300 resize-none"></textarea>
+                                        </div>
+                                        <button type="submit" class="w-full px-4 py-2 rounded-button bg-primary hover:bg-primary/90 text-white transition-colors whitespace-nowrap">
+                                            Send Message
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <div class="p-6">
+                    <div class="glass-effect-light dark:glass-effect-dark bg-[#6663F1] bg-opacity-10 rounded-xl p-6 mb-8">
+                        <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 futuristic-font">Experience</h2>
+                        
+                        <div class="relative pl-12">
+                            <div class="timeline-item relative pb-8">
+                                <div class="absolute right-full w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                </div>
+                                <div>
+                                    <div class="flex flex-wrap items-center justify-between mb-2">
+                                        <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">Senior Frontend Developer</h3>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-4 h-4 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                                <i class="ri-calendar-line"></i>
+                                            </div>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">2021 - Present</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-primary mb-2">TechNova Solutions</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                                        Leading the frontend development team for enterprise SaaS applications. Implemented a component library that reduced development time by 40%.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">React</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">TypeScript</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">GraphQL</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Design Systems</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item relative pb-8">
+                                <div class="absolute right-full w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                </div>
+                                <div>
+                                    <div class="flex flex-wrap items-center justify-between mb-2">
+                                        <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">Frontend Developer</h3>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-4 h-4 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                                <i class="ri-calendar-line"></i>
+                                            </div>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">2018 - 2021</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-primary mb-2">FinEdge Inc.</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                                        Developed responsive web applications for financial services. Improved application performance by 60% through code optimization.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">React</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Redux</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Webpack</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Performance Optimization</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item relative">
+                                <div class="absolute right-full w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                </div>
+                                <div>
+                                    <div class="flex flex-wrap items-center justify-between mb-2">
+                                        <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">Junior Web Developer</h3>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-4 h-4 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                                <i class="ri-calendar-line"></i>
+                                            </div>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">2016 - 2018</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-primary mb-2">WebCraft Agency</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                                        Built responsive websites for various clients. Specialized in e-commerce solutions and content management systems.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">JavaScript</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">HTML/CSS</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">jQuery</span>
+                                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">WordPress</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
+                    <div class="glass-effect-light dark:glass-effect-dark bg-[#6663F1] bg-opacity-10 rounded-xl p-6 mb-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 futuristic-font">Reviews & Testimonials</h2>
+                            <div class="flex items-center gap-2">
+                                <div class="flex">
+                                    <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <div class="w-5 h-5 flex items-center justify-center text-gray-300 dark:text-gray-600">
+                                        <i class="ri-star-half-fill"></i>
+                                    </div>
+                                </div>
+                                <span class="text-gray-600 dark:text-gray-300">4.8 (24 reviews)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="review-card p-4 rounded-lg bg-[#6663F1] bg-opacity-20">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden">
+                                        <img src="../media/chat.jpg" alt="Client" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-800 dark:text-gray-200">Samantha</h3>
+                                            <div class="flex">
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-4 mb-2">
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">Product Manager, FinEdge Inc.</span>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">June 2023</span>
+                                        </div>
+                                        <p class="text-gray-600 dark:text-gray-300">
+                                            Daniel is an exceptional frontend developer who consistently delivers high-quality work. His attention to detail and ability to translate complex requirements into intuitive user interfaces is remarkable. He's also great at communicating and meeting deadlines.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="review-card p-4 rounded-lg bg-[#6663F1] bg-opacity-20">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden">
+                                        <img src="../media/chat.jpg" alt="Client" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-800 dark:text-gray-200">Michael</h3>
+                                            <div class="flex">
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-gray-300 dark:text-gray-600">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-4 mb-2">
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">CTO, TechNova Solutions</span>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">March 2023</span>
+                                        </div>
+                                        <p class="text-gray-600 dark:text-gray-300">
+                                            Working with Daniel has been a pleasure. He not only delivers excellent code but also contributes valuable insights to improve our products. His expertise in React and TypeScript has been instrumental in modernizing our frontend architecture.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="review-card p-4 rounded-lg bg-[#6663F1] bg-opacity-20">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden">
+                                        <img src="../media/chat.jpg" alt="Client" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-800 dark:text-gray-200">Emily</h3>
+                                            <div class="flex">
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-half-fill"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-4 mb-2">
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">UX Designer, WebCraft Agency</span>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">November 2022</span>
+                                        </div>
+                                        <p class="text-gray-600 dark:text-gray-300">
+                                            Daniel is a developer who truly understands design. His implementation of our UX designs was flawless, and he even suggested improvements that enhanced the user experience. He's collaborative, responsive, and technically skilled.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 text-center">
+                            <button class="px-4 py-2 rounded-button bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors whitespace-nowrap">
+                                Load More Reviews
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+
+    <script src="../js_style/dark.js"></script>
+    <script src="../js_style/formateur/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            background-color: #f8f9fa;
+            color: #212529;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Urbanist', sans-serif;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            border-color: #007bff;
+        }
+        .form-control:focus + .form-label,
+        .form-control:not(:placeholder-shown) + .form-label {
+            transform: translateY(-1.5rem) scale(0.85);
+            color: #007bff;
+        }
+        .form-label {
+            position: absolute;
+            left: 0.75rem;
+            top: 0.50rem;
+            transition: all 0.2s ease;
+            pointer-events: none;
+            background-color: white;
+            padding: 0 0.25rem;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 0.75rem;
+            top: 0.75rem;
+            cursor: pointer;
+        }
+        .error-message {
+            display: none;
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        input{
+            height: 40px;
+        }
+        input:invalid:not(:placeholder-shown) ~ .error-message {
+            display: block;
+        }
+        input[type="checkbox"] {
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            position: relative;
+            cursor: pointer;
+        }
+        input[type="checkbox"]:checked {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 0.4rem;
+            top: 0.2rem;
+            width: 0.4rem;
+            height: 0.8rem;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .auth_google{
+            padding: 10px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            transition: 3s;
+        }
+        .auth_google:hover{
+            background: linear-gradient(to right, #4285F4, #EA4335, #FBBC05, #34A853);
+            transition: 3s;
+
+        }
+
+        /*.dark {
+            background-color: #121212;
+            color: #FFFFFF;
+        }
+
+        .dark .card {
+            background-color: #1E1E1E;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.05);
+        }
+
+        .dark input, .dark .form-label {
+            background-color: #1E1E1E;
+            color: #FFFFFF;
+            border-color: #333333;
+        }*/

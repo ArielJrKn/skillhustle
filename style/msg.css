@@ -1,0 +1,50 @@
+	.sideBarMessage{
+            /*overflow: auto;
+            height: 100vh;
+            position: absolute;
+            z-index: 100;
+            right: 0px;
+            top: 0;
+            bottom: 0;*/
+            width: 40%;
+        }
+.section1{
+    transition: 0.3s;
+}
+.section1.active{
+    transform: scale(0.9);
+    transition: 0.3s;
+    filter: blur(20px);
+}
+.section2{
+
+}
+.section3{
+    right: 0;
+    transition: 0.3s;
+    position: absolute;
+    top: 100%;
+}
+.section3.active{
+    transition: 0.3s;
+    position: absolute;
+    top: 30%;
+}
+
+@media screen and (max-width: 767px) and (min-width: 480px) {
+    .sideBarMessage{
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px){
+    .sideBarMessage{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .sideBarMessage{
+        width: 100%;
+    }
+}

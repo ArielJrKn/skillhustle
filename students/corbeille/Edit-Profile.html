@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4A90E2',secondary:'#50E3C2'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F5F7FA;
+            color: #1F2937;
+        }
+        
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .loading-bar {
+            height: 2px;
+            background: linear-gradient(90deg, #4A90E2, #50E3C2);
+            animation: loading 2s infinite;
+            transform-origin: left;
+        }
+        
+        @keyframes loading {
+            0% { transform: scaleX(0); }
+            50% { transform: scaleX(0.5); }
+            100% { transform: scaleX(1); }
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(203, 213, 225, 0.5);
+        }
+        
+        .form-input:focus {
+            border-color: #4A90E2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+        }
+        
+        .profile-photo {
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #4A90E2, #50E3C2) border-box;
+        }
+        
+        .tag {
+            background: linear-gradient(90deg, rgba(74, 144, 226, 0.1), rgba(80, 227, 194, 0.1));
+            border: 1px solid rgba(74, 144, 226, 0.2);
+        }
+        
+        .custom-toggle {
+            position: relative;
+            width: 48px;
+            height: 24px;
+        }
+        
+        .custom-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #E5E7EB;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #4A90E2;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+        
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+        
+        .cancel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .upload-zone {
+            border: 2px dashed #CBD5E1;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-zone:hover {
+            border-color: #4A90E2;
+            background-color: rgba(74, 144, 226, 0.05);
+        }
+        
+        .social-input {
+            padding-left: 40px;
+        }
+        
+        .social-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748B;
+        }
+        
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="fixed top-0 left-0 right-0 z-50 loading-bar opacity-0" id="loadingBar"></div>
+    
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Edit Profile</h1>
+            <p class="text-gray-500">Update your personal information and preferences</p>
+        </header>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - Profile Photo and Personal Info -->
+            <div class="lg:col-span-1">
+                <div class="glassmorphism rounded-lg p-6 mb-8">
+                    <h2 class="text-xl font-semibold mb-6">Profile Photo</h2>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="profile-photo w-32 h-32 rounded-full overflow-hidden mb-4 relative">
+                            <img id="profilePreview" src="https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20young%20person%20with%20neutral%20expression%2C%20high%20quality%20studio%20lighting%2C%20professional%20headshot%2C%20minimal%20background%2C%20soft%20lighting&width=300&height=300&seq=1&orientation=squarish" class="w-full h-full object-cover" alt="Profile photo">
+                        </div>
+                        
+                        <label for="photoUpload" class="cursor-pointer mb-4">
+                            <div class="bg-primary text-white px-4 py-2 rounded-button flex items-center gap-2 hover:bg-opacity-90 transition whitespace-nowrap">
+                                <span class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-upload-2-line"></i>
+                                </span>
+                                <span>Upload Photo</span>
+                            </div>
+                            <input type="file" id="photoUpload" class="hidden" accept="image/*">
+                        </label>
+                        
+                        <div class="upload-zone w-full p-4 rounded text-center mb-2">
+                            <p class="text-sm text-gray-500">Or drag and drop image here</p>
+                        </div>
+                        
+                        <p class="text-xs text-gray-500">Supported formats: JPG, PNG, GIF (Max 5MB)</p>
+                    </div>
+                </div>
+                
+                <div class="glassmorphism rounded-lg p-6">
+                    <h2 class="text-xl font-semibold mb-6">Account Information</h2>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">Member Since</p>
+                            <p class="font-medium">July 3, 2023</p>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">Last Login</p>
+                            <p class="font-medium">July 3, 2025 (Today)</p>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">Subscription</p>
+                            <div class="flex items-center">
+                                <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm font-medium">Premium</span>
+                                <span class="ml-2 text-sm text-gray-500">Renews on Aug 3, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Form Fields -->
+            <div class="lg:col-span-2">
+                <form id="profileForm">
+                    <div class="glassmorphism rounded-lg p-6 mb-8">
+                        <h2 class="text-xl font-semibold mb-6">Personal Information</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                <input type="text" id="firstName" class="form-input w-full px-4 py-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" value="Emma" placeholder="First Name">
+                            </div>
+                            
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                <input type="text" id="lastName" class="form-input w-full px-4 py-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" value="Thompson" placeholder="Last Name">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" class="form-input w-full px-4 py-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" value="emma.thompson@example.com" placeholder="Email Address" readonly>
+                            <p class="text-xs text-gray-500 mt-1">Contact support to change your email address</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="profession" class="block text-sm font-medium text-gray-700 mb-1">Profession</label>
+                            <div class="relative">
+                                <select id="profession" class="form-input w-full px-4 py-2 rounded appearance-none border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50 pr-8">
+                                    <option value="developer">Software Developer</option>
+                                    <option value="designer">UX/UI Designer</option>
+                                    <option value="manager">Product Manager</option>
+                                    <option value="student">Student</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                    <span class="w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="bio" class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+                            <textarea id="bio" rows="4" class="form-input w-full px-4 py-2 rounded resize-none border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" placeholder="Tell us about yourself">Full-stack developer with 5 years of experience specializing in React and Node.js. Passionate about creating intuitive user experiences and solving complex problems through clean, efficient code. Currently learning AI/ML to expand my skill set.</textarea>
+                            <div class="flex justify-end">
+                                <span class="text-xs text-gray-500 mt-1"><span id="bioCount">189</span>/300</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glassmorphism rounded-lg p-6 mb-8">
+                        <h2 class="text-xl font-semibold mb-6">Skills & Expertise</h2>
+                        
+                        <div class="mb-6">
+                            <label for="skills" class="block text-sm font-medium text-gray-700 mb-1">Skills</label>
+                            <div class="relative">
+                                <input type="text" id="skillInput" class="form-input w-full px-4 py-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" placeholder="Add a skill and press Enter">
+                                <div class="absolute inset-y-0 right-0 flex items-center px-2">
+                                    <button type="button" id="addSkill" class="w-8 h-8 flex items-center justify-center text-primary hover:bg-gray-100 rounded-full">
+                                        <i class="ri-add-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div id="skillTags" class="flex flex-wrap gap-2 mt-3">
+                                <div class="tag flex items-center px-3 py-1 rounded-full">
+                                    <span>JavaScript</span>
+                                    <button type="button" class="ml-2 w-4 h-4 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                                <div class="tag flex items-center px-3 py-1 rounded-full">
+                                    <span>React</span>
+                                    <button type="button" class="ml-2 w-4 h-4 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                                <div class="tag flex items-center px-3 py-1 rounded-full">
+                                    <span>Node.js</span>
+                                    <button type="button" class="ml-2 w-4 h-4 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                                <div class="tag flex items-center px-3 py-1 rounded-full">
+                                    <span>TypeScript</span>
+                                    <button type="button" class="ml-2 w-4 h-4 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                                <div class="tag flex items-center px-3 py-1 rounded-full">
+                                    <span>MongoDB</span>
+                                    <button type="button" class="ml-2 w-4 h-4 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="experience" class="block text-sm font-medium text-gray-700 mb-1">Years of Experience</label>
+                            <input type="number" id="experience" class="form-input w-full px-4 py-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" value="5" min="0" max="50">
+                        </div>
+                        
+                        <div>
+                            <label for="learningGoals" class="block text-sm font-medium text-gray-700 mb-1">Learning Goals</label>
+                            <textarea id="learningGoals" rows="3" class="form-input w-full px-4 py-2 rounded resize-none border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" placeholder="What do you want to achieve?">Master advanced React patterns, improve my knowledge of AI/ML fundamentals, and develop expertise in cloud architecture to build more scalable applications.</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="glassmorphism rounded-lg p-6 mb-8">
+                        <h2 class="text-xl font-semibold mb-6">Social Profiles</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="relative">
+                                <label for="linkedin" class="block text-sm font-medium text-gray-700 mb-1">LinkedIn</label>
+                                <div class="relative">
+                                    <span class="social-icon w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-linkedin-fill"></i>
+                                    </span>
+                                    <input type="url" id="linkedin" class="social-input form-input w-full px-4 py-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" value="https://linkedin.com/in/emmathompson" placeholder="https://linkedin.com/in/username">
+                                </div>
+                            </div>
+                            
+                            <div class="relative">
+                                <label for="github" class="block text-sm font-medium text-gray-700 mb-1">GitHub</label>
+                                <div class="relative">
+                                    <span class="social-icon w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-github-fill"></i>
+                                    </span>
+                                    <input type="url" id="github" class="social-input form-input w-full px-4 py-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" value="https://github.com/emmathompson" placeholder="https://github.com/username">
+                                </div>
+                            </div>
+                            
+                            <div class="relative">
+                                <label for="portfolio" class="block text-sm font-medium text-gray-700 mb-1">Portfolio Website</label>
+                                <div class="relative">
+                                    <span class="social-icon w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-global-line"></i>
+                                    </span>
+                                    <input type="url" id="portfolio" class="social-input form-input w-full px-4 py-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" value="https://emmathompson.dev" placeholder="https://yourwebsite.com">
+                                </div>
+                            </div>
+                            
+                            <div class="relative">
+                                <label for="twitter" class="block text-sm font-medium text-gray-700 mb-1">Twitter</label>
+                                <div class="relative">
+                                    <span class="social-icon w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-twitter-x-fill"></i>
+                                    </span>
+                                    <input type="url" id="twitter" class="social-input form-input w-full px-4 py-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50" value="https://twitter.com/emmathompson" placeholder="https://twitter.com/username">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glassmorphism rounded-lg p-6 mb-8">
+                        <h2 class="text-xl font-semibold mb-6">Preferences</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label for="language" class="block text-sm font-medium text-gray-700 mb-1">Preferred Learning Language</label>
+                                <div class="relative">
+                                    <select id="language" class="form-input w-full px-4 py-2 rounded appearance-none border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50 pr-8">
+                                        <option value="en">English</option>
+                                        <option value="es">Spanish</option>
+                                        <option value="fr">French</option>
+                                        <option value="de">German</option>
+                                        <option value="zh">Chinese</option>
+                                        <option value="ja">Japanese</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                        <span class="w-5 h-5 flex items-center justify-center">
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="timezone" class="block text-sm font-medium text-gray-700 mb-1">Timezone</label>
+                                <div class="relative">
+                                    <select id="timezone" class="form-input w-full px-4 py-2 rounded appearance-none border-none focus:outline-none focus:ring-2 focus:ring-primary bg-gray-50 pr-8">
+                                        <option value="utc-8">Pacific Time (UTC-8)</option>
+                                        <option value="utc-5">Eastern Time (UTC-5)</option>
+                                        <option value="utc+0">GMT (UTC+0)</option>
+                                        <option value="utc+1">Central European Time (UTC+1)</option>
+                                        <option value="utc+8">China Standard Time (UTC+8)</option>
+                                        <option value="utc+9">Japan Standard Time (UTC+9)</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                        <span class="w-5 h-5 flex items-center justify-center">
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700">Email Notifications</p>
+                                    <p class="text-xs text-gray-500">Receive updates about courses, events and promotions</p>
+                                </div>
+                                <label class="custom-toggle">
+                                    <input type="checkbox" id="emailNotifications" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700">Learning Reminders</p>
+                                    <p class="text-xs text-gray-500">Get reminders to continue your learning journey</p>
+                                </div>
+                                <label class="custom-toggle">
+                                    <input type="checkbox" id="learningReminders" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700">Public Profile</p>
+                                    <p class="text-xs text-gray-500">Allow other learners to view your profile</p>
+                                </div>
+                                <label class="custom-toggle">
+                                    <input type="checkbox" id="publicProfile">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-end mt-8 mb-16">
+                        <button type="button" class="cancel-btn order-2 sm:order-1 px-6 py-2 border border-gray-300 rounded-button text-gray-700 hover:bg-gray-50 transition whitespace-nowrap">Cancel</button>
+                        <button type="submit" id="saveButton" class="save-btn order-1 sm:order-2 bg-primary text-white px-6 py-2 rounded-button transition hover:bg-opacity-90 flex items-center justify-center gap-2 whitespace-nowrap">
+                            <span class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-save-line"></i>
+                            </span>
+                            <span>Save Changes</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg p-4 flex items-center gap-3 transform translate-y-16 opacity-0 transition-all duration-300">
+        <div id="toastIcon" class="w-6 h-6 flex items-center justify-center text-white bg-green-500 rounded-full">
+            <i class="ri-check-line"></i>
+        </div>
+        <div>
+            <p id="toastMessage" class="font-medium">Profile updated successfully!</p>
+        </div>
+    </div>
+    
+    <script id="profilePhotoScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const photoUpload = document.getElementById('photoUpload');
+            const profilePreview = document.getElementById('profilePreview');
+            const uploadZone = document.querySelector('.upload-zone');
+            
+            photoUpload.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profilePreview.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Drag and drop functionality
+            uploadZone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadZone.classList.add('border-primary', 'bg-primary', 'bg-opacity-5');
+            });
+            
+            uploadZone.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                uploadZone.classList.remove('border-primary', 'bg-primary', 'bg-opacity-5');
+            });
+            
+            uploadZone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadZone.classList.remove('border-primary', 'bg-primary', 'bg-opacity-5');
+                
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.match('image.*')) {
+                    photoUpload.files = e.dataTransfer.files;
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profilePreview.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
+    
+    <script id="skillsManagementScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillInput = document.getElementById('skillInput');
+            const addSkillBtn = document.getElementById('addSkill');
+            const skillTags = document.getElementById('skillTags');
+            
+            function addSkill() {
+                const skill = skillInput.value.trim();
+                if (skill) {
+                    const tagElement = document.createElement('div');
+                    tagElement.className = 'tag flex items-center px-3 py-1 rounded-full';
+                    tagElement.innerHTML = `
+                        <span>${skill}</span>
+                        <button type="button" class="ml-2 w-4 h-4 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                            <i class="ri-close-line"></i>
+                        </button>
+                    `;
+                    
+                    tagElement.querySelector('button').addEventListener('click', function() {
+                        tagElement.remove();
+                    });
+                    
+                    skillTags.appendChild(tagElement);
+                    skillInput.value = '';
+                }
+            }
+            
+            addSkillBtn.addEventListener('click', addSkill);
+            
+            skillInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addSkill();
+                }
+            });
+            
+            // Add event listeners to existing skill tags
+            const removeButtons = skillTags.querySelectorAll('button');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    button.closest('.tag').remove();
+                });
+            });
+        });
+    </script>
+    
+    <script id="formSubmissionScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileForm = document.getElementById('profileForm');
+            const saveButton = document.getElementById('saveButton');
+            const loadingBar = document.getElementById('loadingBar');
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+            const bioTextarea = document.getElementById('bio');
+            const bioCount = document.getElementById('bioCount');
+            
+            // Character counter for bio
+            bioTextarea.addEventListener('input', function() {
+                const count = bioTextarea.value.length;
+                bioCount.textContent = count;
+                
+                if (count > 300) {
+                    bioCount.classList.add('text-red-500');
+                } else {
+                    bioCount.classList.remove('text-red-500');
+                }
+            });
+            
+            // Form submission
+            profileForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading bar
+                loadingBar.classList.remove('opacity-0');
+                
+                // Disable save button
+                saveButton.disabled = true;
+                saveButton.classList.add('opacity-70');
+                saveButton.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Saving...</span>
+                `;
+                
+                // Simulate API call
+                setTimeout(function() {
+                    // Hide loading bar
+                    loadingBar.classList.add('opacity-0');
+                    
+                    // Re-enable save button
+                    saveButton.disabled = false;
+                    saveButton.classList.remove('opacity-70');
+                    saveButton.innerHTML = `
+                        <span class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-save-line"></i>
+                        </span>
+                        <span>Save Changes</span>
+                    `;
+                    
+                    // Show success toast
+                    toastIcon.innerHTML = '<i class="ri-check-line"></i>';
+                    toastIcon.className = 'w-6 h-6 flex items-center justify-center text-white bg-green-500 rounded-full';
+                    toastMessage.textContent = 'Profile updated successfully!';
+                    toast.classList.remove('translate-y-16', 'opacity-0');
+                    
+                    // Hide toast after 3 seconds
+                    setTimeout(function() {
+                        toast.classList.add('translate-y-16', 'opacity-0');
+                    }, 3000);
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

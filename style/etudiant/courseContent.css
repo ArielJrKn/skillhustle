@@ -1,0 +1,97 @@
+
+.progress {
+    height: 6px;
+    border-radius: 3px;
+    background-color: #E5E7EB;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.video-controls {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.video-container:hover .video-controls {
+    opacity: 1;
+}
+
+.video-progress {
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    position: relative;
+}
+.video-progress-fill {
+    height: 100%;
+    background-color: #4A90E2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.1s linear;
+}
+.video-progress-handle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #4A90E2;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: left 0.1s linear;
+}
+.custom-volume {
+    width: 60px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    position: relative;
+}
+.custom-volume-fill {
+    height: 100%;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.custom-volume-handle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+./* --- PC STANDARD (1365px à 1024px) --- */
+@media screen and (max-width: 1365px) and (min-width: 1024px){
+    .name{
+        display: block;
+    }
+}
+
+/* --- MOBILE (767px à 480px) --- */
+@media screen and (max-width: 767px) and (min-width: 480px){
+    .name{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 479px){
+    .name{
+        display: none;
+    }
+    .CourseSideBar{
+        position: absolute;
+        display: none;
+        z-index: 50;
+        padding: 0;
+        height: 100%;
+    }
+}

@@ -1,0 +1,27 @@
+
+        .progress-circle {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+        .progress-circle svg {
+            transform: rotate(-90deg);
+        }
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 3;
+        }
+        .progress-circle .bg {
+            stroke: #e2e8f0;
+        }
+        .progress-circle .progress {
+            stroke: #2196F3;
+            stroke-linecap: round;
+        }
+        .view-toggle-btn {
+            transition: all 0.2s ease;
+        }
+        .view-toggle-btn.active {
+            background-color: #2196F3;
+            color: white;
+        }

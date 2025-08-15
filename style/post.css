@@ -1,0 +1,28 @@
+	.postView{
+            /*overflow: auto;
+            height: 100vh;
+            position: absolute;
+            z-index: 100;
+            right: 0px;
+            top: 0;
+            bottom: 0;*/
+            width: 40%;
+        }
+
+        @media screen and (max-width: 767px) and (min-width: 480px) {
+    .postView{
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px){
+    .postView{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .postView{
+        width: 100%;
+    }
+}

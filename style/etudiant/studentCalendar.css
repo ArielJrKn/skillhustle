@@ -1,0 +1,184 @@
+
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+        
+        .theme-light {
+            background-color: #F5F7FA;
+            color: #333333;
+        }
+        
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .theme-light .glassmorphism {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .loading-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #4A90E2, #50E3C2);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .calendar-day {
+            min-height: 70px;
+            transition: all 0.3s ease;
+        }
+        
+        .calendar-day:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .theme-light .calendar-day:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        
+        .event-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+        
+        .active-day {
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+            background: rgba(74, 144, 226, 0.2);
+        }
+        
+        .theme-light .active-day {
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+            background: rgba(74, 144, 226, 0.1);
+        }
+        
+        .event-card {
+            transition: all 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .task-progress {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .theme-light .task-progress {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="checkbox"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-light input[type="checkbox"] {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        
+        input[type="checkbox"]:checked {
+            background-color: #4A90E2;
+            border-color: #4A90E2;
+        }
+        
+        input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 22px;
+        }
+        
+        .custom-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .switch-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .theme-light .switch-slider {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .switch-slider {
+            background-color: #4A90E2;
+        }
+        
+        input:checked + .switch-slider:before {
+            transform: translateX(20px);
+        }
+        
+        @media (max-width: 768px) {
+            .calendar-container {
+                flex-direction: column;
+            }
+            
+            .calendar-main {
+                width: 100%;
+            }
+            
+            .calendar-sidebar {
+                width: 100%;
+                margin-top: 1.5rem;
+            }
+            
+            .calendar-day {
+                min-height: 60px;
+            }
+        }

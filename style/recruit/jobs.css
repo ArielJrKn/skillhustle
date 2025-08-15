@@ -1,0 +1,19 @@
+.status-active {
+            background-color: rgba(52, 199, 89, 0.2);
+            color: #34C759;
+        }
+
+        .status-draft {
+            background-color: rgba(156, 163, 175, 0.2);
+            color: #9CA3AF;
+        }
+
+        .status-closed {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+        }
+
+        .status-paused {
+            background-color: rgba(251, 191, 36, 0.2);
+            color: #FBBF24;
+        }

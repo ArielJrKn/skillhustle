@@ -1,0 +1,71 @@
+<header
+            class="h-16 backdrop-filter backdrop-blur-lg absolute w-full shadow-sm flex items-center justify-between px-6 z-10">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <button type="button"
+                    class="text-gray-300 hover:text-white focus:outline-none lg:hidden md:hidden sm:block"
+                    id="mobileMenuButton">
+                    <div class="w-6 h-6 flex items-center justify-center">
+                        <i class="ri-menu-line ri-lg"></i>
+                    </div>
+                </button>
+                <span class=" sm:ml-4 text-2xl font-['Pacifico'] text-primary">logo</span>
+            </div>
+
+            <!-- Search & Actions -->
+            <div class="flex items-center space-x-4">
+                <!-- Search Bar -->
+                <div class="relative hidden lg:block">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-search-line"></i>
+                        </div>
+                    </div>
+                    <input type="search"
+                        class="bg-gray-100 text-black dark:text-white dark:bg-dark dark:bg-opacity-30 text-gray-900 dark:text-white border-none text-sm rounded-full pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary"
+                        placeholder="Search courses, resources...">
+                </div>
+
+                <!-- Theme Toggle -->
+                <!-- <div class="switchMode" id="themeToggle">
+                    <div class="switchMode-circle"></div>
+                </div> -->
+
+                <div
+                    class=" relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                    <i id="theme" class="ri-sun-line text-xl"></i>
+                </div>
+
+                <!-- Notification Icon -->
+                <div
+                    class="btnNotif relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                    <i class="ri-notification-3-line text-xl"></i>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
+
+                <div
+                    class="btnMsg relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                    <i class="ri-message-3-line text-xl"></i>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
+
+                <!-- Profile Icon -->
+                <div class="relative">
+                    <button type="button" class="flex items-center focus:outline-none" id="userMenuButton">
+                        <span class="hidden md:block mr-3 text-sm font-medium text-gray-800 dark:text-white">Thomas
+                            Dubois</span>
+                        <img class="h-8 w-8 rounded-full object-cover"
+                            src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20male%20teacher%20with%20glasses%20and%20short%20hair%2C%20neutral%20expression%2C%20high%20quality%20portrait%2C%20professional%20lighting&width=200&height=200&seq=1&orientation=squarish"
+                            alt="Photo de profil">
+                    </button>
+                    <div class="hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-50"
+                        id="userMenu">
+                        <div class="py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Profil</a>
+                            <div class="border-t border-gray-700"></div>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Déconnexion</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>

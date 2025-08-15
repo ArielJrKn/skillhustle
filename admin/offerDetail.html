@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détaille de l'offre | Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="../style/progresseBar.css">
+    <link rel="stylesheet" type="text/css" href="../style/scroll.css">
+    <link rel="stylesheet" type="text/css" href="../style/switchAction.css">
+    <link rel="stylesheet" type="text/css" href="../style/msg.css">
+    <link rel="stylesheet" type="text/css" href="../style/dark.css">
+    <link rel="stylesheet" type="text/css" href="../style/notifications.css">
+    <link rel="stylesheet" type="text/css" href="../style/admin/feedback.css">
+    <link rel="stylesheet" type="text/css" href="../style/formateur/sideBar.css">
+    <link rel="stylesheet" type="text/css" href="../style/favoris.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="../js_style/student_dashboard_tailwindConfig.js"></script>
+    <style>
+
+        @media screen and (max-width: 1365px) and (min-width: 1024px) {
+            .candidats{
+                width: 400px;
+                border-radius: 20px;
+            }
+        }
+        /* --- TABLETTE (1023px à 768px) --- */
+        @media screen and (max-width: 1023px) and (min-width: 768px){
+            .candidats{
+                top: 0;
+                z-index: 50;
+                width: 50%;
+                position: absolute;
+                display: block;
+                right: 0;
+                backdrop-filter: blur(50px);
+                height: 100vh;
+            }
+        }
+            /* --- MOBILE (767px à 480px) --- */
+            @media screen and (max-width: 479px){
+                .candidats{
+                    top: 0;
+                    z-index: 50;
+                    width: 100%;
+                    position: absolute;
+                    display: block;
+                    right: 0;
+                    backdrop-filter: blur(50px);
+                    height: 100vh;
+                }
+            }
+        
+    </style>
+</head>
+<body class="bg-background min-h-screen">
+
+    <!-- Loading Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Main Container -->
+    <div class="flex flex-col h-screen">
+        <!-- Top Navigation Bar -->
+        <header class="h-16 backdrop-filter backdrop-blur-lg absolute w-full shadow-sm flex items-center justify-between px-6 z-10">
+            <!-- Back Button and Course Title -->
+            <div class="flex items-center">
+                <a href="offres.html" data-readdy="true" class="flex items-center mr-6 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+                    <div class="w-5 h-5 flex items-center justify-center mr-1">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>              
+                    <span>Back</span>
+                </a>
+                <!-- <h1 class="hidden lg:block md:block text-xl font-semibold text-gray-900 dark:text-gray-900 dark:text-gray-100">Mes certifications</h1> -->
+                <div class="hidden lg:block md:block text-xl font-semibold text-gray-900 dark:text-white">
+                    <h1 class="text-md font-bold">Développeur Frontend Senior</h1>
+                    <div class="flex items-center space-x-6 mt-2 text-slate-500">
+                        <span class="text-sm flex items-center space-x-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-briefcase-line"></i>
+                            </div>
+                            <span>CDI</span>
+                        </span>
+                        <span class="text-sm flex items-center space-x-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>Paris, France</span>
+                        </span>
+                        <span class="text-sm flex items-center space-x-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>Publié le 15 juillet 2025</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-3">
+                    <span class="flex items-center space-x-2 bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-sm">
+                        <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <span>Active</span>
+                    </span>
+                </div>
+                <!-- Search Bar -->
+                <div
+                    class=" relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                    <i id="theme" class="ri-sun-line text-xl"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex overflow-hidden">
+
+            <!-- Main Content -->
+            <main class="pt-16 flex-1 overflow-y-auto bg-background bg-gray-100 dark:bg-dark">
+                <div class="flex w-full">
+                    <!-- Description du poste -->
+                    <div class="flex-1 p-6">
+                        <div class="max-w-4xl">
+                            <!-- Statistiques -->
+                            <div class="bg-[#6663F1] bg-opacity-20 rounded-xl p-6 mb-8">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-lg font-semibold mb-4 flex items-center space-x-2">
+                                        <div class="w-5 h-5 flex items-center justify-center">
+                                            <i class="ri-bar-chart-line"></i>
+                                        </div>
+                                        <span>Statistiques de candidature</span>
+                                    </h2>
+
+                                    <div class="hidden md:block lg:block">
+                                        <button class="px-4 py-2 rounded-lg bg-green-500">Modifier</button>
+                                        <button class="px-4 py-2 rounded-lg bg-red-500">Supprimer</button>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-4 gap-6">
+                                    <div class="text-center candidate">
+                                        <div class="text-3xl font-bold text-primary mb-1">47</div>
+                                        <div class="text-slate-400 text-sm">Candidatures</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-green-400 mb-1">68%</div>
+                                        <div class="text-slate-400 text-sm">Taux de réponse</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-yellow-400 mb-1">3.2j</div>
+                                        <div class="text-slate-400 text-sm">Temps moyen</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-purple-400 mb-1">12</div>
+                                        <div class="text-slate-400 text-sm">Entretiens</div>
+                                    </div>
+                                </div>
+                                <div class="mt-6">
+                                    <div id="statsChart" class="h-32"></div>
+                                </div>
+                            </div>
+
+                            <!-- Description détaillée -->
+                            <div class="bg-[#6663F1] bg-opacity-20 rounded-xl p-6 mb-8">
+                                <h2 class="text-lg font-semibold mb-4 flex items-center space-x-2">
+                                    <div class="w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-file-text-line"></i>
+                                    </div>
+                                    <span>Description du poste</span>
+                                </h2>
+                                <div class="prose prose-invert max-w-none">
+                                    <p class="text-gray-900 dark:text-gray-100 mb-6">
+                                        Nous recherchons un développeur frontend senior passionné pour rejoindre notre équipe dynamique. Vous travaillerez sur des projets innovants utilisant les dernières technologies web et contribuerez à créer des expériences utilisateur exceptionnelles.
+                                    </p>
+                                    
+                                    <h3 class="font-semibold mb-3 flex items-center space-x-2">
+                                        <div class="w-4 h-4 flex items-center justify-center">
+                                            <i class="ri-user-star-line"></i>
+                                        </div>
+                                        <span>Responsabilités</span>
+                                    </h3>
+                                    <ul class="text-gray-900 dark:text-gray-100 space-y-2 mb-6">
+                                        <li>• Développer et maintenir des applications web modernes avec React et TypeScript</li>
+                                        <li>• Collaborer avec l'équipe UX/UI pour implémenter des interfaces utilisateur intuitives</li>
+                                        <li>• Optimiser les performances et l'accessibilité des applications</li>
+                                        <li>• Participer aux revues de code et mentorer les développeurs juniors</li>
+                                        <li>• Contribuer à l'architecture technique et aux décisions stratégiques</li>
+                                    </ul>
+
+                                    <h3 class="font-semibold mb-3 flex items-center space-x-2">
+                                        <div class="w-4 h-4 flex items-center justify-center">
+                                            <i class="ri-check-double-line"></i>
+                                        </div>
+                                        <span>Prérequis</span>
+                                    </h3>
+                                    <ul class="text-gray-900 dark:text-gray-100 space-y-2 mb-6">
+                                        <li>• 5+ années d'expérience en développement frontend</li>
+                                        <li>• Maîtrise de React, TypeScript, et des outils modernes (Webpack, Vite)</li>
+                                        <li>• Expérience avec les tests automatisés (Jest, Cypress)</li>
+                                        <li>• Connaissance des principes d'accessibilité web (WCAG)</li>
+                                        <li>• Excellentes compétences en communication et travail d'équipe</li>
+                                    </ul>
+
+                                    <h3 class=" font-semibold mb-3 flex items-center space-x-2">
+                                        <div class="w-4 h-4 flex items-center justify-center">
+                                            <i class="ri-gift-line"></i>
+                                        </div>
+                                        <span>Avantages</span>
+                                    </h3>
+                                    <ul class="text-gray-900 dark:text-gray-100 space-y-2">
+                                        <li>• Salaire compétitif : 65-80k € selon expérience</li>
+                                        <li>• Télétravail hybride (2-3 jours/semaine)</li>
+                                        <li>• Formation continue et conférences</li>
+                                        <li>• Mutuelle premium et tickets restaurant</li>
+                                        <li>• Équipe internationale et projets stimulants</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section des candidats -->
+                    <div class="candidats hidden lg:block bg-[#6663F1] bg-opacity-20 flex flex-col">
+                        <!-- En-tête candidats -->
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="flex text-lg font-semibold">
+                                    <i class="close ri-close-line lg:hidden md:block"></i>
+                                    <h3>Candidats (47)</h3>
+                                </h2>
+                                <button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition-colors">
+                                    <i class="ri-more-2-line"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Recherche -->
+                            <div class="relative block mb-3">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                        <i class="ri-search-line"></i>
+                                    </div>
+                                </div>
+                                <input type="search"
+                                    class="bg-gray-100 w-full text-black dark:text-white dark:bg-dark dark:bg-opacity-30 text-gray-900 dark:text-white border-none text-sm rounded-full pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary"
+                                    placeholder="Search courses, resources...">
+                            </div>
+
+                            <!-- Filtres -->
+                            <div class="flex space-x-2">
+                                <button class="px-3 py-1 bg-primary text-white rounded-full text-xs font-medium whitespace-nowrap !rounded-button">Tous</button>
+                                <button class="px-3 py-1 bg-slate-700 text-slate-300 hover:bg-slate-600 rounded-full text-xs font-medium whitespace-nowrap !rounded-button">Nouveau</button>
+                                <button class="px-3 py-1 bg-slate-700 text-slate-300 hover:bg-slate-600 rounded-full text-xs font-medium whitespace-nowrap !rounded-button">En attente</button>
+                            </div>
+                        </div>
+
+                        <!-- Liste des candidats -->
+                        <div class="flex-1 overflow-y-auto p-4 space-y-4">
+                            <!-- Candidat 1 -->
+                            <div class="bg-[#6663F1] bg-opacity-30 rounded-lg p-4 hover:bg-slate-600 transition-colors">
+                                <div class="flex items-start space-x-3">
+                                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20confident%20young%20woman%20software%20developer%20with%20modern%20hairstyle%2C%20clean%20background%2C%20high%20quality%20portrait%20photography&width=40&height=40&seq=candidate1&orientation=squarish" alt="Sophie Martin" class="w-10 h-10 rounded-full object-cover object-top">
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-900 dark:text-gray-100 truncate">Sophie Martin</h3>
+                                            <span class="text-xs text-green-400 font-medium">94%</span>
+                                        </div>
+                                        <p class="text-sm text-slate-5  00 mb-2">Senior Frontend Developer</p>
+                                        <div class="flex flex-wrap gap-1 mb-3">
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">React</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">TypeScript</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Node.js</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="flex items-center justify-center bg-primary hover:bg-primary/80 text-gray-900 dark:text-gray-100 px-3 py-1 rounded text-xs font-medium whitespace-nowrap !rounded-button">
+                                                <div class="flex items-center justify-center inline-block mr-1">
+                                                    <i class="ri-message-line"></i>
+                                                </div>
+                                                <h2>Message</h2>
+                                            </button>
+                                            <button class="w-7 h-7 flex items-center justify-center text-slate-400 hover:text-red-400 hover:bg-red-900/20 rounded whitespace-nowrap !rounded-button">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Candidat 2 -->
+                            <div class="bg-[#6663F1] bg-opacity-30 rounded-lg p-4 hover:bg-slate-600 transition-colors">
+                                <div class="flex items-start space-x-3">
+                                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20confident%20young%20man%20software%20developer%20with%20modern%20hairstyle%2C%20clean%20background%2C%20high%20quality%20portrait%20photography&width=40&height=40&seq=candidate2&orientation=squarish" alt="Alexandre Dubois" class="w-10 h-10 rounded-full object-cover object-top">
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-900 dark:text-gray-100 truncate">Alexandre Dubois</h3>
+                                            <span class="text-xs text-yellow-400 font-medium">87%</span>
+                                        </div>
+                                        <p class="text-sm text-slate-5  00 mb-2">Frontend Developer</p>
+                                        <div class="flex flex-wrap gap-1 mb-3">
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Vue.js</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">JavaScript</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="flex items-center justify-center bg-primary hover:bg-primary/80 text-gray-900 dark:text-gray-100 px-3 py-1 rounded text-xs font-medium whitespace-nowrap !rounded-button">
+                                                <div class="flex items-center justify-center inline-block mr-1">
+                                                    <i class="ri-message-line"></i>
+                                                </div>
+                                                <h2>Message</h2>
+                                            </button>
+                                            <button class="w-7 h-7 flex items-center justify-center text-slate-400 hover:text-red-400 hover:bg-red-900/20 rounded whitespace-nowrap !rounded-button">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Candidat 3 -->
+                            <div class="bg-[#6663F1] bg-opacity-30 rounded-lg p-4 hover:bg-slate-600 transition-colors">
+                                <div class="flex items-start space-x-3">
+                                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20confident%20young%20woman%20software%20developer%20with%20glasses%2C%20modern%20hairstyle%2C%20clean%20background%2C%20high%20quality%20portrait%20photography&width=40&height=40&seq=candidate3&orientation=squarish" alt="Marie Leclerc" class="w-10 h-10 rounded-full object-cover object-top">
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-900 dark:text-gray-100 truncate">Marie Leclerc</h3>
+                                            <span class="text-xs text-green-400 font-medium">91%</span>
+                                        </div>
+                                        <p class="text-sm text-slate-5  00 mb-2">Full Stack Developer</p>
+                                        <div class="flex flex-wrap gap-1 mb-3">
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">React</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Python</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">AWS</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="flex items-center justify-center bg-primary hover:bg-primary/80 text-gray-900 dark:text-gray-100 px-3 py-1 rounded text-xs font-medium whitespace-nowrap !rounded-button">
+                                                <div class="flex items-center justify-center inline-block mr-1">
+                                                    <i class="ri-message-line"></i>
+                                                </div>
+                                                <h2>Message</h2>
+                                            </button>
+                                            <button class="w-7 h-7 flex items-center justify-center text-slate-400 hover:text-red-400 hover:bg-red-900/20 rounded whitespace-nowrap !rounded-button">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Candidat 4 -->
+                            <div class="bg-[#6663F1] bg-opacity-30 rounded-lg p-4 hover:bg-slate-600 transition-colors">
+                                <div class="flex items-start space-x-3">
+                                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20confident%20young%20man%20software%20developer%20with%20beard%2C%20modern%20hairstyle%2C%20clean%20background%2C%20high%20quality%20portrait%20photography&width=40&height=40&seq=candidate4&orientation=squarish" alt="Thomas Rousseau" class="w-10 h-10 rounded-full object-cover object-top">
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-900 dark:text-gray-100 truncate">Thomas Rousseau</h3>
+                                            <span class="text-xs text-yellow-400 font-medium">83%</span>
+                                        </div>
+                                        <p class="text-sm text-slate-5  00 mb-2">UI/UX Developer</p>
+                                        <div class="flex flex-wrap gap-1 mb-3">
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Angular</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Figma</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">SCSS</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="flex items-center justify-center bg-primary hover:bg-primary/80 text-gray-900 dark:text-gray-100 px-3 py-1 rounded text-xs font-medium whitespace-nowrap !rounded-button">
+                                                <div class="flex items-center justify-center inline-block mr-1">
+                                                    <i class="ri-message-line"></i>
+                                                </div>
+                                                <h2>Message</h2>
+                                            </button>
+                                            <button class="w-7 h-7 flex items-center justify-center text-slate-400 hover:text-red-400 hover:bg-red-900/20 rounded whitespace-nowrap !rounded-button">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Candidat 5 -->
+                            <div class="bg-[#6663F1] bg-opacity-30 rounded-lg p-4 hover:bg-slate-600 transition-colors">
+                                <div class="flex items-start space-x-3">
+                                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20confident%20young%20woman%20software%20developer%20with%20curly%20hair%2C%20modern%20style%2C%20clean%20background%2C%20high%20quality%20portrait%20photography&width=40&height=40&seq=candidate5&orientation=squarish" alt="Camille Moreau" class="w-10 h-10 rounded-full object-cover object-top">
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-900 dark:text-gray-100 truncate">Camille Moreau</h3>
+                                            <span class="text-xs text-green-400 font-medium">89%</span>
+                                        </div>
+                                        <p class="text-sm text-slate-5  00 mb-2">Frontend Developer</p>
+                                        <div class="flex flex-wrap gap-1 mb-3">
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">React</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Redux</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Jest</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="flex items-center justify-center bg-primary hover:bg-primary/80 text-gray-900 dark:text-gray-100 px-3 py-1 rounded text-xs font-medium whitespace-nowrap !rounded-button">
+                                                <div class="flex items-center justify-center inline-block mr-1">
+                                                    <i class="ri-message-line"></i>
+                                                </div>
+                                                <h2>Message</h2>
+                                            </button>
+                                            <button class="w-7 h-7 flex items-center justify-center text-slate-400 hover:text-red-400 hover:bg-red-900/20 rounded whitespace-nowrap !rounded-button">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Candidat 6 -->
+                            <div class="bg-[#6663F1] bg-opacity-30 rounded-lg p-4 hover:bg-slate-600 transition-colors">
+                                <div class="flex items-start space-x-3">
+                                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20confident%20young%20man%20software%20developer%20with%20short%20hair%2C%20modern%20style%2C%20clean%20background%2C%20high%20quality%20portrait%20photography&width=40&height=40&seq=candidate6&orientation=squarish" alt="Julien Bernard" class="w-10 h-10 rounded-full object-cover object-top">
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="font-medium text-gray-900 dark:text-gray-100 truncate">Julien Bernard</h3>
+                                            <span class="text-xs text-yellow-400 font-medium">76%</span>
+                                        </div>
+                                        <p class="text-sm text-slate-5  00 mb-2">Junior Frontend Developer</p>
+                                        <div class="flex flex-wrap gap-1 mb-3">
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">HTML</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS</span>
+                                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">JavaScript</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="flex items-center justify-center bg-primary hover:bg-primary/80 text-gray-900 dark:text-gray-100 px-3 py-1 rounded text-xs font-medium whitespace-nowrap !rounded-button">
+                                                <div class="flex items-center justify-center inline-block mr-1">
+                                                    <i class="ri-message-line"></i>
+                                                </div>
+                                                <h2>Message</h2>
+                                            </button>
+                                            <button class="w-7 h-7 flex items-center justify-center text-slate-400 hover:text-red-400 hover:bg-red-900/20 rounded whitespace-nowrap !rounded-button">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+    <script src="../js_style/dark.js"></script>
+    <script src="../js_style/notif.js"></script>
+    <script src="../js_style/formateur/dashboard.js"></script>
+    <script src="../js_style/admin/feedback.js"></script>
+    <script src="../js_style/recruit/offerDetail.js"></script>
+    <script src="../js_style/msg.js"></script>
+    <script src="../js_style/favoris.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const candidate = document.querySelector('.candidate');
+            const candidats = document.querySelector('.candidats');
+            const close = document.querySelector('.close');
+
+            candidate.addEventListener('click', function(){
+                candidats.classList.remove('hidden')
+            })
+
+            close.addEventListener('click', function(){
+                candidats.classList.add('hidden')
+            })
+
+            document.addEventListener('click', function(e){
+                if (!candidats.classList.contains('hidden') && !candidats.contains(e.target) && !candidate.contains(e.target)) {
+                    candidats.classList.add('hidden');
+                }
+            });
+        })
+    </script>
+
+</body>
+</html>

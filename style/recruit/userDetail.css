@@ -1,0 +1,51 @@
+.skill-progress {
+            height: 6px;
+            background-color: rgba(109, 40, 217, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6661F1, #4f46e5);
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 2rem;
+            bottom: -1rem;
+            width: 2px;
+            background: linear-gradient(to bottom, #6d28d9 0%, rgba(109, 40, 217, 0.2) 100%);
+        }
+
+        @media screen and (max-width: 479px){
+            .profile{
+                height: 100px;
+                width: 100px;
+            }
+
+            .action{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        @media screen and (max-width: 1365px) and (min-width: 1024px) {
+            .profile{
+                height: 200px;
+                width: 200px;
+            }
+        }
+
+        @media screen and (max-width: 1023px) and (min-width: 768px){
+            .profile{
+                height: 200px;
+                width: 200px;
+            }
+        }

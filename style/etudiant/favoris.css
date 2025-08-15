@@ -1,0 +1,65 @@
+
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+
+        
+        /*.card:hover .glassmorphism {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px rgba(74, 144, 226, 0.15);
+            transform: translateY(-4px) scale(1.02);
+            border-color: rgba(74, 144, 226, 0.3);
+        }*/
+        
+        .card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardEntrance 0.5s forwards;
+        }
+        
+        @keyframes cardEntrance {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .progress {
+            height: 4px;
+            background-color: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 2px;
+        }
+        
+        input[type="checkbox"] {
+            display: none;
+        }
+        
+        .custom-checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #cbd5e1;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        input[type="checkbox"]:checked + .custom-checkbox {
+            background-color: #4A90E2;
+            border-color: #4A90E2;
+        }
+        
+        input[type="checkbox"]:checked + .custom-checkbox::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 1px;
+        }

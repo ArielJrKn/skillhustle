@@ -1,0 +1,32 @@
+.tab-content{
+	display: none;
+}
+
+.tab-content.active{
+	display: block;
+}
+
+.tab.active{
+	color: #6663F1;
+	border-bottom: 2px solid;
+}
+	.FeedbacksDetail{
+            width: 40%;
+        }
+@media screen and (max-width: 767px) and (min-width: 480px) {
+    .FeedbacksDetail{
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px){
+    .FeedbacksDetail{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .FeedbacksDetail{
+        width: 100%;
+    }
+}

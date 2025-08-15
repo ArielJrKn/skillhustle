@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Web Development | Course Content</title>
+    <link rel="stylesheet" type="text/css" href="../style/etudiant/progresseBar.css">
+    <link rel="stylesheet" type="text/css" href="../style/etudiant/scroll.css">
+    <link rel="stylesheet" type="text/css" href="../style/etudiant/courseContent.css">
+    <link rel="stylesheet" type="text/css" href="../style/etudiant/studentCalendar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="../js_style/student_dashboard_tailwindConfig.js"></script>
+</head>
+
+<body class="bg-background min-h-screen">
+
+    <!-- Loading Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Main Container -->
+    <div class="flex flex-col h-screen">
+        <!-- Top Navigation Bar -->
+        <header class="h-16 backdrop-filter backdrop-blur-lg absolute w-full shadow-sm flex items-center justify-between px-6 z-10">
+            <!-- Back Button and Course Title -->
+            <div class="flex items-center">
+                <a href="Student-Dashboard.html" data-readdy="true" class="flex items-center mr-6 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+                    <div class="w-5 h-5 flex items-center justify-center mr-1">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>              
+                    <span>Back to Dashboard</span>
+                </a>
+                <h1 class="text-xl font-semibold text-gray-900 dark:text-white">My courses</h1>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center space-x-4">
+
+                <!-- Theme Toggle -->
+                <div class="theme-toggle" id="themeToggle">
+                    <div class="theme-toggle-circle"></div>
+                </div>
+
+                <!-- Notification Icon -->
+                <div class="btnNotif relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                    <i class="ri-notification-3-line text-xl"></i>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
+                <!-- Profile Icon -->
+
+                <div class="w-10 h-10 rounded-full overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520a%2520young%2520student%2520with%2520a%2520friendly%2520smile%252C%2520high%2520quality%2520portrait%252C%2520professional%2520lighting%252C%2520neutral%2520background&width=80&height=80&seq=profile1&orientation=squarish" alt="Profile" class="w-full h-full object-cover object-top">
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex overflow-hidden">
+
+            <!-- Main Content -->
+            <main class="pt-16 flex-1 overflow-y-auto bg-background bg-gray-100 dark:bg-dark">
+                    <div class="p-6">
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h2 class="text-2xl font-bold" id="currentMonthYear">July 2025</h2>
+                <p class="text-white/60 dark:text-gray-400">Plan your learning journey</p>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button class="px-4 py-2 flex items-center space-x-2 glassmorphism rounded-button whitespace-nowrap" id="prevMonth">
+                    <i class="ri-arrow-left-s-line"></i>
+                    <span>Previous</span>
+                </button>
+                
+                <button class="px-4 py-2 flex items-center space-x-2 bg-primary rounded-button whitespace-nowrap" id="today">
+                    <span>Today</span>
+                </button>
+                
+                <button class="px-4 py-2 flex items-center space-x-2 glassmorphism rounded-button whitespace-nowrap" id="nextMonth">
+                    <span>Next</span>
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="calendar-container flex space-x-6">
+            <div class="calendar-main w-[70%]">
+                <div class="glassmorphism rounded-lg overflow-hidden">
+                    <div class="grid grid-cols-7 text-center py-3 border-b border-white/10">
+                        <div class="font-medium">Sun</div>
+                        <div class="font-medium">Mon</div>
+                        <div class="font-medium">Tue</div>
+                        <div class="font-medium">Wed</div>
+                        <div class="font-medium">Thu</div>
+                        <div class="font-medium">Fri</div>
+                        <div class="font-medium">Sat</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-7" id="calendarGrid">
+                        <!-- Calendar days will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="calendar-sidebar w-[30%]">
+                <div class="glassmorphism rounded-lg p-5 sticky top-6">
+                    <div class="flex items-center justify-between mb-5">
+                        <h3 class="text-lg font-semibold">Upcoming Events</h3>
+                        <button class="w-8 h-8 flex items-center justify-center rounded-full glassmorphism">
+                            <i class="ri-add-line"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="event-card glassmorphism p-4 rounded-lg border-l-4 border-primary">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <span class="text-xs text-white/60">Today • 2:00 PM</span>
+                                    <h4 class="font-medium">Advanced JavaScript Concepts</h4>
+                                    <div class="flex items-center mt-1">
+                                        <span class="text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary">Lesson</span>
+                                        <span class="text-xs ml-2">60 min</span>
+                                    </div>
+                                </div>
+                                <div class="w-8 h-8 flex items-center justify-center rounded-full glassmorphism">
+                                    <i class="ri-more-2-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="event-card glassmorphism p-4 rounded-lg border-l-4 border-secondary">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <span class="text-xs text-white/60">Tomorrow • 10:30 AM</span>
+                                    <h4 class="font-medium">UX Design Principles Workshop</h4>
+                                    <div class="flex items-center mt-1">
+                                        <span class="text-xs px-2 py-0.5 rounded-full bg-secondary/20 text-secondary">Workshop</span>
+                                        <span class="text-xs ml-2">90 min</span>
+                                    </div>
+                                </div>
+                                <div class="w-8 h-8 flex items-center justify-center rounded-full glassmorphism">
+                                    <i class="ri-more-2-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="event-card glassmorphism p-4 rounded-lg border-l-4" style="border-color: #E67E22;">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <span class="text-xs text-white/60">Jul 4 • 3:00 PM</span>
+                                    <h4 class="font-medium">React Project Deadline</h4>
+                                    <div class="flex items-center mt-1">
+                                        <span class="text-xs px-2 py-0.5 rounded-full" style="background: rgba(230, 126, 34, 0.2); color: #E67E22;">Deadline</span>
+                                    </div>
+                                </div>
+                                <div class="w-8 h-8 flex items-center justify-center rounded-full glassmorphism">
+                                    <i class="ri-more-2-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <h3 class="text-lg font-semibold">Tasks</h3>
+                            <span class="text-sm text-white/60">3/7 completed</span>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" checked class="mr-3">
+                                <span class="line-through text-white/60">Complete JavaScript quiz</span>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input type="checkbox" checked class="mr-3">
+                                <span class="line-through text-white/60">Watch React tutorial</span>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input type="checkbox" checked class="mr-3">
+                                <span class="line-through text-white/60">Submit UX assignment</span>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3">
+                                <span>Prepare for Node.js exam</span>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3">
+                                <span>Complete React project</span>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3">
+                                <span>Review TypeScript notes</span>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3">
+                                <span>Attend design critique session</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-5">
+                            <div class="task-progress rounded-full w-full">
+                                <div class="bg-primary h-full rounded-full" style="width: 43%"></div>
+                            </div>
+                            <div class="text-xs text-white/60 mt-1 text-right">43% completed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            </main>
+
+            <!-- Right Sidebar - Notifications -->
+            <aside class="sideBarNotification hidden w-90 backdrop-filter backdrop-blur-lg p-6  dark:border-gray-800">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                    <i class="ri-close"></i>
+                    Recent Notifications
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- Notification 1 bg-white dark:bg-darkSurface-->
+                    <div class="  transition hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                <i class="ri-book-mark-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">New Course Available</h4>
+                                <span class="notification-dot bg-secondary"></span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">AI & Machine Learning course is now available for enrollment.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">2 hours ago</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Notification 2 -->
+                    <div class=" transition hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-secondary">
+                                <i class="ri-file-list-3-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Assignment Graded</h4>
+                                <span class="notification-dot bg-secondary"></span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">Your JavaScript assignment has been graded. You scored 95%.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">Yesterday</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Notification 3 -->
+                    <div class=" transition hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                <i class="ri-calendar-event-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Live Session Reminder</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">Don't forget your live session with Dr. Chen tomorrow at 3 PM.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">2 days ago</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Notification 4 -->
+                    <div class=" transition hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-secondary">
+                                <i class="ri-group-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Study Group Invitation</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">You've been invited to join the Data Science study group.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">3 days ago</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Notification 5 -->
+                    <div class="transition hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                <i class="ri-medal-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Achievement Unlocked</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">You've earned the "Coding Streak" badge for 7 days of continuous learning.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">5 days ago</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="mt-4 text-primary text-sm font-medium w-full py-2 border border-primary rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap">View All Notifications</button>
+            </aside>
+
+        </div>
+    </div>
+
+
+    <script src="../js_style/student_dashbord_sys_notif.js"></script>
+    <script src="../js_style/dark.js"></script>
+    <script src="../js_style/StudentCalendar.js"></script>
+
+</body>
+</html>

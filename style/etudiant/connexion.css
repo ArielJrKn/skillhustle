@@ -1,0 +1,30 @@
+:where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        
+        body{
+            font-family: 'Urbanist' sans-serif;
+        }
+        .toggle-password:focus {
+            outline: none;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #50E3C2;
+        }
+        
+        .dark {
+            background-color: #121212;
+            color: #FFFFFF;
+        }
+        
+        .dark input {
+            background-color: #1E1E1E;
+            color: #FFFFFF;
+            border-color: #333333;
+        }
+        
+        .dark .card {
+            background-color: #1E1E1E;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.05);
+        }

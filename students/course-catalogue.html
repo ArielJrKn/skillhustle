@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Course Catalogue</title>
+    <link rel="stylesheet" type="text/css" href="../style/progresseBar.css">
+    <link rel="stylesheet" type="text/css" href="../style/scroll.css">
+    <link rel="stylesheet" type="text/css" href="../style/switchAction.css">
+    <link rel="stylesheet" type="text/css" href="../style/msg.css">
+    <link rel="stylesheet" type="text/css" href="../style/dark.css">
+    <link rel="stylesheet" type="text/css" href="../style/notifications.css">
+    <link rel="stylesheet" type="text/css" href="../style/etudiant/CourseCatalogue.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="../js_style/student_dashboard_tailwindConfig.js"></script>
+</head>
+<body class="bg-background min-h-screen">
+
+    <!-- Loading Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Main Container -->
+    <div class="flex flex-col h-screen">
+        <!-- Top Navigation Bar -->
+        <header class="h-16 backdrop-filter backdrop-blur-lg absolute w-full shadow-sm flex items-center justify-between px-6 z-10">
+            <!-- Back Button and Course Title -->
+            <div class="flex items-center">
+                <a href="Student-Dashboard.html" data-readdy="true" class="flex items-center mr-6 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+                    <div class="w-5 h-5 flex items-center justify-center mr-1">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>              
+                    <span class="text-xl font-semibold text-gray-900 dark:text-white">My courses</span>
+                </a>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center space-x-4">
+                <!-- Search Bar -->
+                <div class="relative hidden lg:block">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-search-line"></i>
+                        </div>
+                    </div>
+                    <input type="search"
+                        class="bg-gray-100 text-black dark:text-white dark:bg-dark dark:bg-opacity-30 text-gray-900 dark:text-white border-none text-sm rounded-full pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary"
+                        placeholder="Search courses, resources...">
+                </div>
+                <div
+                    class=" relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
+                    <i id="theme" class="ri-sun-line text-xl"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex overflow-hidden">
+
+            <!-- Main Content -->
+            <main class="pt-16 flex-1 overflow-y-auto bg-background bg-gray-100 dark:bg-dark">
+                <div class="flex-1 p-6">
+                <!-- Active Filters & View Toggle -->
+                <div class="flex flex-wrap items-center justify-end mb-6">
+                    <div class="flex items-center space-x-2">
+                        <a href="courseContainer.html" class="text-primary"><h2>Voir d'autres cours...</h2></a>
+                    </div>
+                </div>
+                
+                <!-- Course Grid -->
+                <div id="course-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Course Card 1 -->
+                    <div class="course-card bg-[#6663F1] bg-opacity-20 dark:text-white rounded-lg shadow overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=modern%20web%20development%20coding%20environment%20with%20React%20code%20on%20screen%2C%20clean%20desk%20setup%20with%20keyboard%20and%20mouse%2C%20professional%20development%20workspace&width=400&height=225&seq=1&orientation=landscape" alt="Advanced React Patterns" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <div class="progress-circle backdrop-filter backdrop-blur-xl rounded-lg">
+                                    <svg width="40" height="40" viewBox="0 0 40 40">
+                                        <circle class="bg" cx="20" cy="20" r="18"></circle>
+                                        <circle class="progress" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="28.3"></circle>
+                                        <text x="20" y="24" text-anchor="middle" fill="#2196F3" font-size="12" font-weight="bold">75%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-primary rounded">Intermediate</span>
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-line"></i>
+                                    <span class="text-gray-600 ml-1">4.5</span>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 text-gray-900 dark:text-gray-100">Advanced React Patterns</h3>
+                            <p class="text-sm text-gray-600 mb-3 dark:text-white">Learn advanced React patterns including compound components, render props, and hooks.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+                                        <div class="w-4 h-4 flex items-center justify-center text-gray-600">
+                                            <i class="ri-time-line"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-gray-600">5.5 hours</span>
+                                </div>
+                                <a href="Course-Content.html"><button class="text-primary text-sm font-medium !rounded-button whitespace-nowrap">Continue</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Card 2 -->
+                    <div class="course-card bg-[#6663F1] bg-opacity-20 dark:text-white rounded-lg shadow overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=modern%20web%20development%20with%20JavaScript%20and%20Node.js%2C%20clean%20code%20editor%20showing%20JavaScript%20syntax%2C%20professional%20development%20environment%20with%20dual%20monitors&width=400&height=225&seq=2&orientation=landscape" alt="Node.js Microservices" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <div class="progress-circle backdrop-filter backdrop-blur-xl rounded-lg">
+                                    <svg width="40" height="40" viewBox="0 0 40 40">
+                                        <circle class="bg" cx="20" cy="20" r="18"></circle>
+                                        <circle class="progress" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="56.6"></circle>
+                                        <text x="20" y="24" text-anchor="middle" fill="#2196F3" font-size="12" font-weight="bold">50%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-primary rounded">Intermediate</span>
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                    <span class="text-gray-600 ml-1">4.2</span>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 text-gray-900 dark:text-gray-100">Node.js Microservices</h3>
+                            <p class="text-sm text-gray-600 mb-3 dark:text-white">Build scalable microservices architecture with Node.js, Docker, and Kubernetes.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+                                        <div class="w-4 h-4 flex items-center justify-center text-gray-600">
+                                            <i class="ri-time-line"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-gray-600">6 hours</span>
+                                </div>
+                                <button class="text-primary text-sm font-medium !rounded-button whitespace-nowrap">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Card 3 -->
+                    <div class="course-card bg-[#6663F1] bg-opacity-20 dark:text-white rounded-lg shadow overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=web%20development%20with%20HTML%2C%20CSS%20and%20JavaScript%2C%20clean%20code%20editor%20showing%20colorful%20syntax%2C%20modern%20development%20workspace%20with%20coffee%20cup&width=400&height=225&seq=3&orientation=landscape" alt="Full-Stack JavaScript" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <div class="progress-circle backdrop-filter backdrop-blur-xl rounded-lg">
+                                    <svg width="40" height="40" viewBox="0 0 40 40">
+                                        <circle class="bg" cx="20" cy="20" r="18"></circle>
+                                        <circle class="progress" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="90.5"></circle>
+                                        <text x="20" y="24" text-anchor="middle" fill="#2196F3" font-size="12" font-weight="bold">20%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-primary rounded">Intermediate</span>
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-line"></i>
+                                    <span class="text-gray-600 ml-1">4.7</span>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 text-gray-900 dark:text-gray-100">Full-Stack JavaScript</h3>
+                            <p class="text-sm text-gray-600 mb-3 dark:text-white">Master both frontend and backend development with JavaScript, React, and Node.js.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+                                        <div class="w-4 h-4 flex items-center justify-center text-gray-600">
+                                            <i class="ri-time-line"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-gray-600">8 hours</span>
+                                </div>
+                                <button class="text-primary text-sm font-medium !rounded-button whitespace-nowrap">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Card 4 -->
+                    <div class="course-card bg-[#6663F1] bg-opacity-20 dark:text-white rounded-lg shadow overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=modern%20web%20development%20with%20Vue.js%2C%20clean%20code%20editor%20showing%20Vue.js%20syntax%2C%20professional%20development%20workspace%20with%20minimalist%20setup&width=400&height=225&seq=4&orientation=landscape" alt="Vue.js 3 Masterclass" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <div class="progress-circle backdrop-filter backdrop-blur-xl rounded-lg">
+                                    <svg width="40" height="40" viewBox="0 0 40 40">
+                                        <circle class="bg" cx="20" cy="20" r="18"></circle>
+                                        <circle class="progress" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="0"></circle>
+                                        <text x="20" y="24" text-anchor="middle" fill="#2196F3" font-size="12" font-weight="bold">100%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-primary rounded">Intermediate</span>
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                    <span class="text-gray-600 ml-1">4.1</span>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 text-gray-900 dark:text-gray-100">Vue.js 3 Masterclass</h3>
+                            <p class="text-sm text-gray-600 mb-3 dark:text-white">Learn Vue.js 3 from the ground up, including Composition API, Vuex, and Vue Router.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+                                        <div class="w-4 h-4 flex items-center justify-center text-gray-600">
+                                            <i class="ri-time-line"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-gray-600">5 hours</span>
+                                </div>
+                                <button class="text-primary text-sm font-medium !rounded-button whitespace-nowrap">Completed</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Card 5 -->
+                    <div class="course-card bg-[#6663F1] bg-opacity-20 dark:text-white rounded-lg shadow overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=web%20development%20with%20GraphQL%20API%2C%20code%20editor%20showing%20GraphQL%20schema%20and%20queries%2C%20professional%20development%20environment%20with%20dark%20theme&width=400&height=225&seq=5&orientation=landscape" alt="GraphQL API Development" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <div class="progress-circle backdrop-filter backdrop-blur-xl rounded-lg">
+                                    <svg width="40" height="40" viewBox="0 0 40 40">
+                                        <circle class="bg" cx="20" cy="20" r="18"></circle>
+                                        <circle class="progress" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="79.2"></circle>
+                                        <text x="20" y="24" text-anchor="middle" fill="#2196F3" font-size="12" font-weight="bold">30%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-primary rounded">Intermediate</span>
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-line"></i>
+                                    <span class="text-gray-600 ml-1">4.6</span>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 text-gray-900 dark:text-gray-100">GraphQL API Development</h3>
+                            <p class="text-sm text-gray-600 mb-3 dark:text-white">Build efficient APIs with GraphQL, Apollo Server, and integrate with React clients.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+                                        <div class="w-4 h-4 flex items-center justify-center text-gray-600">
+                                            <i class="ri-time-line"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-gray-600">4.5 hours</span>
+                                </div>
+                                <button class="text-primary text-sm font-medium !rounded-button whitespace-nowrap">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Card 6 -->
+                    <div class="course-card bg-[#6663F1] bg-opacity-20 dark:text-white rounded-lg shadow overflow-hidden">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=web%20development%20with%20TypeScript%2C%20clean%20code%20editor%20showing%20TypeScript%20syntax%20and%20interfaces%2C%20professional%20development%20workspace%20with%20multiple%20monitors&width=400&height=225&seq=6&orientation=landscape" alt="TypeScript for Professionals" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <div class="progress-circle backdrop-filter backdrop-blur-xl rounded-lg">
+                                    <svg width="40" height="40" viewBox="0 0 40 40">
+                                        <circle class="bg" cx="20" cy="20" r="18"></circle>
+                                        <circle class="progress" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="45.2"></circle>
+                                        <text x="20" y="24" text-anchor="middle" fill="#2196F3" font-size="12" font-weight="bold">60%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-primary rounded">Intermediate</span>
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                    <span class="text-gray-600 ml-1">4.3</span>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 text-gray-900 dark:text-gray-100">TypeScript for Professionals</h3>
+                            <p class="text-sm text-gray-600 mb-3 dark:text-white">Master TypeScript for large-scale applications with advanced types, generics, and decorators.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+                                        <div class="w-4 h-4 flex items-center justify-center text-gray-600">
+                                            <i class="ri-time-line"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-gray-600">6 hours</span>
+                                </div>
+                                <button class="text-primary text-sm font-medium !rounded-button whitespace-nowrap">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                
+                <!-- Load More Button -->
+                <div class="mt-8 text-center">
+                    <button id="load-more" class="px-6 py-3 bg-primary text-white rounded-full shadow-md hover:shadow-lg transition-all !rounded-button whitespace-nowrap">Load More Courses</button>
+                </div>
+            </div>
+            </main>
+
+            <!-- Right Sidebar - Notifications -->
+            <aside class="sideBarNotification hidden w-90 backdrop-filter backdrop-blur-2xl p-6 dark:border-gray-800">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                    <i class="ri-close"></i>
+                    Recent Notifications
+                </h2>
+
+                <div class="space-y-4">
+                    <!-- Notification 1 bg-white dark:bg-darkSurface-->
+                    <div
+                        class=" transition dark:bg-opacity-50 hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                <i class="ri-book-mark-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">New Course Available</h4>
+                                <span class="notification-dot bg-secondary"></span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">AI & Machine Learning course is now
+                                available for enrollment.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">2 hours ago</p>
+                        </div>
+                    </div>
+
+                    <!-- Notification 2 -->
+                    <div
+                        class=" transition dark:bg-opacity-50 hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div
+                            class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-secondary">
+                                <i class="ri-file-list-3-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Assignment Graded</h4>
+                                <span class="notification-dot bg-secondary"></span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">Your JavaScript assignment has been
+                                graded. You scored 95%.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">Yesterday</p>
+                        </div>
+                    </div>
+
+                    <!-- Notification 3 -->
+                    <div
+                        class=" transition dark:bg-opacity-50 hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                <i class="ri-calendar-event-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Live Session Reminder</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">Don't forget your live session with
+                                Dr. Chen tomorrow at 3 PM.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">2 days ago</p>
+                        </div>
+                    </div>
+
+                    <!-- Notification 4 -->
+                    <div
+                        class=" transition dark:bg-opacity-50 hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div
+                            class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-secondary">
+                                <i class="ri-group-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Study Group Invitation
+                                </h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">You've been invited to join the
+                                Data Science study group.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">3 days ago</p>
+                        </div>
+                    </div>
+
+                    <!-- Notification 5 -->
+                    <div
+                        class="transition dark:bg-opacity-50 hover:scale-105 notification-card flex p-3 bg-gray-100 dark:bg-dark rounded-lg">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                <i class="ri-medal-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="text-sm font-medium text-gray-900 dark:text-white">Achievement Unlocked</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-1">You've earned the "Coding Streak"
+                                badge for 7 days of continuous learning.</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">5 days ago</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button
+                    class="mt-4 text-primary text-sm font-medium w-full py-2 border border-primary rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap">View
+                    All Notifications</button>
+            </aside>
+
+            <!-- Right Sidebar - message -->
+            <aside class="absolute hidden top-0 bottom-0 right-0 overflow-hidden z-50 sideBarMessage backdrop-filter backdrop-blur-2xl dark:border-gray-800">
+                <!-- section 1 - list des conversations -->
+                <div class="section1  backdrop-filter backdrop-blur-2xl h-full top-0 relative overscroll-x-none">
+                    <div
+                        class="header bg-opacity-50 backdrop-filter backdrop-blur-2xl z-50 p-4 w-full h-28 top-0 flex align-center justify-around flex-col">
+                        <div class="w-full flex align-center justify-between">
+                            <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                                <i class="backMsg ri-arrow-left-line cursor-pointer"></i>
+                                Message
+                            </h2>
+
+                            <div class="cursor-pointer flex align-center">
+                                <div class="">
+                                    <i
+                                        class="addChat ri-add-line ri-lg  w-5 h-5 hover:bg-white hover:bg-opacity-30 backdrop-filter backdrop-blur-xl p-2 rounded-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative px-2">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-search-line"></i>
+                                </div>
+                            </div>
+                            <input type="search"
+                                class="bg-gray-100 text-black dark:text-white dark:bg-dark dark:bg-opacity-30 text-gray-900 dark:text-white border-none text-sm rounded-full w-full pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary"
+                                placeholder="Rechercher une conversation">
+                        </div>
+                    </div>
+
+                    <div class="pt-0 px-2 w-full overflow-y-auto" style="height: 84%;">
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-18 w-16 rounded-full object-cover"
+                                    src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-500">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-18 w-16 rounded-full object-cover"
+                                    src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-18 w-16 rounded-full object-cover"
+                                    src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-18 w-16 rounded-full object-cover"
+                                    src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-18 w-16 rounded-full object-cover"
+                                    src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-18 w-16 rounded-full object-cover"
+                                    src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            <div class="relative flex-shrink-0">
+                                <img class="h-18 w-16 rounded-full object-cover"
+                                    src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                    alt="Sophie Moreau">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                    <span class="text-xs text-gray-300">10:25</span>
+                                </div>
+                                <p class="text-xs mt-1">Bonjour Madame, j'aurais besoin d'aide pour l'exercice 3 du
+                                    devoir de mathématiques...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- section 2 - Conversation détaillée -->
+                <div class="section2 hidden overscroll-x-none">
+                    <div class="header p-2 flex justify-between items-center">
+                        <div class="text-xl flex justify-between w-3/5 font-semibold text-gray-900 dark:text-white"
+                            style="align-items: center;">
+                            <i class="ri-arrow-left-line cursor-pointer" id="backListConversation"></i>
+                            <div class="relative flex-shrink-0">
+                                <img class="h-10 w-10 rounded-full object-cover"
+                                    src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20female%20student%20with%20blonde%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=4&orientation=squarish"
+                                    alt="Camille Dubois">
+                                <div
+                                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                </div>
+                            </div>
+                            <div>Camille Dubois</div>
+                        </div>
+
+                        <div class="cursor-pointer flex" style="align-items: center;">
+                            <div class="">
+                                <i id=""
+                                    class="settingChat ri-settings-line ri-lg  w-5 h-5 hover:bg-white hover:bg-opacity-30 backdrop-filter backdrop-blur-xl p-2 rounded-lg"></i>
+                                <div class="userSetting hidden absolute right-0 mt-2 w-52 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-50"
+                                    id="">
+                                    <div class="py-1">
+                                        <a href="#"
+                                            class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Bloquer cet
+                                            utilisateur</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-sm text-red-500 hover:bg-red-900">Supprimer la
+                                            conversation </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-2 overflow-y-auto w-auto" style="height: 83vh;">
+                            <!-- time less -->
+                        <div class="flex justify-center p-2 text-xs backdrop-filter backdrop-blur-lg bg-gray-100 dark:bg-dark dark:bg-opacity-50 rounded-lg"
+                            style="align-items: center;">Aujourd'hui</div>
+
+                        <!-- receive msg -->
+                        <div class="text-sm">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                        </div>
+
+                        <!-- sent msg -->
+                        <div class="text-sm flex flex-col justify-end " style="align-items: end;">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <div class="flex">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-check-double-line text-blue-500"></i>
+                                </div>
+                                <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                            </div>
+                        </div>
+
+                        <!-- sent msg -->
+                        <div class="text-sm flex flex-col justify-end " style="align-items: end;">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <div class="flex">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-check-double-line text-blue-500"></i>
+                                </div>
+                                <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                            </div>
+                        </div>
+
+                        <!-- receive msg -->
+                        <div class="text-sm">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p class="text-sm mb-2">Je vous envoie une capture d'écran de mon travail. Voici où je
+                                    bloque :</p>
+                                <div class="bg-gray-200 rounded-md p-2 flex items-center">
+                                    <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                        <i class="ri-file-image-line"></i>
+                                    </div>
+                                    <span class="text-xs text-gray-700">exercice3_capture.jpg</span>
+                                    <button class="ml-auto p-1 text-gray-500 hover:text-gray-700">
+                                        <div class="w-4 h-4 flex items-center justify-center">
+                                            <i class="ri-download-line"></i>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                        </div>
+
+                        <!-- sent msg -->
+                        <div class="text-sm flex flex-col justify-end " style="align-items: end;">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p>Lorem </p>
+                            </div>
+                            <div class="flex">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-check-double-line text-blue-500"></i>
+                                </div>
+                                <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                            </div>
+                        </div>
+
+                        <!-- receive msg -->
+                        <div class="text-sm">
+                            <div
+                                class="bg-[#6366F1] bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                <p class="text-sm mb-2">Je vous envoie une capture d'écran de mon travail. Voici où je
+                                    bloque :</p>
+                                <img class=" rounded-md mr-3"
+                                    src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                    alt="Sophie Moreau">
+
+                            </div>
+                            <span class="text-xs text-gray-900 dark:text-gray-100">09:15</span>
+                        </div>
+                    </div>
+
+                    <div class="px-2 py-2 backdrop-filter backdrop-blur-2xl w-full fixed bottom-0" style="height:auto;">
+                        <div class="flex items-end">
+                            <label type="button" for="mediaUpload"
+                                class=" p-2 rounded-full text-gray-500 hover:text-gray-600 hover:bg-gray-100 mr-2">
+                                <div class="w-6 h-6 flex items-center justify-center">
+                                    <i class="ri-attachment-2"></i>
+                                </div>
+                                <input type="file" name="" class="hidden" id="mediaUpload">
+                            </label>
+                            <div
+                                class="flex-1 border border-gray-300 backdrop-filter backdrop-blur-2xl rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-primary focus-within:border-primary">
+                                <div class="content"><img src="" class="img h-10 w-10 rounded-sm"></div>
+                                <input
+                                    class="message-input bg-transparent backdrop-filter backdrop-blur-xl text-sm text-gray-800 w-full outline-none dark:text-white text-black"
+                                    contenteditable="true" placeholder="Écrivez votre message...">
+                            </div>
+                            <button type="button"
+                                class="p-2 ml-2 rounded-full text-white bg-primary hover:bg-indigo-700 !rounded-button">
+                                <div class="w-6 h-6 flex items-center justify-center">
+                                    <i class="ri-send-plane-fill"></i>
+                                </div>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- section 3 - Ajout de nouvelle discussion ou création de groupe -->
+                <div
+                    class="w-full section3 p-2 backdrop-filter backdrop-blur-2xl z-50 rounded-tl-lg rounded-tr-lg h-5/5">
+                    <div class="flex align-center justify-between" style="align-items: center;">
+                        <h2 class="ChangeToContinue text-sm">Sélectionner un utilisateur pour démarrer une conversation
+                        </h2>
+
+                        <i class="close ri-close-line cursor-pointer"></i>
+                    </div>
+
+                    <div class="relative hidden mt-2 lg:block">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-search-line"></i>
+                            </div>
+                        </div>
+                        <input type="search"
+                            class="bg-gray-100 text-black dark:text-white bg-opacity-10 dark:bg-dark dark:bg-opacity-30 text-gray-900 dark:text-white border-none text-sm rounded-full w-full pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary"
+                            placeholder="Rechercher un utilisateur">
+                    </div>
+
+                    <form class="mt-2 overflow-y-auto" style="height: 65vh;">
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class=" rounded-lg selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class="selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover:bg-gray-200 hover:bg-opacity-20 transition flex border-b border-gray-100 border-opacity-50 p-2"
+                            style="align-items: center;">
+                            <input type="checkbox" name="" class="selectUser h-5 w-5">
+                            <div class="ml-2 flex align-center" style="align-items: center;">
+                                <div class="relative flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full object-cover"
+                                        src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20female%20student%20with%20brown%20hair%2C%20natural%20lighting%2C%20professional%20headshot&width=100&height=100&seq=2&orientation=squarish"
+                                        alt="Sophie Moreau">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex flex-col justify-between items-baseline">
+                                        <h3 class="text-sm font-medium">Sophie Moreau</h3>
+                                        <h4 class="text-xs font-medium">Etudiante</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+
+    <script src="../js_style/dark.js"></script>
+    <script src="../js_style/notif.js"></script>
+    <script src="../js_style/formateur/dashboard.js"></script>
+    <script src="../js_style/msg.js"></script>
+    
+</body>
+</html>

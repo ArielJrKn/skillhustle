@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course detail | Nom du cours</title>
+    <link rel="stylesheet" type="text/css" href="../style/progresseBar.css">
+    <link rel="stylesheet" type="text/css" href="../style/scroll.css">
+    <link rel="stylesheet" type="text/css" href="../style/dark.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="../js_style/student_dashboard_tailwindConfig.js"></script>
+</head>
+<body class="bg-background min-h-screen">
+
+    <!-- Loading Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Main Container -->
+    <div class="flex flex-col h-screen">
+        <!-- Top Navigation Bar -->
+        <header class="h-16 backdrop-filter backdrop-blur-lg absolute w-full shadow-sm flex items-center justify-between px-6 z-10">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="mesCours.html" data-readdy="true" class="flex items-center mr-6 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+                    <div class="w-5 h-5 flex items-center justify-center mr-1">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>              
+                    <span>Retour au cours</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button
+                    class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-button flex items-center gap-2 transition-colors">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-delete-bin-line"></i>
+                    </div>
+                    <span>Supprimer</span>
+                </button>
+            </div>            
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex overflow-hidden">
+
+            <!-- Main Content -->
+            <div class="flex-1 flex flex-col overflow-hidden">
+
+                <main class="pt-16 flex-1 overflow-y-auto bg-white dark:bg-black p-4">
+                    <div class="min-h-screen p-2">
+                        <div class="mx-auto">
+                            <!-- Course Header -->
+                            <div class="glass-effect rounded-xl p-8 mb-8 bg-[#6663F1] bg-opacity-20">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="flex-1">
+                                        <h1 class="text-4xl font-bold mb-4">Data Science pour Débutants</h1>
+                                        <div class="flex items-center gap-6">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-5 h-5 flex items-center justify-center">
+                                                    <i class="ri-user-line"></i>
+                                                </div>
+                                                <span>614 étudiants</span>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <span class="text-white font-semibold">4.7</span>
+                                                <span>(127 avis)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ml-8">
+                                        <img src="https://readdy.ai/api/search-image?query=modern%20data%20science%20visualization%20dashboard%20with%20colorful%20charts%20graphs%20analytics%20on%20dark%20background%20professional%20tech%20illustration&width=400&height=250&seq=course-cover-1&orientation=landscape"
+                                            alt="Data Science Course" class=" hidden lg:block md:block w-80 h-48 object-cover rounded-lg">
+                                    </div>
+                                </div>
+                                <!-- Progress Bar -->
+                                <div class="mb-6">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-sm font-medium">Progression</span>
+                                        <span class="text-sm font-bold text-primary">100%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-700 rounded-full h-2">
+                                        <div class="progressbar h-2 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-2">Dernière activité : 15 décembre 2024</p>
+                                </div>
+                                <!-- Action Buttons -->
+                                <div class="flex items-center gap-4">
+                                    <!-- <button
+                                        class="bg-primary hover:bg-blue-600 px-6 py-3 rounded-button font-semibold transition-colors whitespace-nowrap flex items-center gap-2">
+                                        <i class="ri-eye-line"></i>
+                                        <span>Aperçu du cours</span>
+                                    </button> -->
+                                    <button
+                                        class="glass-effect hover:bg-primary px-6 py-3 rounded-button font-semibold transition-colors whitespace-nowrap flex items-center gap-2">
+                                        <i class="ri-user-line"></i>
+                                        <span>Gérer les étudiants</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Course Content -->
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                                <!-- Main Content -->
+                                <div class="lg:col-span-2 space-y-8">
+                                    <!-- Description -->
+                                    <div class="glass-effect rounded-xl p-6 bg-[#6663F1] bg-opacity-20">
+                                        <h2 class="text-2xl font-bold mb-4">Description du cours</h2>
+                                        <p class=" leading-relaxed mb-4">
+                                            Ce cours complet de Data Science est conçu spécialement pour les débutants qui souhaitent
+                                            découvrir le monde fascinant de l'analyse de données. Vous apprendrez les concepts fondamentaux,
+                                            les outils essentiels et les techniques pratiques utilisées par les professionnels.
+                                        </p>
+                                        <p class=" leading-relaxed">
+                                            À travers des projets concrets et des exercices pratiques, vous développerez les compétences
+                                            nécessaires pour analyser, visualiser et interpréter des données complexes. Ce cours vous
+                                            préparera à une carrière prometteuse dans le domaine de la Data Science.
+                                        </p>
+                                    </div>
+                                    <!-- Learning Objectives -->
+                                    <div class="glass-effect rounded-xl p-6 bg-[#6663F1] bg-opacity-20">
+                                        <h2 class="text-2xl font-bold mb-4">Objectifs d'apprentissage</h2>
+                                        <ul class="space-y-3">
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-primary">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                                <span class="">Maîtriser les concepts fondamentaux de la Data Science</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-primary">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                                <span class="">Apprendre Python pour l'analyse de données</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-primary">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                                <span class="">Créer des visualisations de données percutantes</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-primary">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                                <span class="">Développer des modèles de Machine Learning</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-primary">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                                <span class="">Réaliser des projets concrets d'analyse de données</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Course Curriculum -->
+                                    <div class="glass-effect rounded-xl p-6 bg-[#6663F1] bg-opacity-20">
+                                        <h2 class="text-2xl font-bold mb-6">Programme du cours</h2>
+                                        <div class="space-y-4">
+                                            <div class="border border-slate-600 rounded-lg p-4">
+                                                <div class="flex items-center justify-between mb-2">
+                                                    <h3 class="font-semibold text-lg">Module 1 : Introduction à la Data Science</h3>
+                                                    <span class="text-sm text-slate-400">2 semaines</span>
+                                                </div>
+                                                <p class=" text-sm mb-3">Découvrez les bases de la Data Science et son
+                                                    écosystème</p>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-center gap-3 text-sm">
+                                                        <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                                            <i class="ri-play-circle-line"></i>
+                                                        </div>
+                                                        <span class="">Qu'est-ce que la Data Science ?</span>
+                                                        <span class="text-slate-400 ml-auto">15 min</span>
+                                                    </div>
+                                                    <div class="flex items-center gap-3 text-sm">
+                                                        <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                                            <i class="ri-play-circle-line"></i>
+                                                        </div>
+                                                        <span class="">Les outils essentiels</span>
+                                                        <span class="text-slate-400 ml-auto">22 min</span>
+                                                    </div>
+                                                    <div class="flex items-center gap-3 text-sm">
+                                                        <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                                            <i class="ri-file-text-line"></i>
+                                                        </div>
+                                                        <span class="">Quiz d'évaluation</span>
+                                                        <span class="text-slate-400 ml-auto">10 questions</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="border border-slate-600 rounded-lg p-4">
+                                                <div class="flex items-center justify-between mb-2">
+                                                    <h3 class="font-semibold text-lg">Module 2 : Python pour la Data Science</h3>
+                                                    <span class="text-sm text-slate-400">2 semaines</span>
+                                                </div>
+                                                <p class=" text-sm mb-3">Maîtrisez Python et ses bibliothèques pour l'analyse
+                                                    de données</p>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-center gap-3 text-sm">
+                                                        <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                                            <i class="ri-play-circle-line"></i>
+                                                        </div>
+                                                        <span class="">Pandas et NumPy</span>
+                                                        <span class="text-slate-400 ml-auto">35 min</span>
+                                                    </div>
+                                                    <div class="flex items-center gap-3 text-sm">
+                                                        <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                                            <i class="ri-code-line"></i>
+                                                        </div>
+                                                        <span class="">Exercices pratiques</span>
+                                                        <span class="text-slate-400 ml-auto">5 exercices</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="border border-slate-600 rounded-lg p-4">
+                                                <div class="flex items-center justify-between mb-2">
+                                                    <h3 class="font-semibold text-lg">Module 3 : Visualisation de données</h3>
+                                                    <span class="text-sm text-slate-400">2 semaines</span>
+                                                </div>
+                                                <p class=" text-sm mb-3">Créez des graphiques et visualisations impactantes
+                                                </p>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-center gap-3 text-sm">
+                                                        <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                                            <i class="ri-play-circle-line"></i>
+                                                        </div>
+                                                        <span class="">Matplotlib et Seaborn</span>
+                                                        <span class="text-slate-400 ml-auto">28 min</span>
+                                                    </div>
+                                                    <div class="flex items-center gap-3 text-sm">
+                                                        <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                                            <i class="ri-folder-line"></i>
+                                                        </div>
+                                                        <span class="">Projet : Dashboard interactif</span>
+                                                        <span class="text-slate-400 ml-auto">1 projet</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="border border-slate-600 rounded-lg p-4">
+                                                <div class="flex items-center justify-between mb-2">
+                                                    <h3 class="font-semibold text-lg">Module 4 : Machine Learning</h3>
+                                                    <span class="text-sm text-slate-400">2 semaines</span>
+                                                </div>
+                                                <p class=" text-sm mb-3">Introduction aux algorithmes d'apprentissage
+                                                    automatique</p>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-center gap-3 text-sm">
+                                                        <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                                            <i class="ri-play-circle-line"></i>
+                                                        </div>
+                                                        <span class="">Algorithmes supervisés</span>
+                                                        <span class="text-slate-400 ml-auto">42 min</span>
+                                                    </div>
+                                                    <div class="flex items-center gap-3 text-sm">
+                                                        <div class="w-4 h-4 flex items-center justify-center text-primary">
+                                                            <i class="ri-folder-line"></i>
+                                                        </div>
+                                                        <span class="">Projet final</span>
+                                                        <span class="text-slate-400 ml-auto">1 projet</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Sidebar -->
+                                <div class="space-y-6">
+                                    <!-- Course Stats -->
+                                    <div class="glass-effect rounded-xl p-6 bg-[#6663F1] bg-opacity-20">
+                                        <h3 class="text-xl font-bold mb-4">Statistiques du cours</h3>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div class="bg-slate-800/50 p-4 rounded-lg">
+                                                <div class="text-3xl font-bold text-primary mb-1">614</div>
+                                                <div class="text-sm text-slate-400">Étudiants inscrits</div>
+                                            </div>
+                                            <div class="bg-slate-800/50 p-4 rounded-lg">
+                                                <div class="text-3xl font-bold text-green-400 mb-1">94%</div>
+                                                <div class="text-sm text-slate-400">Taux de complétion</div>
+                                            </div>
+                                            <div class="bg-slate-800/50 p-4 rounded-lg">
+                                                <div class="text-3xl font-bold text-yellow-400 mb-1">4.7</div>
+                                                <div class="text-sm text-slate-400">Note moyenne</div>
+                                            </div>
+                                            <div class="bg-slate-800/50 p-4 rounded-lg">
+                                                <div class="text-3xl font-bold text-purple-400 mb-1">127</div>
+                                                <div class="text-sm text-slate-400">Avis reçus</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Revenue Stats -->
+                                    <div class="glass-effect rounded-xl p-6 bg-[#6663F1] bg-opacity-20">
+                                        <h3 class="text-xl font-bold mb-4">Revenus</h3>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center justify-between">
+                                                <span class="">Revenu total</span>
+                                                <span class="font-semibold">12,350 €</span>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <span class="">Revenu ce mois</span>
+                                                <span class="font-semibold">2,180 €</span>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <span class="">Prix du cours</span>
+                                                <span class="font-semibold">49.99 €</span>
+                                            </div>
+                                            <button
+                                                class="w-full bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-button flex items-center gap-2 justify-center transition-colors mt-2">
+                                                <i class="ri-file-chart-line"></i>
+                                                <span>Voir les rapports détaillés</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Recent Activity -->
+                                    <div class="glass-effect rounded-xl p-6 bg-[#6663F1] bg-opacity-20">
+                                        <h3 class="text-xl font-bold mb-4">Activité récente</h3>
+                                        <div class="space-y-4">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                                                    <i class="ri-user-add-line text-blue-400"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm ">3 nouveaux étudiants inscrits</p>
+                                                    <p class="text-xs text-slate-400">Il y a 2 heures</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                                                    <i class="ri-star-line text-yellow-400"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm ">Nouvelle évaluation 5 étoiles</p>
+                                                    <p class="text-xs text-slate-400">Il y a 5 heures</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                                                    <i class="ri-message-3-line text-green-400"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm ">Nouveau commentaire sur le Module 2</p>
+                                                    <p class="text-xs text-slate-400">Il y a 8 heures</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Prerequisites -->
+                                    <div class="glass-effect rounded-xl p-6 bg-[#6663F1] bg-opacity-20">
+                                        <h3 class="text-xl font-bold mb-4">Prérequis</h3>
+                                        <ul class="space-y-3">
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-yellow-400">
+                                                    <i class="ri-lightbulb-line"></i>
+                                                </div>
+                                                <span class=" text-sm">Connaissances de base en mathématiques</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-yellow-400">
+                                                    <i class="ri-computer-line"></i>
+                                                </div>
+                                                <span class=" text-sm">Ordinateur avec accès internet</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-yellow-400">
+                                                    <i class="ri-heart-line"></i>
+                                                </div>
+                                                <span class=" text-sm">Motivation et curiosité</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Instructor -->
+                                    <div class="glass-effect rounded-xl p-6 bg-[#6663F1] bg-opacity-20">
+                                        <h3 class="text-xl font-bold mb-4">Instructeur</h3>
+                                        <div class="flex items-center gap-4 mb-4">
+                                            <img src="https://readdy.ai/api/search-image?query=professional%20data%20scientist%20instructor%20portrait%20smiling%20confident%20person%20with%20modern%20tech%20background&width=80&height=80&seq=instructor-1&orientation=squarish"
+                                                alt="Dr. Marie Dubois" class="w-16 h-16 rounded-full object-cover">
+                                            <div>
+                                                <h4 class="font-semibold">Dr. Marie Dubois</h4>
+                                                <p class="text-slate-400 text-sm">Data Scientist Senior</p>
+                                            </div>
+                                        </div>
+                                        <p class=" text-sm mb-4">
+                                            Experte en Data Science avec plus de 8 ans d'expérience dans l'industrie technologique.
+                                        </p>
+                                        <div class="flex items-center gap-4 text-sm text-slate-400">
+                                            <span>12 cours</span>
+                                            <span>•</span>
+                                            <span>2,847 étudiants</span>
+                                        </div>
+                                    </div>
+                                    <!-- Course Stats -->
+                                    <div class="glass-effect rounded-xl p-6 bg-[#6663F1] bg-opacity-20">
+                                        <h3 class="text-xl font-bold mb-4">Statistiques</h3>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center justify-between">
+                                                <span class="">Taux de réussite</span>
+                                                <span class="font-semibold text-primary">94%</span>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <span class="">Durée moyenne</span>
+                                                <span class="font-semibold">6 semaines</span>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <span class="">Certificat</span>
+                                                <span class="font-semibold text-green-400">Inclus</span>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <span class="">Niveau</span>
+                                                <span class="font-semibold">Débutant</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js_style/dark.js"></script>
+        <script id="section-toggle">
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const arrow = document.getElementById('arrow' + sectionId.slice(-1));
+            
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                arrow.classList.remove('ri-arrow-down-s-line');
+                arrow.classList.add('ri-arrow-up-s-line');
+            } else {
+                section.classList.add('hidden');
+                arrow.classList.remove('ri-arrow-up-s-line');
+                arrow.classList.add('ri-arrow-down-s-line');
+            }
+        }
+    </script>
+
+</body>
+</html>
