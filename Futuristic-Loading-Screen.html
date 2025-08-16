@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Loading Screen</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#00A3FF',secondary:'#00FFD1'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(0, 163, 255, 0.7)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 25px rgba(0, 255, 209, 0.8)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(0, 163, 255, 0.7)); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes colorShift {
+            0% { stroke: #00A3FF; }
+            50% { stroke: #00FFD1; }
+            100% { stroke: #00A3FF; }
+        }
+        
+        @keyframes waveMotion {
+            0% { d: path('M0,20 Q25,5 50,20 Q75,35 100,20 Q125,5 150,20 Q175,35 200,20'); }
+            50% { d: path('M0,20 Q25,35 50,20 Q75,5 100,20 Q125,35 150,20 Q175,5 200,20'); }
+            100% { d: path('M0,20 Q25,5 50,20 Q75,35 100,20 Q125,5 150,20 Q175,35 200,20'); }
+        }
+        
+        .logo-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .spinner {
+            animation: rotate 2s linear infinite;
+            transform-origin: center;
+        }
+        
+        .spinner-path {
+            animation: colorShift 2s ease-in-out infinite;
+            stroke-linecap: round;
+        }
+        
+        .wave {
+            animation: waveMotion 2s ease-in-out infinite;
+        }
+        
+        .wave-path {
+            animation: colorShift 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-[#121212] h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
+    <div class="flex flex-col items-center justify-center h-full w-full">
+        <!-- Logo -->
+        <div class="logo-pulse mb-16">
+            <h1 class="text-7xl font-['Pacifico'] text-white">logo</h1>
+        </div>
+        
+        <!-- Loading Animation - Choose one of these options -->
+        
+        <!-- Option 1: Spinner -->
+        <div class="relative w-16 h-16">
+            <svg class="spinner w-full h-full" viewBox="0 0 50 50">
+                <circle class="spinner-path" cx="25" cy="25" r="20" fill="none" stroke-width="4" stroke-dasharray="80, 200" stroke-dashoffset="0"></circle>
+            </svg>
+        </div>
+        
+        <!-- Option 2: Waveform (uncomment to use) -->
+        <!-- <div class="relative w-52 h-10">
+            <svg class="w-full h-full" viewBox="0 0 200 40">
+                <path class="wave wave-path" d="M0,20 Q25,5 50,20 Q75,35 100,20 Q125,5 150,20 Q175,35 200,20" fill="none" stroke-width="3"></path>
+            </svg>
+        </div> -->
+        
+        <!-- Loading Text -->
+        <p class="mt-8 text-gray-400 text-lg tracking-widest">LOADING</p>
+    </div>
+
+    <script id="loadingAnimation">
+        document.addEventListener('DOMContentLoaded', function() {
+            // You can add additional JavaScript functionality here if needed
+            // For example, to switch between spinner and waveform based on conditions
+            
+            // Simulate loading completion after 5 seconds (for demo purposes)
+            setTimeout(() => {
+                // This would typically redirect to your main application
+                console.log('Loading complete');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

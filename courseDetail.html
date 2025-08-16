@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillHustle | Certification</title>
+    <title>SkillHustle | Advanced Web Development</title>
     <link rel="stylesheet" type="text/css" href="style/progresseBar.css">
     <link rel="stylesheet" type="text/css" href="style/scroll.css">
     <!-- <link rel="stylesheet" type="text/css" href="style/switchAction.css"> -->
     <link rel="stylesheet" type="text/css" href="style/msg.css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="style/dark.css">
+    <link rel="stylesheet" type="text/css" href="style/courseDetail.css">
     <link rel="stylesheet" type="text/css" href="style/notifications.css">
+    <link rel="stylesheet" type="text/css" href="style/etudiant/courseContainer.css">
+    <link rel="stylesheet" type="text/css" href="style/etudiant/CourseCatalogue.css">
     <link rel="stylesheet" type="text/css" href="style/formateur/sideBar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +25,68 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script src="js_style/student_dashboard_tailwindConfig.js"></script>
+
+    <style>
+                /* --- TABLETTE (1023px à 768px) --- */
+        @media screen and (max-width: 1023px) and (min-width: 768px){
+            .filter{
+                top: 0;
+                position: absolute;
+                height: 100%;
+                width: 50%;
+                z-index: 50;
+                backdrop-filter: blur(50px);
+            }
+        }
+
+
+        /* --- PC STANDARD (1365px à 1024px) --- */
+        @media screen and (max-width: 1365px) and (min-width: 1024px){
+            .filter{
+                top: 0;
+                left: 0;
+                position: absolute;
+                height: 100%;
+                width: 30%;
+                z-index: 50;
+                backdrop-filter: blur(50px);
+            }
+            /*.card{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }*/
+        }
+
+        /* --- PETIT MOBILE (moins de 480px) --- */
+        @media screen and (max-width: 479px){
+            .filter{
+                top: 0;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                z-index: 50;
+                backdrop-filter: blur(50px);
+            }
+
+            /*.card{
+                display: flex;
+                flex-direction: column;
+                background-color: red;
+
+            }*/
+        }
+
+        @media screen and (max-width: 767px) and (min-width: 480px){
+            /*.card{
+                display: flex;
+                align-items: start;
+                flex-direction: column;
+                width: 100%;
+                justify-content: start;
+            }*/
+        }
+    </style>
 </head>
 
 <body class="bg-background min-h-screen">
@@ -32,21 +97,18 @@
     <!-- Main Container -->
     <div class="flex flex-col h-screen">
         <!-- Top Navigation Bar -->
-        <header
-            class="h-16 backdrop-filter backdrop-blur-lg absolute w-full shadow-sm flex items-center justify-between px-6 z-10">
-            <!-- Logo -->
+        <header class="h-16 backdrop-filter backdrop-blur-lg absolute w-full shadow-sm flex items-center justify-between px-6 z-10">
+            <!-- Back Button and Course Title -->
             <div class="flex items-center">
-                <button type="button"
-                    class="text-gray-300 hover:text-white focus:outline-none lg:hidden md:hidden sm:block"
-                    id="mobileMenuButton">
-                    <div class="w-6 h-6 flex items-center justify-center">
-                        <i class="ri-menu-line ri-lg"></i>
-                    </div>
-                </button>
-                <span class=" sm:ml-4 text-2xl font-['Pacifico'] text-primary">logo</span>
+                <a href="cours.html" data-readdy="true" class="flex items-center mr-6 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+                    <div class="w-5 h-5 flex items-center justify-center mr-1">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>              
+                    <span class="text-xl font-semibold text-gray-900 dark:text-white">Advanced Web Development</span>
+                </a>
             </div>
 
-            <!-- Search & Actions -->
+            <!-- Right Actions -->
             <div class="flex items-center space-x-4">
                 <!-- Search Bar -->
                 <div class="relative hidden lg:block">
@@ -63,547 +125,573 @@
                     class=" relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
                     <i id="theme" class="ri-sun-line text-xl"></i>
                 </div>
-
-                <!-- Notification Icon -->
-                <div
-                    class="btnNotif relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
-                    <i class="ri-notification-3-line text-xl"></i>
-                    <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
-                </div>
-
-                <div
-                    class="btnMsg relative w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer">
-                    <i class="ri-message-3-line text-xl"></i>
-                    <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
-                </div>
-
-                <!-- Profile Icon -->
-                <div class="relative">
-                    <button type="button" class="flex items-center focus:outline-none" id="userMenuButton">
-                        <span class="hidden md:block mr-3 text-sm font-medium text-gray-800 dark:text-white">Thomas</span>
-                        <img class="h-8 w-8 rounded-full object-cover"
-                            src="media/chat.jpg"
-                            alt="Photo de profil">
-                    </button>
-                    <div class="hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-50"
-                        id="userMenu">
-                        <div class="py-1">
-                            <a href="edit.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Profil</a>
-                            <div class="border-t border-gray-700"></div>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Déconnexion</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </header>
 
         <!-- Main Content Area -->
         <div class="flex-1 flex overflow-hidden">
 
-            <!-- Left Sidebar - Course Outline -->
-            <aside class="pt-16 w-20 bg-white dark:bg-black flex flex-col lg:flex hidden md:flex items-center justify-between py-6 space-y-8">                
-                <nav class="flex flex-col space-y-4">
-                    <a href="index.html">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-lg hover-highlight cursor-pointer">
-                            <i class="ri-home-line text-xl"></i>
-                        </div>
-                    </a>
-                    <a href="membres.html">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-lg hover-highlight cursor-pointer">
-                            <i class="ri-group-line text-xl"></i>
-                        </div>
-                    </a>
-                    <a href="cours.html">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-lg hover-highlight cursor-pointer">
-                            <i class="ri-book-open-line text-xl"></i>
-                        </div>
-                    </a>
-                    <a href="jobs.html">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-lg hover-highlight cursor-pointer">
-                            <i class="ri-briefcase-line text-xl"></i>
-                        </div>
-                    </a>
-                    <a href="Certification.html">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-lg active-nav hover-highlight cursor-pointer">
-                            <i class="ri-medal-line ri-lg"></i>
-                        </div>
-                    </a>
-                    <a href="profil.html">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-lg hover-highlight cursor-pointer">
-                            <i class="ri-user-line text-xl"></i>
-                        </div>
-                    </a>
-                </nav>
-
-                <div class="absolute bottom-0 px-6 left-0 z-50 RightBtn w-auto h-12 flex items-center justify-center hidden lg:flex md:flex rounded-lg hover-highlight cursor-pointer">
-                        <i class="ri-side-line text-xl"></i>
-                        <h3 class="ml-3 hidden lg:block">Plus d'informations</h3>
-                    </div>
-            </aside>
 
             <!-- Main Content -->
             <div class="flex-1 flex flex-col overflow-hidden">
-                <!-- Mobile Sidebar -->
-                <div class="fixed inset-0 z-40 hidden bg-black bg-opacity-50" id="mobileSidebarBackdrop"></div>
-                <div class="fixed inset-y-0 left-0 z-50 w-64 dark:bg-darkSurface bg-white transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden"
-                    id="mobileSidebar">
-                    <div class="p-4 flex items-center justify-between border-b border-gray-700">
-                        <h1 class="text-xl font-['Pacifico'] text-gray-800 dark:text-white">logo</h1>
-                        <button type="button" class="text-gray-300 hover:text-white focus:outline-none"
-                            id="closeMobileMenu">
-                            <div class="w-6 h-6 flex items-center justify-center">
-                                <i class="ri-close-line ri-lg"></i>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="flex flex-col justify-between h-6/6 flex-grow p-4 overflow-y-auto">
-                        <nav class="flex-1 space-y-2">
-                        <a href="index.html"
-                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
-                            <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                <i class="ri-home-line text-xl"></i>
-                            </div>
-                            <span>Acceuil</span>
-                        </a>
-                        <a href="membres.html"
-                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
-                            <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                <i class="ri-group-line text-xl"></i>
-                            </div>
-                            <span>Membres</span>
-                        </a>
-                        <a href="cours.html" data-readdy="true"
-                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
-                            <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                <i class="ri-book-open-line ri-lg"></i>
-                            </div>
-                            <span>Cours</span>
-                        </a>
-                        <a href="jobs.html" data-readdy="true"
-                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
-                            <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                <i class="ri-briefcase-line ri-lg"></i>
-                            </div>
-                            <span>Jobs</span>
-                        </a>
-                        <a href="Certification.html"
-                            class="sidebar-item active flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
-                            <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                <i class="ri-medal-line ri-lg"></i>
-                            </div>
-                            <span>Certifications</span>
-                        </a>
-                        <!-- <a href="exercices.html"
-                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
-                            <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                <i class="ri-brain-line ri-lg"></i>
-                            </div>
-                            <span>Exercices</span>
-                        </a>
-                        
-                        <a href="favoris.html"
-                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
-                            <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                <i class="ri-star-line ri-lg"></i>
-                            </div>
-                            <span>Favoris</span>
-                        </a>
-                        <a href="social.html"
-                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
-                            <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                <i class="ri-earth-line ri-lg"></i>
-                            </div>
-                            <span>Partie sociale</span>
-                        </a> -->
-                        <a href="profil.html"
-                            class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
-                            <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                <i class="ri-user-line text-xl"></i>
-                            </div>
-                            <span>Paramètres</span>
-                        </a>
-
-                        <div class="flex flex-col text-sm gap-2">
-                            Ici les pages respectifs pour chaque acteurs de la platformes
-                             <a href="students/Student-Dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
-                                    Mode apprenant
-                                </a>
-
-                                <a href="formateur/dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
-                                    Mode formateur
-                                </a>
-                                <a href="recruit/dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
-                                    Mode entreprise
-                                </a>
-                                <a href="admin/dashboard.html" class="p-2 bg-primary bg-opacity-20 hover:bg-opacity-50 rounded-md">
-                                    Mode administrateur
-                                </a>
-                        </div>
-                    </nav>
-
-
-                        <div class="mt-auto pt-4 border-t border-gray-700">
-                            <a href="#"
-                                class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
-                                <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                    <i class="ri-logout-box-line ri-lg"></i>
-                                </div>
-                                <span>Déconnexion</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Main Content Area -->
                 <main class="pt-16 flex-1 overflow-y-auto bg-white dark:bg-black">
-                                    <div class="flex p-3">
-                    <!-- Main Content -->
-                    
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        <!-- Card 1 - Verified -->
-                        <div class=" dark:text-white bg-primary bg-opacity-20 card card-light rounded-lg overflow-hidden shadow-md hover:shadow-xl glow-effect">
-                            <div class="h-40 bg-gradient-to-r from-primary/10 to-secondary/10 relative">
-                                <img src="https://readdy.ai/api/search-image?query=modern%20digital%20certificate%20with%20holographic%20elements%2C%20futuristic%20design%2C%20tech%20aesthetic%2C%20minimalist%20layout%20with%20electric%20blue%20and%20mint%20green%20accents%2C%20professional%20certification%20document&width=400&height=200&seq=cert1&orientation=landscape" alt="Certificate" class="w-full h-full object-cover object-top">
-                                <div class="absolute top-3 right-3">
-                                    <span class="status-badge inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span>
-                                        Verified
-                                    </span>
+                    <div class="flex flex-col md:flex-row gap-8 p-6">
+                        <!-- Main Content Column -->
+                        <div class="w-full md:w-2/3">
+                            <!-- Course Header -->
+                            <div class="mb-8">
+                                <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">Advanced UI Design Principles: Creating Intuitive User Experiences</h1>
+                                <div class="flex items-center mb-6">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                        <img src="media/chat.jpg" alt="Instructor" class="w-full h-full object-cover object-top">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900 dark:text-gray-100">Dr. Emily Richardson</h3>
+                                        <p class="text-sm text-gray-600">Lead UX Designer at DesignLabs • 15+ years experience</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-3 mb-6">
+                                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">UI/UX Design</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Intermediate</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">12 hours</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Updated June 2025</span>
                                 </div>
                             </div>
-                            <div class="p-5">
-                                <h3 class="text-lg font-semibold mb-2 line-clamp-2 text-gray-900 dark:text-gray-100">Advanced Machine Learning & Neural Networks</h3>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-calendar-line"></i>
+                            <!-- Video Player -->
+                            <div class="video-container mb-8 rounded-lg overflow-hidden shadow-lg">
+                                <div class="video-placeholder bg-gray-800">
+                                    <div class="play-button">
+                                        <i class="ri-play-fill text-white ri-3x"></i>
                                     </div>
-                                    Completed on June 15, 2025
                                 </div>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-award-line"></i>
+                            </div>
+                            <!-- Course Description -->
+                            <div class="bg-primary bg-opacity-20 p-6 rounded-lg shadow-sm mb-8">
+                                <h2 class="text-xl font-semibold mb-4">About This Course</h2>
+                                <div class="text-gray-500 space-y-4">
+                                    <p>This comprehensive course takes you beyond the basics of UI design into advanced principles that create truly intuitive and engaging user experiences. You'll learn how to apply psychological principles to design decisions, master advanced prototyping techniques, and develop a systematic approach to solving complex design challenges.</p>
+                                    <p>Through practical exercises and real-world case studies, you'll develop the skills to create designs that not only look beautiful but also function seamlessly. We'll explore the entire design process from research and wireframing to high-fidelity prototypes and user testing.</p>
+                                    <p>By the end of this course, you'll have the confidence to tackle complex UI/UX challenges and create designs that stand out in today's competitive digital landscape. You'll also build a portfolio piece demonstrating your advanced design skills that you can showcase to potential employers or clients.</p>
+                                </div>
+                                <button id="expand-description" class="mt-4 text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+                                    <span>Read more</span>
+                                    <i class="ri-arrow-down-s-line ml-1"></i>
+                                </button>
+                            </div>
+                            <!-- Course Modules -->
+                            <div class="bg-primary bg-opacity-20 p-6 rounded-lg shadow-sm">
+                                <h2 class="text-xl font-semibold mb-6">Course Content</h2>
+                                <div class="space-y-4">
+                            <!-- Module 1 -->
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <div class="module-item p-4 bg-primary bg-opacity-20 cursor-pointer" data-module="1">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="module1" checked>
+                                            <label for="module1" class="cursor-pointer">
+                                                <span class="font-medium">Module 1: Foundations of Advanced UI Design</span>
+                                                <p class="text-sm text-gray-500 mt-1">4 lessons • 1h 45m</p>
+                                            </label>
+                                        </div>
+                                        <div class="w-8 h-8 flex items-center justify-center text-gray-500 module-toggle">
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </div>
                                     </div>
-                                    Expert Level Certification
                                 </div>
-                                <div class="flex justify-between items-center">
-                                    <button class="download-btn flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-download-line"></i>
-                                        </div>
-                                        Download
-                                    </button>
-                                    <button class="text-black flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-200 rounded-button text-sm font-medium hover:bg-gray-50 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-share-line"></i>
-                                        </div>
-                                        Share
-                                    </button>
+                                <div class="module-content px-4 pb-4 border-t border-gray-100 open">
+                                    <ul class="space-y-3 pt-3">
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson1-1" checked>
+                                            <label for="lesson1-1" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Introduction to Advanced UI Principles</p>
+                                                    <p class="text-xs text-gray-500">25 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson1-2" checked>
+                                            <label for="lesson1-2" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Psychology of User Interaction</p>
+                                                    <p class="text-xs text-gray-500">30 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson1-3" checked>
+                                            <label for="lesson1-3" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Visual Hierarchy and Information Architecture</p>
+                                                    <p class="text-xs text-gray-500">35 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson1-4" checked>
+                                            <label for="lesson1-4" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-file-text-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Assignment: Analyzing Successful Interfaces</p>
+                                                    <p class="text-xs text-gray-500">15 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                    </ul>
                                 </div>
+                            </div>
+                            <!-- Module 2 -->
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <div class="module-item p-4 bg-primary bg-opacity-20 cursor-pointer" data-module="2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="module2" checked>
+                                            <label for="module2" class="cursor-pointer">
+                                                <span class="font-medium">Module 2: Advanced Interaction Design</span>
+                                                <p class="text-sm text-gray-500 mt-1">5 lessons • 2h 10m</p>
+                                            </label>
+                                        </div>
+                                        <div class="w-8 h-8 flex items-center justify-center text-gray-500 module-toggle">
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="module-content px-4 pb-4 border-t border-gray-100">
+                                    <ul class="space-y-3 pt-3">
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson2-1" checked>
+                                            <label for="lesson2-1" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Microinteractions: Details That Matter</p>
+                                                    <p class="text-xs text-gray-500">30 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson2-2" checked>
+                                            <label for="lesson2-2" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Gesture-Based Interfaces</p>
+                                                    <p class="text-xs text-gray-500">25 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson2-3">
+                                            <label for="lesson2-3" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Animation Principles for UI</p>
+                                                    <p class="text-xs text-gray-500">35 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson2-4">
+                                            <label for="lesson2-4" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Advanced State Management</p>
+                                                    <p class="text-xs text-gray-500">25 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson2-5">
+                                            <label for="lesson2-5" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-file-text-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Workshop: Creating Meaningful Interactions</p>
+                                                    <p class="text-xs text-gray-500">15 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Module 3 -->
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <div class="module-item p-4 bg-primary bg-opacity-20 cursor-pointer" data-module="3">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="module3">
+                                            <label for="module3" class="cursor-pointer">
+                                                <span class="font-medium">Module 3: Design Systems & Component Libraries</span>
+                                                <p class="text-sm text-gray-500 mt-1">4 lessons • 2h 30m</p>
+                                            </label>
+                                        </div>
+                                        <div class="w-8 h-8 flex items-center justify-center text-gray-500 module-toggle">
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="module-content px-4 pb-4 border-t border-gray-100">
+                                    <ul class="space-y-3 pt-3">
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson3-1">
+                                            <label for="lesson3-1" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Introduction to Design Systems</p>
+                                                    <p class="text-xs text-gray-500">35 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson3-2">
+                                            <label for="lesson3-2" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Building a Component Library</p>
+                                                    <p class="text-xs text-gray-500">45 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson3-3">
+                                            <label for="lesson3-3" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Documentation & Governance</p>
+                                                    <p class="text-xs text-gray-500">30 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson3-4">
+                                            <label for="lesson3-4" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-file-text-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Project: Creating a Mini Design System</p>
+                                                    <p class="text-xs text-gray-500">40 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Module 4 -->
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <div class="module-item p-4 bg-primary bg-opacity-20 cursor-pointer" data-module="4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="module4">
+                                            <label for="module4" class="cursor-pointer">
+                                                <span class="font-medium">Module 4: Advanced Prototyping Techniques</span>
+                                                <p class="text-sm text-gray-500 mt-1">3 lessons • 2h 15m</p>
+                                            </label>
+                                        </div>
+                                        <div class="w-8 h-8 flex items-center justify-center text-gray-500 module-toggle">
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="module-content px-4 pb-4 border-t border-gray-100">
+                                    <ul class="space-y-3 pt-3">
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson4-1">
+                                            <label for="lesson4-1" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">High-Fidelity Interactive Prototypes</p>
+                                                    <p class="text-xs text-gray-500">45 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson4-2">
+                                            <label for="lesson4-2" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">User Flow Prototyping</p>
+                                                    <p class="text-xs text-gray-500">50 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson4-3">
+                                            <label for="lesson4-3" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-file-text-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Workshop: Building a Complete Prototype</p>
+                                                    <p class="text-xs text-gray-500">40 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Module 5 -->
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <div class="module-item p-4 bg-primary bg-opacity-20 cursor-pointer" data-module="5">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="module5">
+                                            <label for="module5" class="cursor-pointer">
+                                                <span class="font-medium">Module 5: Final Project & Portfolio Development</span>
+                                                <p class="text-sm text-gray-500 mt-1">3 lessons • 3h 20m</p>
+                                            </label>
+                                        </div>
+                                        <div class="w-8 h-8 flex items-center justify-center text-gray-500 module-toggle">
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="module-content px-4 pb-4 border-t border-gray-100">
+                                    <ul class="space-y-3 pt-3">
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson5-1">
+                                            <label for="lesson5-1" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Final Project Requirements</p>
+                                                    <p class="text-xs text-gray-500">30 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson5-2">
+                                            <label for="lesson5-2" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-play-circle-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Portfolio Development Strategies</p>
+                                                    <p class="text-xs text-gray-500">50 min</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <input type="checkbox" id="lesson5-3">
+                                            <label for="lesson5-3" class="flex items-center cursor-pointer">
+                                                <div class="w-6 h-6 flex items-center justify-center mr-2 text-gray-500">
+                                                    <i class="ri-file-text-line"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-500">Final Project Work Time & Submission</p>
+                                                    <p class="text-xs text-gray-500">2h</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
                             </div>
                         </div>
-                        
-                        <!-- Card 2 - Verified -->
-                        <div class="card bg-primary bg-opacity-20 dark:text-white card-light rounded-lg overflow-hidden shadow-md hover:shadow-xl glow-effect">
-                            <div class="h-40 bg-gradient-to-r from-primary/10 to-secondary/10 relative">
-                                <img src="https://readdy.ai/api/search-image?query=digital%20certificate%20with%20abstract%20data%20visualization%20elements%2C%20professional%20tech%20design%2C%20blue%20and%20green%20color%20scheme%2C%20clean%20modern%20layout%2C%20cloud%20computing%20certification&width=400&height=200&seq=cert2&orientation=landscape" alt="Certificate" class="w-full h-full object-cover object-top">
-                                <div class="absolute top-3 right-3">
-                                    <span class="status-badge inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span>
-                                        Verified
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-lg font-semibold mb-2 line-clamp-2 text-gray-900 dark:text-gray-100">Cloud Architecture & Infrastructure Design</h3>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-calendar-line"></i>
-                                    </div>
-                                    Completed on May 23, 2025
-                                </div>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-award-line"></i>
-                                    </div>
-                                    Professional Level Certification
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <button class="download-btn flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-download-line"></i>
+                        <!-- Sidebar Column -->
+                        <div class="w-full md:w-1/3">
+                            <div class="sticky top-0">
+                                <!-- Progress Tracker -->
+                                <div class="bg-primary bg-opacity-20 p-6 rounded-lg shadow-sm mb-8">
+                                    <h3 class="text-lg font-semibold mb-6">Your Progress</h3>
+                                    <div class="flex flex-col items-center mb-6">
+                                        <div class="progress-circle mb-4">
+                                            
+                                            <div class="absolute inset-0 flex items-center justify-center flex-col">
+                                                <span class="text-3xl font-bold text-gray-900 dark:text-gray-100">30%</span>
+                                                <span class="text-sm text-gray-500">Completed</span>
+                                            </div>
                                         </div>
-                                        Download
-                                    </button>
-                                    <button class=" text-black flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-200 rounded-button text-sm font-medium hover:bg-gray-50 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-share-line"></i>
+                                        <div class="text-center">
+                                            <p class="text-gray-500 font-medium">6 of 19 lessons completed</p>
+                                            <p class="text-sm text-gray-500 mt-1">Estimated time remaining: 8h 25m</p>
                                         </div>
-                                        Share
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Card 3 - Pending -->
-                        <div class="card bg-primary bg-opacity-20 dark:text-white card-light rounded-lg overflow-hidden shadow-md hover:shadow-xl glow-effect">
-                            <div class="h-40 bg-gradient-to-r from-primary/10 to-secondary/10 relative">
-                                <img src="https://readdy.ai/api/search-image?query=cybersecurity%20certificate%20with%20digital%20lock%20and%20shield%20imagery%2C%20secure%20network%20visualization%2C%20professional%20tech%20aesthetic%2C%20blue%20and%20green%20color%20scheme%2C%20modern%20minimal%20design&width=400&height=200&seq=cert3&orientation=landscape" alt="Certificate" class="w-full h-full object-cover object-top">
-                                <div class="absolute top-3 right-3">
-                                    <span class="status-badge pending inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                        <span class="w-2 h-2 bg-yellow-500 rounded-full mr-1.5"></span>
-                                        Pending
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-lg font-semibold mb-2 line-clamp-2 text-gray-900 dark:text-gray-100">Advanced Cybersecurity & Threat Analysis</h3>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-calendar-line"></i>
                                     </div>
-                                    Completed on July 1, 2025
-                                </div>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-time-line"></i>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between text-sm mb-1">
+                                                <span class="text-gray-500">Module 1</span>
+                                                <span class="text-gray-500">100%</span>
+                                            </div>
+                                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                                <div class="h-full bg-secondary rounded-full" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-sm mb-1">
+                                                <span class="text-gray-500">Module 2</span>
+                                                <span class="text-gray-500">40%</span>
+                                            </div>
+                                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                                <div class="h-full bg-secondary rounded-full" style="width: 40%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-sm mb-1">
+                                                <span class="text-gray-500">Module 3</span>
+                                                <span class="text-gray-500">0%</span>
+                                            </div>
+                                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                                <div class="h-full bg-secondary rounded-full" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-sm mb-1">
+                                                <span class="text-gray-500">Module 4</span>
+                                                <span class="text-gray-500">0%</span>
+                                            </div>
+                                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                                <div class="h-full bg-secondary rounded-full" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-sm mb-1">
+                                                <span class="text-gray-500">Module 5</span>
+                                                <span class="text-gray-500">0%</span>
+                                            </div>
+                                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                                <div class="h-full bg-secondary rounded-full" style="width: 0%"></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    Verification in progress
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <button disabled class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-200 text-gray-500 rounded-button text-sm font-medium cursor-not-allowed whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-download-line"></i>
-                                        </div>
-                                        Unavailable
+                                    <a href="students/Course-Content.html">
+                                        <button id="#continueLearningBtn" class="mt-6 w-full py-3 bg-primary text-white font-medium rounded-button flex items-center justify-center whitespace-nowrap hover:bg-primary/90 transition-colors">
+                                        <i class="ri-play-circle-line mr-2"></i>
+                                        Continue Learning
                                     </button>
-                                    <button class="text-black flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-200 rounded-button text-sm font-medium hover:bg-gray-50 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-question-line"></i>
-                                        </div>
-                                        Status
-                                    </button>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Card 4 - In Progress -->
-                        <div class="card bg-primary bg-opacity-20 dark:text-white card-light rounded-lg overflow-hidden shadow-md hover:shadow-xl glow-effect">
-                            <div class="h-40 bg-gradient-to-r from-primary/10 to-secondary/10 relative">
-                                <img src="https://readdy.ai/api/search-image?query=data%20science%20certificate%20with%20data%20visualization%20elements%2C%20analytics%20graphs%2C%20professional%20tech%20aesthetic%2C%20blue%20and%20green%20color%20scheme%2C%20modern%20minimal%20design&width=400&height=200&seq=cert4&orientation=landscape" alt="Certificate" class="w-full h-full object-cover object-top opacity-50">
-                                <div class="absolute top-3 right-3">
-                                    <span class="status-badge inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-1.5"></span>
-                                        In Progress
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-lg font-semibold mb-2 line-clamp-2 text-gray-900 dark:text-gray-100">Data Science & Predictive Analytics</h3>
-                                <div class="flex items-center text-sm text-gray-500 mb-2">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-bar-chart-line"></i>
+                                <div class="bg-primary bg-opacity-20 p-6 rounded-lg shadow-sm mb-8">
+                                        <h2 class="text-2xl font-bold mb-4">Objectifs d'apprentissage</h2>
+                                        <ul class="space-y-3">
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-primary">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                                <span class="">Maîtriser les concepts fondamentaux de la Data Science</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-primary">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                                <span class="">Apprendre Python pour l'analyse de données</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-primary">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                                <span class="">Créer des visualisations de données percutantes</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-primary">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                                <span class="">Développer des modèles de Machine Learning</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-5 h-5 flex items-center justify-center mt-0.5 text-primary">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                                <span class="">Réaliser des projets concrets d'analyse de données</span>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    Progress: 68% completed
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
-                                    <div class="bg-primary h-2 rounded-full" style="width: 68%"></div>
-                                </div>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-time-line"></i>
+                                <!-- Downloadable Resources -->
+                                <div class="bg-primary bg-opacity-20 p-6 rounded-lg shadow-sm">
+                                    <h3 class="text-lg font-semibold mb-6">Course Resources</h3>
+                                    <div class="space-y-4">
+                                        <div class="resource-item p-4 border border-gray-200 rounded-lg">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-3">
+                                                    <i class="ri-file-pdf-line ri-lg"></i>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <h4 class="text-gray-900 dark:text-gray-100 font-medium">Course Workbook</h4>
+                                                    <p class="text-xs text-gray-500">PDF • 4.2 MB</p>
+                                                </div>
+                                                <button class="w-8 h-8 flex items-center justify-center text-primary">
+                                                    <i class="ri-download-line"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="resource-item p-4 border border-gray-200 rounded-lg">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-3">
+                                                    <i class="ri-file-zip-line ri-lg"></i>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <h4 class="text-gray-900 dark:text-gray-100 font-medium">Design Assets</h4>
+                                                    <p class="text-xs text-gray-500">ZIP • 28.7 MB</p>
+                                                </div>
+                                                <button class="w-8 h-8 flex items-center justify-center text-primary">
+                                                    <i class="ri-download-line"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="resource-item p-4 border border-gray-200 rounded-lg">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-3">
+                                                    <i class="ri-file-excel-line ri-lg"></i>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <h4 class="text-gray-900 dark:text-gray-100 font-medium">UI Component Checklist</h4>
+                                                    <p class="text-xs text-gray-500">XLSX • 1.8 MB</p>
+                                                </div>
+                                                <button class="w-8 h-8 flex items-center justify-center text-primary">
+                                                    <i class="ri-download-line"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="resource-item p-4 border border-gray-200 rounded-lg">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 text-primary rounded-lg mr-3">
+                                                    <i class="ri-links-line ri-lg"></i>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <h4 class="text-gray-900 dark:text-gray-100 font-medium">Additional Resources</h4>
+                                                    <p class="text-xs text-gray-500">Links • Updated June 2025</p>
+                                                </div>
+                                                <button class="w-8 h-8 flex items-center justify-center text-primary">
+                                                    <i class="ri-external-link-line"></i>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    Estimated completion: July 25, 2025
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <button class="flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-play-line"></i>
-                                        </div>
-                                        Continue
-                                    </button>
-                                    <button class="text-black flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-200 rounded-button text-sm font-medium hover:bg-gray-50 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-information-line"></i>
-                                        </div>
-                                        Details
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Card 5 - Verified -->
-                        <div class="card bg-primary bg-opacity-20 dark:text-white card-light rounded-lg overflow-hidden shadow-md hover:shadow-xl glow-effect">
-                            <div class="h-40 bg-gradient-to-r from-primary/10 to-secondary/10 relative">
-                                <img src="https://readdy.ai/api/search-image?query=web%20development%20certificate%20with%20code%20elements%2C%20responsive%20design%20visualization%2C%20professional%20tech%20aesthetic%2C%20blue%20and%20green%20color%20scheme%2C%20modern%20minimal%20design&width=400&height=200&seq=cert5&orientation=landscape" alt="Certificate" class="w-full h-full object-cover object-top">
-                                <div class="absolute top-3 right-3">
-                                    <span class="status-badge inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span>
-                                        Verified
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-lg font-semibold mb-2 line-clamp-2 text-gray-900 dark:text-gray-100">Full-Stack Web Development</h3>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-calendar-line"></i>
-                                    </div>
-                                    Completed on April 10, 2025
-                                </div>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-award-line"></i>
-                                    </div>
-                                    Professional Level Certification
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <button class="download-btn flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-download-line"></i>
-                                        </div>
-                                        Download
-                                    </button>
-                                    <button class="text-black flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-200 rounded-button text-sm font-medium hover:bg-gray-50 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-share-line"></i>
-                                        </div>
-                                        Share
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Card 6 - In Progress -->
-                        <div class="card bg-primary bg-opacity-20 dark:text-white card-light rounded-lg overflow-hidden shadow-md hover:shadow-xl glow-effect">
-                            <div class="h-40 bg-gradient-to-r from-primary/10 to-secondary/10 relative">
-                                <img src="https://readdy.ai/api/search-image?query=blockchain%20technology%20certificate%20with%20distributed%20ledger%20visualization%2C%20cryptocurrency%20elements%2C%20professional%20tech%20aesthetic%2C%20blue%20and%20green%20color%20scheme%2C%20modern%20minimal%20design&width=400&height=200&seq=cert6&orientation=landscape" alt="Certificate" class="w-full h-full object-cover object-top opacity-50">
-                                <div class="absolute top-3 right-3">
-                                    <span class="status-badge inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-1.5"></span>
-                                        In Progress
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-lg font-semibold mb-2 line-clamp-2 text-gray-900 dark:text-gray-100">Blockchain Development & Smart Contracts</h3>
-                                <div class="flex items-center text-sm text-gray-500 mb-2">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-bar-chart-line"></i>
-                                    </div>
-                                    Progress: 32% completed
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
-                                    <div class="bg-primary h-2 rounded-full" style="width: 32%"></div>
-                                </div>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-time-line"></i>
-                                    </div>
-                                    Estimated completion: August 15, 2025
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <button class="flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-play-line"></i>
-                                        </div>
-                                        Continue
-                                    </button>
-                                    <button class=" text-black flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-200 rounded-button text-sm font-medium hover:bg-gray-50 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-information-line"></i>
-                                        </div>
-                                        Details
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Card 7 - Pending -->
-                        <div class="card bg-primary bg-opacity-20 dark:text-white card-light rounded-lg overflow-hidden shadow-md hover:shadow-xl glow-effect">
-                            <div class="h-40 bg-gradient-to-r from-primary/10 to-secondary/10 relative">
-                                <img src="https://readdy.ai/api/search-image?query=mobile%20app%20development%20certificate%20with%20smartphone%20UI%20elements%2C%20app%20design%20visualization%2C%20professional%20tech%20aesthetic%2C%20blue%20and%20green%20color%20scheme%2C%20modern%20minimal%20design&width=400&height=200&seq=cert7&orientation=landscape" alt="Certificate" class="w-full h-full object-cover object-top">
-                                <div class="absolute top-3 right-3">
-                                    <span class="status-badge pending inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                        <span class="w-2 h-2 bg-yellow-500 rounded-full mr-1.5"></span>
-                                        Pending
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-lg font-semibold mb-2 line-clamp-2">Mobile App Development & UI/UX Design</h3>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-calendar-line"></i>
-                                    </div>
-                                    Completed on June 28, 2025
-                                </div>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-time-line"></i>
-                                    </div>
-                                    Verification in progress
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <button disabled class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-200 text-gray-500 rounded-button text-sm font-medium cursor-not-allowed whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-download-line"></i>
-                                        </div>
-                                        Unavailable
-                                    </button>
-                                    <button class="text-black flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-200 rounded-button text-sm font-medium hover:bg-gray-50 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-question-line"></i>
-                                        </div>
-                                        Status
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Card 8 - Verified -->
-                        <div class="card bg-primary bg-opacity-20 dark:text-white card-light rounded-lg overflow-hidden shadow-md hover:shadow-xl glow-effect">
-                            <div class="h-40 bg-gradient-to-r from-primary/10 to-secondary/10 relative">
-                                <img src="https://readdy.ai/api/search-image?query=devops%20engineering%20certificate%20with%20CI%2FCD%20pipeline%20visualization%2C%20container%20orchestration%20elements%2C%20professional%20tech%20aesthetic%2C%20blue%20and%20green%20color%20scheme%2C%20modern%20minimal%20design&width=400&height=200&seq=cert8&orientation=landscape" alt="Certificate" class="w-full h-full object-cover object-top">
-                                <div class="absolute top-3 right-3">
-                                    <span class="status-badge inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span>
-                                        Verified
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-lg font-semibold mb-2 line-clamp-2">DevOps Engineering & CI/CD Pipelines</h3>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-calendar-line"></i>
-                                    </div>
-                                    Completed on March 18, 2025
-                                </div>
-                                <div class="flex items-center text-sm text-gray-500 mb-4">
-                                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                        <i class="ri-award-line"></i>
-                                    </div>
-                                    Expert Level Certification
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <button class="download-btn flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-download-line"></i>
-                                        </div>
-                                        Download
-                                    </button>
-                                    <button class="text-black flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-200 rounded-button text-sm font-medium hover:bg-gray-50 transition-all whitespace-nowrap">
-                                        <div class="w-4 h-4 flex items-center justify-center">
-                                            <i class="ri-share-line"></i>
-                                        </div>
-                                        Share
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                
-                </div>
                 </main>
             </div>
 
@@ -1370,9 +1458,7 @@
     <script src="js_style/formateur/dashboard.js"></script>
     <script src="js_style/msg.js"></script>
     <script src="js_style/index.js"></script>
-    <script>
-        
-    </script>
+    <script src="js_style/courseDetail.js"></script>
 </body>
 
 </html>
