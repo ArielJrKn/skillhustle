@@ -7,7 +7,7 @@
 			}
 			.card {
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
-				background-color: rgba(99, 102, 241, 0.2);
+				background-color: rgba(74, 144, 226, 0.2);
 			}
 			.card:hover {
 				transform: translateY(-5px);
@@ -72,10 +72,10 @@
 				transition: background-color 0.3s ease;
 			}
 			.sidebar-item:hover {
-				background-color: rgba(99, 102, 241, 0.1);
+				background-color: rgba(74, 144, 226, 0.1);
 			}
 			.sidebar-item.active {
-				background-color: rgba(99, 102, 241, 0.2);
+				background-color: rgba(74, 144, 226, 0.2);
 				border-left: 3px solid #6366F1;
 			}
 			.chart-container {

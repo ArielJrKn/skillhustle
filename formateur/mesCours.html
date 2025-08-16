@@ -173,13 +173,13 @@
                     </div>
                     <div class="flex flex-col justify-between h-5/6 flex-grow p-4 overflow-y-auto">
                         <nav class="flex-1 space-y-2">
-                            <a href="dashboard.html" class="sidebar-item active flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <a href="dashboard.html" class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
                                 <div class="w-6 h-6 flex items-center justify-center mr-3">
                                     <i class="ri-dashboard-line ri-lg"></i>
                                 </div>
                                 <span>Tableau de bord</span>
                             </a>
-                            <a href="mesCours.html" data-readdy="true" class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <a href="mesCours.html" data-readdy="true" class="sidebar-item active flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
                                 <div class="w-6 h-6 flex items-center justify-center mr-3">
                                     <i class="ri-book-open-line ri-lg"></i>
                                 </div>
@@ -227,7 +227,7 @@
                         </nav>
 
                         <div class="mt-auto pt-4 border-t border-gray-700">
-                            <a href="#" class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
+                            <a href="../index.html" class="sidebar-item flex items-center px-4 py-3 text-gray-800 dark:text-white rounded">
                                 <div class="w-6 h-6 flex items-center justify-center mr-3">
                                     <i class="ri-logout-box-line ri-lg"></i>
                                 </div>
@@ -259,7 +259,7 @@
                         </div>
 
                         <!-- Search and Filters -->
-                        <div class="bg-[#6366F1] bg-opacity-20 shadow-lg rounded-lg p-4 mb-6">
+                        <div class="bg-primary bg-opacity-20 shadow-lg rounded-lg p-4 mb-6">
                             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                                 <div class=" sm:block relative w-full ">
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -292,19 +292,19 @@
                         <!-- Courses Grid -->
                         <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 mb-8">
                             <!-- Course Card 1 -->
-                            <div class="course-card bg-[#6366F1] bg-opacity-20 text-gray-900 dark:text-gray-100 card rounded-lg shadow-lg overflow-hidden">
+                            <div class="course-card bg-primary bg-opacity-20 text-gray-900 dark:text-gray-100 card rounded-lg shadow-lg overflow-hidden">
                                 <div class="relative">
                                     <img class="w-full h-40 object-cover object-top" src="https://readdy.ai/api/search-image?query=modern%20javascript%20programming%20concept%20with%20code%20editor%20and%20colorful%20code%20on%20screen%2C%20professional%20development%20environment%2C%20clean%20workspace%2C%20high%20quality%20educational%20content&width=400&height=225&seq=101&orientation=landscape" alt="JavaScript Avancé">
                                     <div class="absolute top-3 right-3 card-actions">
                                         <div class="relative">
-                                            <button class="course-menu-btn bg-[#6366F1] bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-100 transition-all">
+                                            <button class="course-menu-btn bg-primary bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-100 transition-all">
                                                 <div class="w-5 h-5 flex items-center justify-center">
                                                     <i class="ri-more-2-fill"></i>
                                                 </div>
                                             </button>
                                             <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg backdrop-filter backdrop-blur-sm border border-gray-500 z-10 dropdown-menu">
                                                 <div class="py-1">
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="createCourse.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-edit-line"></i>
@@ -312,7 +312,7 @@
                                                             <span>Modifier</span>
                                                         </div>
                                                     </a>
-                                                    <a href="courseDetail.html" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="courseDetail.html" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-eye-line"></i>
@@ -320,15 +320,8 @@
                                                             <span>Voir les détails</span>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
-                                                        <div class="flex items-center">
-                                                            <div class="w-5 h-5 flex items-center justify-center mr-2">
-                                                                <i class="ri-file-copy-line"></i>
-                                                            </div>
-                                                            <span>Dupliquer</span>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">
+                                                    
+                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-delete-bin-line"></i>
@@ -369,7 +362,7 @@
                             </div>
 
                             <!-- Course Card 2 -->
-                            <div class="course-card bg-[#6366F1] bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
+                            <div class="course-card bg-primary bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
                                 <div class="relative">
                                     <img class="w-full h-40 object-cover object-top" src="https://readdy.ai/api/search-image?query=data%20science%20visualization%20with%20colorful%20charts%20and%20graphs%2C%20python%20code%20in%20background%2C%20professional%20data%20analysis%20environment%2C%20clean%20workspace%2C%20high%20quality%20educational%20content&width=400&height=225&seq=102&orientation=landscape" alt="Data Science pour Débutants">
                                     <div class="absolute top-3 right-3 card-actions">
@@ -379,9 +372,9 @@
                                                     <i class="ri-more-2-fill"></i>
                                                 </div>
                                             </button>
-                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-10 dropdown-menu">
+                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg backdrop-filter backdrop-blur-sm border border-gray-500 z-10 dropdown-menu">
                                                 <div class="py-1">
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="createCourse.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-edit-line"></i>
@@ -389,7 +382,7 @@
                                                             <span>Modifier</span>
                                                         </div>
                                                     </a>
-                                                    <a href="https://readdy.ai/home/e6a7a09f-3ecd-474b-aad9-e8d26fc0099a/bf469df9-52c9-4844-a9c8-1892e762c247" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="courseDetail.html" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-eye-line"></i>
@@ -397,15 +390,8 @@
                                                             <span>Voir les détails</span>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
-                                                        <div class="flex items-center">
-                                                            <div class="w-5 h-5 flex items-center justify-center mr-2">
-                                                                <i class="ri-file-copy-line"></i>
-                                                            </div>
-                                                            <span>Dupliquer</span>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">
+                                                    
+                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-delete-bin-line"></i>
@@ -453,7 +439,7 @@
                             </div>
 
                             <!-- Course Card 3 -->
-                            <div class="course-card bg-[#6366F1] bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
+                            <div class="course-card bg-primary bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
                                 <div class="relative">
                                     <img class="w-full h-40 object-cover object-top" src="https://readdy.ai/api/search-image?query=UX%20UI%20design%20workspace%20with%20wireframes%20and%20mockups%20on%20screen%2C%20design%20tools%20interface%2C%20professional%20design%20environment%2C%20clean%20workspace%2C%20high%20quality%20educational%20content&width=400&height=225&seq=103&orientation=landscape" alt="UX/UI Design Fondamentaux">
                                     <div class="absolute top-3 right-3 card-actions">
@@ -463,9 +449,9 @@
                                                     <i class="ri-more-2-fill"></i>
                                                 </div>
                                             </button>
-                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-10 dropdown-menu">
+                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg backdrop-filter backdrop-blur-sm border border-gray-500 z-10 dropdown-menu">
                                                 <div class="py-1">
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="createCourse.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-edit-line"></i>
@@ -473,7 +459,7 @@
                                                             <span>Modifier</span>
                                                         </div>
                                                     </a>
-                                                    <a href="https://readdy.ai/home/e6a7a09f-3ecd-474b-aad9-e8d26fc0099a/bf469df9-52c9-4844-a9c8-1892e762c247" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="courseDetail.html" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-eye-line"></i>
@@ -481,15 +467,8 @@
                                                             <span>Voir les détails</span>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
-                                                        <div class="flex items-center">
-                                                            <div class="w-5 h-5 flex items-center justify-center mr-2">
-                                                                <i class="ri-file-copy-line"></i>
-                                                            </div>
-                                                            <span>Dupliquer</span>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">
+                                                    
+                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-delete-bin-line"></i>
@@ -537,7 +516,7 @@
                             </div>
 
                             <!-- Course Card 4 -->
-                            <div class="course-card bg-[#6366F1] bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
+                            <div class="course-card bg-primary bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
                                 <div class="relative">
                                     <img class="w-full h-40 object-cover object-top" src="https://readdy.ai/api/search-image?query=web%20development%20workspace%20with%20responsive%20website%20design%20on%20multiple%20devices%2C%20HTML%20CSS%20code%20visible%2C%20professional%20development%20environment%2C%20clean%20workspace%2C%20high%20quality%20educational%20content&width=400&height=225&seq=104&orientation=landscape" alt="Développement Web Avancé">
                                     <div class="absolute top-3 right-3 card-actions">
@@ -547,9 +526,9 @@
                                                     <i class="ri-more-2-fill"></i>
                                                 </div>
                                             </button>
-                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-10 dropdown-menu">
+                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg backdrop-filter backdrop-blur-sm border border-gray-500 z-10 dropdown-menu">
                                                 <div class="py-1">
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="createCourse.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-edit-line"></i>
@@ -557,7 +536,7 @@
                                                             <span>Modifier</span>
                                                         </div>
                                                     </a>
-                                                    <a href="https://readdy.ai/home/e6a7a09f-3ecd-474b-aad9-e8d26fc0099a/bf469df9-52c9-4844-a9c8-1892e762c247" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="courseDetail.html" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-eye-line"></i>
@@ -565,15 +544,8 @@
                                                             <span>Voir les détails</span>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
-                                                        <div class="flex items-center">
-                                                            <div class="w-5 h-5 flex items-center justify-center mr-2">
-                                                                <i class="ri-file-copy-line"></i>
-                                                            </div>
-                                                            <span>Dupliquer</span>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">
+                                                    
+                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-delete-bin-line"></i>
@@ -621,7 +593,7 @@
                             </div>
 
                             <!-- Course Card 5 -->
-                            <div class="course-card bg-[#6366F1] bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
+                            <div class="course-card bg-primary bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
                                 <div class="relative">
                                     <img class="w-full h-40 object-cover object-top" src="https://readdy.ai/api/search-image?query=digital%20marketing%20concept%20with%20analytics%20dashboard%20and%20social%20media%20icons%2C%20marketing%20strategy%20documents%2C%20professional%20marketing%20environment%2C%20clean%20workspace%2C%20high%20quality%20educational%20content&width=400&height=225&seq=105&orientation=landscape" alt="Marketing Digital">
                                     <div class="absolute top-3 right-3 card-actions">
@@ -631,9 +603,9 @@
                                                     <i class="ri-more-2-fill"></i>
                                                 </div>
                                             </button>
-                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-10 dropdown-menu">
+                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg backdrop-filter backdrop-blur-sm border border-gray-500 z-10 dropdown-menu">
                                                 <div class="py-1">
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="createCourse.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-edit-line"></i>
@@ -641,7 +613,7 @@
                                                             <span>Modifier</span>
                                                         </div>
                                                     </a>
-                                                    <a href="https://readdy.ai/home/e6a7a09f-3ecd-474b-aad9-e8d26fc0099a/bf469df9-52c9-4844-a9c8-1892e762c247" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="courseDetail.html" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-eye-line"></i>
@@ -649,15 +621,8 @@
                                                             <span>Voir les détails</span>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
-                                                        <div class="flex items-center">
-                                                            <div class="w-5 h-5 flex items-center justify-center mr-2">
-                                                                <i class="ri-file-copy-line"></i>
-                                                            </div>
-                                                            <span>Dupliquer</span>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">
+                                                    
+                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-delete-bin-line"></i>
@@ -705,7 +670,7 @@
                             </div>
 
                             <!-- Course Card 6 -->
-                            <div class="course-card bg-[#6366F1] bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
+                            <div class="course-card bg-primary bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
                                 <div class="relative">
                                     <img class="w-full h-40 object-cover object-top" src="https://readdy.ai/api/search-image?query=artificial%20intelligence%20concept%20with%20neural%20network%20visualization%2C%20machine%20learning%20code%2C%20professional%20AI%20development%20environment%2C%20clean%20workspace%2C%20high%20quality%20educational%20content&width=400&height=225&seq=106&orientation=landscape" alt="Intelligence Artificielle: Fondamentaux">
                                     <div class="absolute top-3 right-3 card-actions">
@@ -715,9 +680,9 @@
                                                     <i class="ri-more-2-fill"></i>
                                                 </div>
                                             </button>
-                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-10 dropdown-menu">
+                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg backdrop-filter backdrop-blur-sm border border-gray-500 z-10 dropdown-menu">
                                                 <div class="py-1">
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="createCourse.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-edit-line"></i>
@@ -725,7 +690,7 @@
                                                             <span>Modifier</span>
                                                         </div>
                                                     </a>
-                                                    <a href="https://readdy.ai/home/e6a7a09f-3ecd-474b-aad9-e8d26fc0099a/bf469df9-52c9-4844-a9c8-1892e762c247" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="courseDetail.html" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-eye-line"></i>
@@ -733,15 +698,8 @@
                                                             <span>Voir les détails</span>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
-                                                        <div class="flex items-center">
-                                                            <div class="w-5 h-5 flex items-center justify-center mr-2">
-                                                                <i class="ri-file-copy-line"></i>
-                                                            </div>
-                                                            <span>Dupliquer</span>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">
+                                                    
+                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-delete-bin-line"></i>
@@ -789,7 +747,7 @@
                             </div>
 
                             <!-- Course Card 7 -->
-                            <div class="course-card bg-[#6366F1] bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
+                            <div class="course-card bg-primary bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
                                 <div class="relative">
                                     <img class="w-full h-40 object-cover object-top" src="https://readdy.ai/api/search-image?query=mobile%20app%20development%20workspace%20with%20smartphone%20mockups%20and%20code%20editor%2C%20professional%20development%20environment%2C%20clean%20workspace%2C%20high%20quality%20educational%20content&width=400&height=225&seq=107&orientation=landscape" alt="Développement d'Applications Mobiles">
                                     <div class="absolute top-3 right-3 card-actions">
@@ -799,9 +757,9 @@
                                                     <i class="ri-more-2-fill"></i>
                                                 </div>
                                             </button>
-                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-10 dropdown-menu">
+                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg backdrop-filter backdrop-blur-sm border border-gray-500 z-10 dropdown-menu">
                                                 <div class="py-1">
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="createCourse.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-edit-line"></i>
@@ -809,7 +767,7 @@
                                                             <span>Modifier</span>
                                                         </div>
                                                     </a>
-                                                    <a href="https://readdy.ai/home/e6a7a09f-3ecd-474b-aad9-e8d26fc0099a/bf469df9-52c9-4844-a9c8-1892e762c247" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="courseDetail.html" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-eye-line"></i>
@@ -817,15 +775,8 @@
                                                             <span>Voir les détails</span>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
-                                                        <div class="flex items-center">
-                                                            <div class="w-5 h-5 flex items-center justify-center mr-2">
-                                                                <i class="ri-file-copy-line"></i>
-                                                            </div>
-                                                            <span>Dupliquer</span>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">
+                                                    
+                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-delete-bin-line"></i>
@@ -873,7 +824,7 @@
                             </div>
 
                             <!-- Course Card 8 -->
-                            <div class="course-card bg-[#6366F1] bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
+                            <div class="course-card bg-primary bg-opacity-20 dark:text-white text-black card rounded-lg shadow-lg overflow-hidden">
                                 <div class="relative">
                                     <img class="w-full h-40 object-cover object-top" src="https://readdy.ai/api/search-image?query=cybersecurity%20concept%20with%20lock%20symbol%20and%20digital%20protection%20interface%2C%20code%20security%20analysis%2C%20professional%20security%20environment%2C%20clean%20workspace%2C%20high%20quality%20educational%20content&width=400&height=225&seq=108&orientation=landscape" alt="Cybersécurité pour Débutants">
                                     <div class="absolute top-3 right-3 card-actions">
@@ -883,9 +834,9 @@
                                                     <i class="ri-more-2-fill"></i>
                                                 </div>
                                             </button>
-                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[#2D2D2D] border border-gray-700 z-10 dropdown-menu">
+                                            <div class="course-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg backdrop-filter backdrop-blur-sm border border-gray-500 z-10 dropdown-menu">
                                                 <div class="py-1">
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="createCourse.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-edit-line"></i>
@@ -893,7 +844,7 @@
                                                             <span>Modifier</span>
                                                         </div>
                                                     </a>
-                                                    <a href="https://readdy.ai/home/e6a7a09f-3ecd-474b-aad9-e8d26fc0099a/bf469df9-52c9-4844-a9c8-1892e762c247" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
+                                                    <a href="courseDetail.html" data-readdy="true" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-eye-line"></i>
@@ -901,15 +852,8 @@
                                                             <span>Voir les détails</span>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">
-                                                        <div class="flex items-center">
-                                                            <div class="w-5 h-5 flex items-center justify-center mr-2">
-                                                                <i class="ri-file-copy-line"></i>
-                                                            </div>
-                                                            <span>Dupliquer</span>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">
+                                                    
+                                                    <a href="#" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700 hover:bg-opacity-30">
                                                         <div class="flex items-center">
                                                             <div class="w-5 h-5 flex items-center justify-center mr-2">
                                                                 <i class="ri-delete-bin-line"></i>
@@ -958,7 +902,7 @@
                         </div>
                         
                     <!-- Pagination -->
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-[#6366F1] bg-opacity-20 dark:text-white text-black shadow-xl rounded-lg p-4">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-primary bg-opacity-20 dark:text-white text-black shadow-xl rounded-lg p-4">
                         <div class="flex items-center mb-4 md:mb-0">
                             <span class="text-sm dark:text-gray-100 text-gray-900 mr-2">Afficher</span>
                             <div class="relative">
@@ -1145,7 +1089,7 @@
 
                     <div class="pt-0 px-2 w-full overflow-y-auto" style="height: 84%;">
                         <div
-                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            class="conversation bg-primary cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
                             <div class="relative flex-shrink-0">
                                 <img class="h-16 w-16 rounded-full object-cover"
                                     src="../media/chat.jpg"
@@ -1165,7 +1109,7 @@
                         </div>
 
                         <div
-                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            class="conversation bg-primary cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
                             <div class="relative flex-shrink-0">
                                 <img class="h-16 w-16 rounded-full object-cover"
                                     src="../media/chat.jpg"
@@ -1185,7 +1129,7 @@
                         </div>
 
                         <div
-                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            class="conversation bg-primary cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
                             <div class="relative flex-shrink-0">
                                 <img class="h-16 w-16 rounded-full object-cover"
                                     src="../media/chat.jpg"
@@ -1205,7 +1149,7 @@
                         </div>
 
                         <div
-                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            class="conversation bg-primary cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
                             <div class="relative flex-shrink-0">
                                 <img class="h-16 w-16 rounded-full object-cover"
                                     src="../media/chat.jpg"
@@ -1225,7 +1169,7 @@
                         </div>
 
                         <div
-                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            class="conversation bg-primary cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
                             <div class="relative flex-shrink-0">
                                 <img class="h-16 w-16 rounded-full object-cover"
                                     src="../media/chat.jpg"
@@ -1245,7 +1189,7 @@
                         </div>
 
                         <div
-                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            class="conversation bg-primary cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
                             <div class="relative flex-shrink-0">
                                 <img class="h-16 w-16 rounded-full object-cover"
                                     src="../media/chat.jpg"
@@ -1265,7 +1209,7 @@
                         </div>
 
                         <div
-                            class="conversation bg-[#6366F1] cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
+                            class="conversation bg-primary cursor-pointer hover:bg-opacity-50 transition bg-opacity-10 mb-2 p-2 rounded-md flex align-center">
                             <div class="relative flex-shrink-0">
                                 <img class="h-16 w-16 rounded-full object-cover"
                                     src="../media/chat.jpg"
@@ -1330,7 +1274,7 @@
                         <!-- receive msg -->
                         <div class="text-sm">
                             <div
-                                class="bg-[#6366F1] bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                class="bg-primary bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -1344,7 +1288,7 @@
                         <!-- sent msg -->
                         <div class="text-sm flex flex-col justify-end " style="align-items: end;">
                             <div
-                                class="bg-[#6366F1] bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                class="bg-primary bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -1363,7 +1307,7 @@
                         <!-- sent msg -->
                         <div class="text-sm flex flex-col justify-end " style="align-items: end;">
                             <div
-                                class="bg-[#6366F1] bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                class="bg-primary bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -1382,7 +1326,7 @@
                         <!-- receive msg -->
                         <div class="text-sm">
                             <div
-                                class="bg-[#6366F1] bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                class="bg-primary bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
                                 <p class="text-sm mb-2">Je vous envoie une capture d'écran de mon travail. Voici où je
                                     bloque :</p>
                                 <div class="bg-gray-200 rounded-md p-2 flex items-center">
@@ -1403,7 +1347,7 @@
                         <!-- sent msg -->
                         <div class="text-sm flex flex-col justify-end " style="align-items: end;">
                             <div
-                                class="bg-[#6366F1] bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                class="bg-primary bg-opacity-95 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
                                 <p>Lorem </p>
                             </div>
                             <div class="flex">
@@ -1417,7 +1361,7 @@
                         <!-- receive msg -->
                         <div class="text-sm">
                             <div
-                                class="bg-[#6366F1] bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
+                                class="bg-primary bg-opacity-40 backdrop-filter backdrop-blur-lg mt-2 max-w-80 p-2 rounded-lg">
                                 <p class="text-sm mb-2">Je vous envoie une capture d'écran de mon travail. Voici où je
                                     bloque :</p>
                                 <img class=" rounded-md mr-3"
