@@ -1,106 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - E-Learning Platform</title>
+    <title>Connexion</title>
+    <link rel="stylesheet" type="text/css" href="../style/inscription.css">
     <link rel="stylesheet" type="text/css" href="../style/progresseBar.css">
-    <link rel="stylesheet" type="text/css" href="../style/connexion.css">
+    <link rel="stylesheet" type="text/css" href="../style/scroll.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#4A90E2',secondary:'#50E3C2'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <script src="../js_style/student_dashboard_tailwindConfig.js"></script>
+
+
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-4 text-gray-800">
+<body class="dark">
     <div class="progress-bar"></div>
-    
-    <div class="w-full max-w-md">
-        <div class="text-center mb-8">
-            <h1 class="font-['Pacifico'] text-3xl text-primary mb-2">logo</h1>
+    <div>
+        <div>
+             <img src="https://readdy.ai/api/search-image?query=modern%20web%20development%20coding%20on%20laptop%20screen%2C%20showing%20HTML%2C%20CSS%20and%20JavaScript%20code%2C%20professional%20lighting%2C%20clean%20desk%20setup%2C%20high%20quality&width=400&height=200&seq=course1&orientation=landscape" alt="Web Development" class="w-full h-full object-cover fixed">
         </div>
-        
-        <div class="bg-white rounded-lg shadow-lg p-8 w-full card">
-            <h2 class="text-2xl font-bold mb-2">Welcome Back</h2>
-            <p class="text-gray-600 mb-6">Login to continue learning</p>
-            
-            <form id="loginForm">
-                <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium mb-2">Email</label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+        <div class="w-full mx-auto p-3 absolute top-3 flex-col flex items-center justify-center h-full">
+            <div class="lg:w-2/5 sm:w-full backdrop-filter backdrop-blur-3xl rounded-lg shadow-lg p-8 card">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-['Pacifico'] text-primary mb-2">Connexion</h1>
+                    <div class="h-px bg-gray-200 my-4"></div>
+                </div>
+                
+                <form id="registerForm" class="space-y-6">
+                    <div class="form-group flex items-center justify-between gap-2">
+                        <div class="relative w-full">
+                            <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <input type="text" id="fullname" class="form-control w-full px-10 py-3 border border-gray-300 rounded-button focus:outline-none bg-transparent " placeholder=" " required>
+                            <label for="fullname" class="form-label text-gray-500 bg-transparent ml-4">Nom complet</label>
+                            <div class="error-message">Veuillez entrer votre nom complet</div>
+                        </div>
+                    </div>
+                    <div class="form-group flex items-center justify-between gap-2">
+                        <div class="relative w-full">
+                            <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
                                 <i class="ri-mail-line"></i>
                             </div>
+                            <input type="email" id="email" class="form-control w-full px-10 py-3 border border-gray-300 rounded-button focus:outline-none bg-transparent " placeholder=" " required>
+                            <label for="email" class="form-label text-gray-500 bg-transparent ml-4">Adresse e-mail</label>
+                            <div class="error-message">Veuillez entrer une adresse e-mail valide</div>
                         </div>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-button shadow-sm focus:ring-2 focus:ring-primary/20 transition-all"
-                            placeholder="Enter your email"
-                            required
-                        >
                     </div>
-                </div>
-                
-                <div class="mb-4">
-                    <div class="flex justify-between items-center mb-2">
-                        <label for="password" class="block text-sm font-medium">Password</label>
-                        <a href="#" class="text-sm text-primary hover:text-primary/80 transition-colors whitespace-nowrap">Forgot password?</a>
+                                        
+                    <div class="flex items-center">
+                        <input type="checkbox" id="terms" class="mt-1">
+                        <label for="terms" class="ml-2 text-sm text-gray-600">
+                           Se souvenir de moi
+                        </label>
                     </div>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
-                                <i class="ri-lock-line"></i>
-                            </div>
-                        </div>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-button shadow-sm focus:ring-2 focus:ring-primary/20 transition-all"
-                            placeholder="Enter your password"
-                            required
-                        >
-                        <button 
-                            type="button" 
-                            class="toggle-password absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700 transition-colors"
-                            aria-label="Toggle password visibility"
-                        >
-                            <div class="w-5 h-5 flex items-center justify-center">
-                                <i class="ri-eye-line"></i>
-                            </div>
-                        </button>
+                    
+                    <button type="submit" class="w-full h-10 bg-primary text-white py-3 rounded-button hover:bg-primary/90 transition-all duration-300 font-medium !rounded-button whitespace-nowrap">
+                        <a href="../index.html">
+                            Se connecter
+                        </a>
+                    </button>
+
+                    <div class="auth_google flex text-gray-100 items-center justify-center">
+                        <img src="https://www.google.com/favicon.ico" alt="Google Icon" width="32" height="32">
+                        <a href="">Continuer avec google</a>
                     </div>
-                </div>
-                
-                <button 
-                    type="submit" 
-                    id="loginButton"
-                    class="w-full bg-primary text-white py-3 rounded-button hover:bg-primary/90 transition-colors flex items-center justify-center font-medium mt-6 whitespace-nowrap !rounded-button"
-                >
-                    <span>Login</span>
-                </button>
-            </form>
-            
-            <div class="mt-6 text-center">
-                <p class="text-gray-600">
-                    Don't have an account? 
-                    <a href="#" class="text-secondary font-medium hover:text-secondary/80 transition-colors">Sign up</a>
-                </p>
+                    
+                    <div class="text-center mt-4">
+                        <p class="text-gray-200">
+                            Pas de compte ? <a href="inscription.html" class="text-primary hover:underline">Inscrivez-vous</a>
+                        </p>
+                    </div>
+                </form>
             </div>
-        </div>
-        
-        <div class="mt-6 flex justify-center">
-            <button id="toggleTheme" class="flex items-center gap-2 text-sm text-gray-600 hover:text-primary transition-colors whitespace-nowrap !rounded-button">
-                <div class="w-5 h-5 flex items-center justify-center">
-                    <i class="ri-moon-line"></i>
-                </div>
-                <span>Switch to Dark Mode</span>
-            </button>
+
+            <div class="text-center mt-6 text-gray-100 text-sm">
+                <p>© 2025 Tous droits réservés</p>
+            </div>
         </div>
     </div>
 
-    <script src="../js_style/connexion.js"></script>
+    <script src="../js_style/inscription.js"></script>
+
+
+
 </body>
 </html>

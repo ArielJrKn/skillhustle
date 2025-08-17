@@ -6,6 +6,7 @@
     <title>Inscription</title>
     <link rel="stylesheet" type="text/css" href="../style/inscription.css">
     <link rel="stylesheet" type="text/css" href="../style/progresseBar.css">
+    <link rel="stylesheet" type="text/css" href="../style/scroll.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,96 +15,113 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#007bff',secondary:'#6c757d'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <script src="../js_style/student_dashboard_tailwindConfig.js"></script>
+
 
 </head>
 <body class="dark">
     <div class="progress-bar"></div>
-    <div class="w-full max-w-md mx-auto p-3">
-        <div class="w-full bg-white rounded-lg shadow-lg p-8 card">
-            <div class="text-center mb-8">
-                <h1 class="text-3xl font-['Pacifico'] text-primary mb-2">Inscription</h1>
-                <p class="text-gray-600">Créez votre compte pour commencer</p>
-                <div class="h-px bg-gray-200 my-4"></div>
-            </div>
-            
-            <form id="registerForm" class="space-y-6">
-                <div class="form-group">
-                    <div class="relative">
-                        <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
-                            <i class="ri-user-line"></i>
-                        </div>
-                        <input type="text" id="fullname" class="form-control w-full px-10 py-3 border border-gray-300 rounded-button focus:outline-none" placeholder=" " required>
-                        <label for="fullname" class="form-label text-gray-500">Nom complet</label>
-                        <div class="error-message">Veuillez entrer votre nom complet</div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <div class="relative">
-                        <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
-                            <i class="ri-mail-line"></i>
-                        </div>
-                        <input type="email" id="email" class="form-control w-full px-10 py-3 border border-gray-300 rounded-button focus:outline-none" placeholder=" " required>
-                        <label for="email" class="form-label text-gray-500">Adresse e-mail</label>
-                        <div class="error-message">Veuillez entrer une adresse e-mail valide</div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <div class="relative">
-                        <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
-                            <i class="ri-lock-line"></i>
-                        </div>
-                        <input type="password" id="password" class="form-control w-full px-10 py-3 border border-gray-300 rounded-button focus:outline-none" placeholder=" " required minlength="8">
-                        <label for="password" class="form-label text-gray-500">Mot de passe</label>
-                        <div class="password-toggle w-5 h-5 flex items-center justify-center" data-target="password">
-                            <i class="ri-eye-line"></i>
-                        </div>
-                        <div class="error-message">Le mot de passe doit contenir au moins 8 caractères</div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <div class="relative">
-                        <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
-                            <i class="ri-lock-line"></i>
-                        </div>
-                        <input type="password" id="confirmPassword" class="form-control w-full px-10 py-3 border border-gray-300 rounded-button focus:outline-none" placeholder=" " required>
-                        <label for="confirmPassword" class="form-label text-gray-500">Confirmer le mot de passe</label>
-                        <div class="password-toggle w-5 h-5 flex items-center justify-center" data-target="confirmPassword">
-                            <i class="ri-eye-line"></i>
-                        </div>
-                        <div class="error-message">Les mots de passe ne correspondent pas</div>
-                    </div>
-                </div>
-                
-                <div class="flex items-start">
-                    <input type="checkbox" id="terms" class="mt-1" required>
-                    <label for="terms" class="ml-2 text-sm text-gray-600">
-                        J'accepte les <a href="#" class="text-primary hover:underline">conditions d'utilisation</a> et la <a href="#" class="text-primary hover:underline">politique de confidentialité</a>
-                    </label>
-                </div>
-                
-                <button type="submit" class="w-full h-10 bg-primary text-white py-3 rounded-button hover:bg-primary/90 transition-all duration-300 font-medium !rounded-button whitespace-nowrap">
-                    S'inscrire
-                </button>
-
-                <div class="auth_google flex align-center justify-center">
-                    <img src="https://www.google.com/favicon.ico" alt="Google Icon" width="32" height="32">
-                    <a href="">Continuer avec google</a>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <p class="text-gray-600">
-                        Déjà inscrit ? <a href="#" class="text-primary hover:underline">Connectez-vous</a>
-                    </p>
-                </div>
-            </form>
+    <div>
+        <div>
+             <img src="https://readdy.ai/api/search-image?query=modern%20web%20development%20coding%20on%20laptop%20screen%2C%20showing%20HTML%2C%20CSS%20and%20JavaScript%20code%2C%20professional%20lighting%2C%20clean%20desk%20setup%2C%20high%20quality&width=400&height=200&seq=course1&orientation=landscape" alt="Web Development" class="w-full h-full object-cover fixed">
         </div>
-        
-        <div class="text-center mt-6 text-gray-500 text-sm">
-            <p>© 2025 Tous droits réservés</p>
+        <div class="w-full mx-auto p-3 absolute top-3 flex-col flex items-center justify-center h-full">
+            <div class="lg:w-3/5 sm:w-full backdrop-filter backdrop-blur-3xl rounded-lg shadow-lg p-8 card">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-['Pacifico'] text-primary mb-2">Inscription</h1>
+                    <p class="text-gray-100">Créez votre compte pour commencer</p>
+                    <div class="h-px bg-gray-200 my-4"></div>
+                </div>
+                
+                <form id="registerForm" class="space-y-6">
+                    <div class="form-group flex items-center justify-between gap-2">
+                        <div class="relative w-full">
+                            <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <input type="text" id="fullname" class="form-control w-full px-10 py-3 border border-gray-300 rounded-button focus:outline-none bg-transparent " placeholder=" " required>
+                            <label for="fullname" class="form-label text-gray-500 bg-transparent ml-4">Nom complet</label>
+                            <div class="error-message">Veuillez entrer votre nom complet</div>
+                        </div>
+
+                        <div class="relative w-full">
+                            <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <input type="email" id="email" class="form-control w-full px-10 py-3 border border-gray-300 rounded-button focus:outline-none bg-transparent " placeholder=" " required>
+                            <label for="email" class="form-label text-gray-500 bg-transparent ml-4">Adresse e-mail</label>
+                            <div class="error-message">Veuillez entrer une adresse e-mail valide</div>
+                        </div>
+                    </div>
+                    <div class="form-group flex items-center justify-between gap-2">
+                        <div class="relative w-full">
+                            <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                            <input type="password" id="password" class="form-control w-full px-10 py-3 border border-gray-300 rounded-button focus:outline-none bg-transparent " placeholder=" " required minlength="8">
+                            <label for="password" class="form-label text-gray-500 bg-transparent ml-4">Mot de passe</label>
+                            <div class="password-toggle w-5 h-5 flex items-center justify-center" data-target="password">
+                                <i class="ri-eye-line"></i>
+                            </div>
+                            <div class="error-message">Le mot de passe doit contenir au moins 8 caractères</div>
+                        </div>
+
+                        <div class="relative w-full">
+                            <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                            <input type="password" id="confirmPassword" class="form-control w-full px-10 py-3 border border-gray-300 rounded-button focus:outline-none bg-transparent " placeholder=" " required>
+                            <label for="confirmPassword" class="form-label text-gray-500 bg-transparent ml-4">Confirmer le mot de passe</label>
+                            <div class="password-toggle w-5 h-5 flex items-center justify-center" data-target="confirmPassword">
+                                <i class="ri-eye-line"></i>
+                            </div>
+                            <div class="error-message">Les mots de passe ne correspondent pas</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="relative">
+                            <div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-500">
+                                <i class="ri-user-community-line"></i>
+                            </div>
+                            <select id="role" class="form-control bg-transparent w-full px-10 py-3 text-gray-100 border border-gray-300 rounded-button focus:outline-none">
+                                <option class="text-gray-900">Apprenant</option>
+                                <option class="text-gray-900">Formateur</option>
+                                <option class="text-gray-900">Entreprise / Recruteur</option>
+                                <option class="text-gray-900">Personne Lambda</option>
+                            </select>
+                            <label for="role" class="form-label text-gray-500 bg-transparent ml-4">Choisir votre rôle</label>
+                            <div class="error-message">Choisir votre rôle</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="terms" class="mt-1" required>
+                        <label for="terms" class="ml-2 text-sm text-gray-600">
+                            J'accepte les <a href="#" class="text-primary hover:underline">conditions d'utilisation</a> et la <a href="#" class="text-primary hover:underline">politique de confidentialité</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full h-10 bg-primary text-white py-3 rounded-button hover:bg-primary/90 transition-all duration-300 font-medium !rounded-button whitespace-nowrap">
+                        S'inscrire
+                    </button>
+
+                    <div class="auth_google flex text-gray-100 items-center justify-center">
+                        <img src="https://www.google.com/favicon.ico" alt="Google Icon" width="32" height="32">
+                        <a href="">Continuer avec google</a>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <p class="text-gray-200">
+                            Déjà inscrit ? <a href="connexion.html" class="text-primary hover:underline">Connectez-vous</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="text-center mt-6 text-gray-900 text-sm">
+                <p>© 2025 Tous droits réservés</p>
+            </div>
         </div>
     </div>
 
